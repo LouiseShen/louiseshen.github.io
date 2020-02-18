@@ -1262,37 +1262,31 @@ var registCommentEvent = function() {
                         input.type = 'hidden';
                         input.name = '_';
                             input.value = (function () {
-    var _9YjCYa = //'spy'
-'spy'+'9'//'dd'
-+//'O'
-'O'+'983'//'2'
-+/* 'r1'//'r1' */''+/* 'e3'//'e3' */''+'a2e'//'2'
-+//'2xF'
-'2xF'+'fb'//'JEs'
-+//'I'
-'1'+'1'//'1'
-+'f'//'Ac'
-+''///*'oL'*/'oL'
-+''///*'eFT'*/'eFT'
-+//'g'
-'204'+'212'//'L'
-+//'xF'
-'xF'+'4'//'s37'
-+//'ng'
-'8'+/* 'e'//'e' */''+'667'//'w'
-+'e8'//'f79'
-+//'m'
-'2'+''///*'jPz'*/'jPz'
-+//'Vw'
-'af4'+'979'//'R'
-+'4'//'3ol'
-, _mEg6agJ = [[0,3],[1,2],[7,10],[10,11],[17,19]];
+    var _VLWyx3j = //'cE'
+'99'+'3q'//'3q'
++'83'//'mb'
++'a2e'//'m5'
++//'yIO'
+'fb'+'1f'//'7'
++'UwJ'//'UwJ'
++'2'//'Mpk'
++//'b'
+'0'+//'y1N'
+'421'+//'Pqh'
+'248'+'66'//'8'
++'7e8'//'F'
++'2af'//'xoI'
++//'Swc'
+'Swc'+'497'//'5'
++//'IBQ'
+'9'+//'DH'
+'4', _ztI = [[2,4],[11,14],[27,30]];
     
-    for (var i = 0; i < _mEg6agJ.length; i ++) {
-        _9YjCYa = _9YjCYa.substring(0, _mEg6agJ[i][0]) + _9YjCYa.substring(_mEg6agJ[i][1]);
+    for (var i = 0; i < _ztI.length; i ++) {
+        _VLWyx3j = _VLWyx3j.substring(0, _ztI[i][0]) + _VLWyx3j.substring(_ztI[i][1]);
     }
 
-    return _9YjCYa;
+    return _VLWyx3j;
 })();
                     
                         f.appendChild(input);
@@ -1387,8 +1381,8 @@ SearchConfig = {
             COMMENT_SYSTEM_CHANGYAN: '1',
             COMMENT_SYSTEM_OTHERS: '2',
             EMOJI: '表情',
-            IS_PJAX: '1',
-            IS_PAJX_COMMENT: '1',
+            IS_PJAX: '',
+            IS_PAJX_COMMENT: '',
             BASE_SCRIPT_URL: 'https://4o5.xyz/usr/themes/handsome/',
             BLOG_URL: 'https://4o5.xyz/',
             BLOG_URL_PHP: 'https://4o5.xyz/',
@@ -1434,41 +1428,6 @@ SearchConfig = {
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-    <script src="https://4o5.xyz/usr/themes/handsome/assets/js/features/jquery.pjax.min.js" type="text/javascript"></script>
-    <script>
-        $(document).pjax('a[href^="https://4o5.xyz/"]:not(a[target="_blank"], a[no-pjax])', {
-            container: '#content',
-            fragment: '#content',
-            timeout: 8000
-        }).on('pjax:send',function () {
-                        $('#loading').removeClass('hide');
-                    }).on('pjax:click', function() {
-
-            window['Page'].doPJAXClickAction();
-            
-                        $('body,html').animate({scrollTop:0},100);
-            
-
-        }).on('pjax:complete', function() {
-            window['Page'].doPJAXCompleteAction();
-            if ($(".post-position").length > 0){
-                window['Page'].doPJAXCompletePostAction();
-            }
-                                            $("#post-content img").lazyload({
-                    effect: "fadeIn",
-                    threshold: "200"
-                });
-                $(".lazy").lazyload({
-                    effect: "fadeIn",
-                    threshold: "200"
-                });
-                                                    $('#loading').addClass('hide');
-            
-            if("undefined"!=typeof Prism){for(var pres=document.getElementsByTagName("pre"),i=0;i<pres.length;i++)pres[i].getElementsByTagName("code").length>0&&(pres[i].className="line-numbers");Prism.highlightAll(!0,null)}getColo();drawScore();                        MathJax.Hub.Queue(["Typeset",MathJax.Hub,"body"]);
-            
-
-        })
-    </script>
 
 
 <!--主题组件js加载-->
