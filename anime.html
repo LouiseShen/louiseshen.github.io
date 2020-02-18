@@ -192,10 +192,10 @@
                 <li class="wrapper b-b m-b-sm bg-info m-n">
                   <span class="arrow top hidden-folded arrow-info"></span>
                   <div>
-                                                  <p>早上好，永远年轻，永远热泪盈眶</p>
+                                                  <p>下午好，是时候打个盹了</p>
                                   </div>
                   <div class="progress progress-xs m-b-none dker">
-                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="时间已经度过41.67%" style="width: 41.67%"></div>
+                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="时间已经度过58.33%" style="width: 58.33%"></div>
                   </div>
                 </li>
               </ul>
@@ -306,7 +306,7 @@
                     </a>
                   </li>
                   <!--循环输出分类-->
-                    <li><a href="https://4o5.xyz/category/server/"><b class="badge pull-right">10</b><span>伺服器</span></a></li><li><a href="https://4o5.xyz/category/something/"><b class="badge pull-right">9</b><span>乱七八糟的</span></a></li><li><a href="https://4o5.xyz/category/tech/"><b class="badge pull-right">24</b><span>技术？不存在的</span></a></li><li><a href="https://4o5.xyz/category/good/"><b class="badge pull-right">13</b><span>好东西</span></a></li><li><a href="https://4o5.xyz/category/image/"><b class="badge pull-right">3</b><span>相册</span></a></li>                </ul>
+                    <li><a href="https://4o5.xyz/category/server/"><b class="badge pull-right">9</b><span>伺服器</span></a></li><li><a href="https://4o5.xyz/category/something/"><b class="badge pull-right">9</b><span>乱七八糟的</span></a></li><li><a href="https://4o5.xyz/category/tech/"><b class="badge pull-right">24</b><span>技术？不存在的</span></a></li><li><a href="https://4o5.xyz/category/good/"><b class="badge pull-right">13</b><span>好东西</span></a></li><li><a href="https://4o5.xyz/category/image/"><b class="badge pull-right">3</b><span>相册</span></a></li>                </ul>
               </li>
               <!--独立页面pages-->
               <li>
@@ -402,51 +402,385 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
         <article class="panel">
         <!--文章页面的头图-->
             <div class="entry-thumbnail" aria-hidden="true"><div class="item-thumb lazy" data-original="https://cdn.pixiv.world/images/headpic/tiny/cid=アニメ番組.jpg" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=)"></div></div>         <!--文章内容-->
-         <div id="post-content" class="wrapper-lg">
+            <div id="post-content" class="wrapper-lg">
           <div class="entry-content l-h-2x">
-                            <link rel="stylesheet" type="text/css" href="https://4o5.xyz/usr/plugins/WikimoeBangumi/css/css.css" /><div id="bangumiBody">
-        	<div class="bangumi_loading">
-            <div class="loading-anim">
-                <div class="border out"></div>
-                <div class="border in"></div>
-                <div class="border mid"></div>
-                <div class="circle">
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </div>
-                <div class="bangumi_loading_text">追番数据加载中...</div>
-            </div>
-            </div>
-
+                            <link rel="stylesheet" type="text/css" href="https://4o5.xyz/usr/plugins/WikimoeBangumi/css/css.css"><div id="bangumiBody">
+          <style>
+          a.bangumItem{
+            line-height: 20px;
+			white-space: nowrap;
+			box-shadow: 0px 0px 3px rgba(0,0,0,0.2);
+			width: 45%;
+			margin: 1.5%;
+			float: left;
+			overflow: hidden;
+			display: block;
+			padding: 1%;
+			height:88px;
+			background: #fff;
+			color: #14191e;
+			font-family:-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+          }
+		  a.bangumItem:hover{
+			color: #14191e;
+			opacity: 0.8;
+			filter: saturate(150%);
+			-webkit-filter: saturate(150%);
+			-moz-filter: saturate(150%);
+			-o-filter: saturate(150%);
+			-ms-filter: saturate(150%);
+		  }
+          a.bangumItem img{
+            width:60px;
+			height:88px;
+            display:inline-block;
+            float:left;
+            margin-right:5px;
+          }
+		  a.bangumItem .textBox{
+            text-overflow:ellipsis;overflow:hidden;
+			position: relative;
+			z-index: 1;
+			height: 100%;
+          }
+          a.bangumItem div.jinduBG{
+            height:16px;
+            width: 100%;
+            background-color:gray;
+            display:inline-block;
+            border-radius:4px;
+			position: absolute;
+    		bottom: 3px;
+          }
+          a.bangumItem div.jinduFG
+          {
+            height:16px;
+            background-color:#ff8c83;
+            border-radius:4px;
+			position: absolute;
+			bottom: 0px;
+			z-index: 1;
+          }
+          a.bangumItem div.jinduText
+          {
+            width:100%;height:auto;
+            text-align:center;
+            color:#fff;
+            line-height:15px;
+            font-size:15px;
+			position: absolute;
+			bottom: 0px;
+			z-index: 2;
+          }
+		  @media screen and (max-width:1000px) { 
+			   a.bangumItem{
+					width:95%;
+				}
+			}
+          </style>
         
-        </div>
+          <a href="http://bgm.tv/subject/174638" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/f4/8b/174638_zPvJZ.jpg">
+            <div class="textBox">夏目友人帐 伍<br>
+            夏目友人帳 伍<br>
+			首播日期：2016-10-04<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:2/11</div>
+            <div class="jinduFG" style="width:18.181818181818%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/23495" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/65/82/23495_GEgun.jpg">
+            <div class="textBox">夏目友人帐 肆<br>
+            夏目友人帳 肆<br>
+			首播日期：2012-01-02<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:13/13</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/12536" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/35/94/12536_gdxdG.jpg">
+            <div class="textBox">夏目友人帐 参<br>
+            夏目友人帳 参<br>
+			首播日期：2011-07-04<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:13/13</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/891" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/cf/bc/891_MR08Z.jpg">
+            <div class="textBox">续 夏目友人帐<br>
+            続 夏目友人帳<br>
+			首播日期：2009-01-05<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:13/13</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/259" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/cf/a0/259_BlBeX.jpg">
+            <div class="textBox">夏目友人帐<br>
+            夏目友人帳<br>
+			首播日期：2008-07-07<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:13/13</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/90880" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/59/8d/90880_NYUDd.jpg">
+            <div class="textBox">玉子爱情故事<br>
+            たまこラブストーリー<br>
+			首播日期：2014-04-26<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:1/1</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/118908" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/52/87/118908_DCFDk.jpg">
+            <div class="textBox">境界的彼方 -I'LL BE HERE- 未来篇<br>
+            境界の彼方 -I'LL BE HERE- 未来篇<br>
+			首播日期：2015-04-25<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:1/1</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/55113" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/f8/7f/55113_TR5Is.jpg">
+            <div class="textBox">玉子市场<br>
+            たまこまーけっと<br>
+			首播日期：2013-01-09<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:12/12</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/107476" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/36/86/107476_5OUKo.jpg">
+            <div class="textBox">境界的彼方 -I'LL BE HERE- 过去篇<br>
+            境界の彼方 -I'LL BE HERE- 過去篇<br>
+			首播日期：2015-03-14<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:1/1</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/49278" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/0e/32/49278_8dE0u.jpg">
+            <div class="textBox">境界的彼方<br>
+            境界の彼方<br>
+			首播日期：2013-10-02<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:20/13</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/69496" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/01/35/69496_xMBm7.jpg">
+            <div class="textBox">白色相簿2<br>
+            WHITE ALBUM2<br>
+			首播日期：2013-10-05<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:13/13</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/100444" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/ec/c7/100444_yGsJZ.jpg">
+            <div class="textBox">四月是你的谎言<br>
+            四月は君の嘘<br>
+			首播日期：2014-10-09<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:22/22</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/993" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/7b/13/993_6PQ58.jpg">
+            <div class="textBox">白色相簿<br>
+            WHITE ALBUM<br>
+			首播日期：2009-01-03<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:13/13</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/2586" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/c5/71/2586_TKsEE.jpg">
+            <div class="textBox">白色相簿 下半编章<br>
+            WHITE ALBUM-後半<br>
+			首播日期：2009-10-02<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:13/13</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/183878" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/1e/e2/183878_Fef1o.jpg">
+            <div class="textBox">紫罗兰永恒花园<br>
+            ヴァイオレット・エヴァーガーデン<br>
+			首播日期：2018-01-10<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:14/14</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/54433" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/1e/f1/54433_pc175.jpg">
+            <div class="textBox">我的青春恋爱物语果然有问题<br>
+            やはり俺の青春ラブコメはまちがっている。<br>
+			首播日期：2013-04-04<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:13/13</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/142678" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/9a/a9/142678_Xyv5X.jpg">
+            <div class="textBox">我的青春恋爱物语果然有问题 续 OVA<br>
+            やはり俺の青春ラブコメはまちがっている。続 OVA<br>
+			首播日期：2016-10-27<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:1/1</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/82777" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/81/c0/82777_4W3pt.jpg">
+            <div class="textBox">我的青春恋爱物语果然有问题 OVA<br>
+            やはり俺の青春ラブコメはまちがっている。 OVA<br>
+			首播日期：2013-09-19<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:1/1</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/102134" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/1e/ef/102134_luzUc.jpg">
+            <div class="textBox">我的青春恋爱物语果然有问题 续<br>
+            やはり俺の青春ラブコメはまちがっている。続<br>
+			首播日期：2015-04-02<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:13/13</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/65565" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/7d/ea/65565_c5ct1.jpg">
+            <div class="textBox">听爸爸的话！OAD<br>
+            パパのいうことを聞きなさい! OAD<br>
+			首播日期：2013-06-25<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:2/2</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/25444" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/d6/30/25444_NJXDO.jpg">
+            <div class="textBox">听爸爸的话！<br>
+            パパのいうことを聞きなさい！<br>
+			首播日期：2012-01-10<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:13/13</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/229795" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/c2/e5/229795_Ilnu1.jpg">
+            <div class="textBox">埃罗芒阿老师 OVA<br>
+            エロマンガ先生 OVA<br>
+			首播日期：2019-01-16<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:2/2</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/133387" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/f4/1f/133387_KVJ2a.jpg">
+            <div class="textBox">最弱无败神装机龙<br>
+            最弱無敗の神装機竜<br>
+			首播日期：2016-01-11<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:12/12</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/7157" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/6e/01/7157_hF46A.jpg">
+            <div class="textBox">缘之空<br>
+            ヨスガノソラ<br>
+			首播日期：2010-10-04<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:12/12</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a>
+          <a href="http://bgm.tv/subject/172498" target="_blank" class="bangumItem">
+            <img src="https://lain.bgm.tv/pic/cover/c/87/bf/172498_wfm40.jpg">
+            <div class="textBox">埃罗芒阿老师<br>
+            エロマンガ先生<br>
+			首播日期：2017-04-08<br>
+            <div class="jinduBG">
+            <div class="jinduText">进度:12/12</div>
+            <div class="jinduFG" style="width:100%;">
+            </div>
+            </div>
+            </div>
+          </a></div>
         
         <div style="clear:both"></div>
-		<script>
-		setTimeout(function(){
-			jQuery.ajax({
-				type: 'GET',
-				url: 'https://4o5.xyz/index.php/WikimoeBangumi',
-				success: function(res) {
-					$('#bangumiBody').empty().append(res);
-			
-				},
-				error:function(){
-					$('#bangumiBody').empty().text('加载失败');
-				}
-			});
-		},500)
-		</script>
 		
 		          </div>
                       </div>
@@ -454,24 +788,7 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
        </div>
        <!--评论-->
         
-    <div id="gitalk-container" style="background-color:#f0f3f4;"></div>
-<link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
-<style>.gt-container{margin: 1em;}</style>
-<script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
-<script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script>
-    const gitalk = new Gitalk({
-        clientID: '2df56de8e29626efa6bc',
-        clientSecret: 'a983d6ce788a593ec11d59fbbf6077c7df877cdb',
-        repo: 'typecho-comments',
-        owner: 'LouiseShen',
-        admin: ['LouiseShen'],
-        distractionFreeMode: true,
-        id: window.location.pathname
-    })
-    gitalk.render('gitalk-container');
-</script>
-
+    
       </div>
      </div>
      <!--文章右侧边栏开始-->
@@ -492,34 +809,34 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
          <h5 class="widget-title m-t-none text-md">热门文章</h5>
          <ul class="list-group no-bg no-borders pull-in m-b-none">
           <li class="list-group-item">
-                <a href="https://4o5.xyz/archives/16/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/9.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/16/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/10.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/16/" title="[nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后）"> [nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后） </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">3972</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">3966</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/9/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/9/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/6.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/9/" title="[SSL]Let’s Encrypt野卡续费"> [SSL]Let’s Encrypt野卡续费 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1714</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1710</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/3/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/3/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/7.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/3/" title="[测试]Typecho Markdown测试"> [测试]Typecho Markdown测试 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1573</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1567</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/42/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/6.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/42/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/42/" title="[GFW]v2ray食用指北（口胡版）"> [GFW]v2ray食用指北（口胡版） </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1512</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1507</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/22/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/10.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/22/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/22/" title="[数学]离散微积分教程"> [数学]离散微积分教程 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1495</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1489</span>
                     </span>
               </small></div></li>         </ul>
         </div>
@@ -528,34 +845,34 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
             <h5 class="widget-title m-t-none text-md">随机文章</h5>
             <ul class="list-group no-bg no-borders pull-in">
             <li class="list-group-item">
-                <a href="https://4o5.xyz/archives/43/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/9.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/46/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/10.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/43/" title="[Java]Java编程思想（Thinking in Java）第三章习题"> [Java]Java编程思想（Thinking in Java）第三章习题 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">312</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/46/" title="[Java]Java编程思想（Thinking in Java）第四章习题"> [Java]Java编程思想（Thinking in Java）第四章习题 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">342</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/85/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/39/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/6.jpg" class="img-40px normal-shadow img-square"></a>
+                <div class="clear">
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/39/" title="二维码"> 二维码 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">199</span>
+                    </span>
+              </small></div></li><li class="list-group-item">
+                <a href="https://4o5.xyz/archives/85/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/7.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/85/" title="[iOS]iOS13的快捷文字编辑手势"> [iOS]iOS13的快捷文字编辑手势 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">58</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">54</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/42/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
-                <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/42/" title="[GFW]v2ray食用指北（口胡版）"> [GFW]v2ray食用指北（口胡版） </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1512</span>
-                    </span>
-              </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/88/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/6.jpg" class="img-40px normal-shadow img-square"></a>
-                <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/88/" title="真·静态化Typecho，让访问速度真正起飞"> 真·静态化Typecho，让访问速度真正起飞 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">6</span>
-                    </span>
-              </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/4/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/10.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/4/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/4/" title="[伺服器]论如何优雅的备份伺服器"> [伺服器]论如何优雅的备份伺服器 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">474</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">470</span>
+                    </span>
+              </small></div></li><li class="list-group-item">
+                <a href="https://4o5.xyz/archives/78/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
+                <div class="clear">
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/78/" title="[数学]具体数学第二章习题"> [数学]具体数学第二章习题 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">114</span>
                     </span>
               </small></div></li>            </ul>
         </div>
@@ -579,7 +896,6 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
                                         <a href="https://4o5.xyz/tag/https/" class="label badge" title="https" data-toggle="tooltip">https</a>
                                         <a href="https://4o5.xyz/tag/nginx/" class="label badge" title="nginx" data-toggle="tooltip">nginx</a>
                                         <a href="https://4o5.xyz/tag/JavaFX/" class="label badge" title="JavaFX" data-toggle="tooltip">JavaFX</a>
-                                        <a href="https://4o5.xyz/tag/typecho/" class="label badge" title="typecho" data-toggle="tooltip">typecho</a>
                                         <a href="https://4o5.xyz/tag/cloudflare/" class="label badge" title="cloudflare" data-toggle="tooltip">cloudflare</a>
                                         <a href="https://4o5.xyz/tag/%E5%A4%87%E4%BB%BD/" class="label badge" title="备份" data-toggle="tooltip">备份</a>
                                         <a href="https://4o5.xyz/tag/Linux/" class="label badge" title="Linux" data-toggle="tooltip">Linux</a>
@@ -587,7 +903,7 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
                                         <a href="https://4o5.xyz/tag/%E8%87%AA%E5%BB%BA/" class="label badge" title="自建" data-toggle="tooltip">自建</a>
                                         <a href="https://4o5.xyz/tag/VSCode/" class="label badge" title="VSCode" data-toggle="tooltip">VSCode</a>
                                         <a href="https://4o5.xyz/tag/macOS/" class="label badge" title="macOS" data-toggle="tooltip">macOS</a>
-                                        <a href="https://4o5.xyz/tag/%E4%BC%98%E5%8C%96/" class="label badge" title="优化" data-toggle="tooltip">优化</a>
+                                        <a href="https://4o5.xyz/tag/typecho/" class="label badge" title="typecho" data-toggle="tooltip">typecho</a>
                                         <a href="https://4o5.xyz/tag/%E7%99%BD%E5%AB%96/" class="label badge" title="白嫖" data-toggle="tooltip">白嫖</a>
                                         <a href="https://4o5.xyz/tag/php/" class="label badge" title="php" data-toggle="tooltip">php</a>
                                         <a href="https://4o5.xyz/tag/%E7%AE%97%E6%B3%95/" class="label badge" title="算法" data-toggle="tooltip">算法</a>
@@ -602,6 +918,7 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
                                         <a href="https://4o5.xyz/tag/%E9%94%AE%E7%9B%98/" class="label badge" title="键盘" data-toggle="tooltip">键盘</a>
                                         <a href="https://4o5.xyz/tag/%E6%8A%98%E8%85%BE/" class="label badge" title="折腾" data-toggle="tooltip">折腾</a>
                                         <a href="https://4o5.xyz/tag/GH60/" class="label badge" title="GH60" data-toggle="tooltip">GH60</a>
+                                        <a href="https://4o5.xyz/tag/ubuntu/" class="label badge" title="ubuntu" data-toggle="tooltip">ubuntu</a>
                                           </div>
       </section>
         </div>
@@ -707,35 +1024,36 @@ var registCommentEvent = function() {
                         input.type = 'hidden';
                         input.name = '_';
                             input.value = (function () {
-    var _Iwz = //'8xj'
-'d1'+'50'//'l'
-+//'Uks'
-'2'+'8u'//'8u'
-+//'T'
-'300'+'0'//'L'
-+//'t'
-'d2'+//'e'
-'b0'+'b3c'//'I'
-+//'YG'
-'0d2'+/* '0Z3'//'0Z3' */''+//'r77'
-'95'+//'8z'
-'43'+'17'//'xYM'
-+//'P'
-'P'+/* '1jk'//'1jk' */''+//'h'
-'h'+'8'//'Vh'
-+''///*'K'*/'K'
-+'3a'//'R'
-+//'uz'
-'a'+'75'//'k60'
-+''///*'R'*/'R'
-+//'BV'
-'0', _MJP = [[5,7],[25,26],[25,26]];
+    var _OYy = 'd15'//'06'
++//'ppR'
+'02'+'30'//'p1'
++//'R3'
+'R3'+'0'//'F4q'
++//'Ay'
+'Ay'+'0d2'//'R'
++'B'//'B'
++'b'//'Zw'
++'0'//'rG'
++//'l'
+'b3'+//'0'
+'c0d'+/* 'RG1'//'RG1' */''+//'I'
+'I'+/* 'TY'//'TY' */''+//'OnY'
+'29'+//'H'
+'54'+//'3'
+'317'+//'N'
+'83'+//'W'
+'W'+//'M8A'
+'aa'+''///*'bkU'*/'bkU'
++//'GtW'
+'75'+'pIi'//'pIi'
++'0'//'gO'
+, _yZq9 = [[7,9],[8,10],[11,12],[18,19],[27,28],[31,34]];
     
-    for (var i = 0; i < _MJP.length; i ++) {
-        _Iwz = _Iwz.substring(0, _MJP[i][0]) + _Iwz.substring(_MJP[i][1]);
+    for (var i = 0; i < _yZq9.length; i ++) {
+        _OYy = _OYy.substring(0, _yZq9[i][0]) + _OYy.substring(_yZq9[i][1]);
     }
 
-    return _Iwz;
+    return _OYy;
 })();
                     
                         f.appendChild(input);
@@ -825,13 +1143,13 @@ SearchConfig = {
             ChANGYAN_APP_KEY: '',
             CHANGYAN_CONF: '',
 
-            COMMENT_SYSTEM: '2',
+            COMMENT_SYSTEM: '3',
             COMMENT_SYSTEM_ROOT: '0',
             COMMENT_SYSTEM_CHANGYAN: '1',
             COMMENT_SYSTEM_OTHERS: '2',
             EMOJI: '表情',
-            IS_PJAX: '',
-            IS_PAJX_COMMENT: '',
+            IS_PJAX: '1',
+            IS_PAJX_COMMENT: '1',
             BASE_SCRIPT_URL: 'https://4o5.xyz/usr/themes/handsome/',
             BLOG_URL: 'https://4o5.xyz/',
             BLOG_URL_PHP: 'https://4o5.xyz/',
@@ -877,6 +1195,41 @@ SearchConfig = {
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
+    <script src="https://4o5.xyz/usr/themes/handsome/assets/js/features/jquery.pjax.min.js" type="text/javascript"></script>
+    <script>
+        $(document).pjax('a[href^="https://4o5.xyz/"]:not(a[target="_blank"], a[no-pjax])', {
+            container: '#content',
+            fragment: '#content',
+            timeout: 8000
+        }).on('pjax:send',function () {
+                        $('#loading').removeClass('hide');
+                    }).on('pjax:click', function() {
+
+            window['Page'].doPJAXClickAction();
+            
+                        $('body,html').animate({scrollTop:0},100);
+            
+
+        }).on('pjax:complete', function() {
+            window['Page'].doPJAXCompleteAction();
+            if ($(".post-position").length > 0){
+                window['Page'].doPJAXCompletePostAction();
+            }
+                                            $("#post-content img").lazyload({
+                    effect: "fadeIn",
+                    threshold: "200"
+                });
+                $(".lazy").lazyload({
+                    effect: "fadeIn",
+                    threshold: "200"
+                });
+                                                    $('#loading').addClass('hide');
+            
+            if("undefined"!=typeof Prism){for(var pres=document.getElementsByTagName("pre"),i=0;i<pres.length;i++)pres[i].getElementsByTagName("code").length>0&&(pres[i].className="line-numbers");Prism.highlightAll(!0,null)}getColo();drawScore();                        MathJax.Hub.Queue(["Typeset",MathJax.Hub,"body"]);
+            
+
+        })
+    </script>
 
 
 <!--主题组件js加载-->
