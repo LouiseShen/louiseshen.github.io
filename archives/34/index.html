@@ -16,7 +16,7 @@
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
     <title>[nginx]nginx启用TLS1.3 - 马孔多不下雪</title>
-            <link rel="icon" type="image/ico" href="https://4o5.xyz/images/logo.png">
+            <link rel="icon" type="image/ico" href="https://4o5.xyz/images/logo.svg">
         <meta name="description" content="何为TLS1.3说白了就是传输层安全协议（Transport Layer Security）的一个新版本，上一代TLS1.2发布距今已有近十年。所以TLS1.3应运而生，与18年8月正式发表，n..." />
 <meta name="keywords" content="ssl,https,nginx" />
 <meta name="generator" content="Typecho 1.1/17.10.30" />
@@ -197,10 +197,10 @@
                 <li class="wrapper b-b m-b-sm bg-info m-n">
                   <span class="arrow top hidden-folded arrow-info"></span>
                   <div>
-                                                  <p>下午好，是时候打个盹了</p>
+                                                <p>晚上好，注意早点休息</p>
                                   </div>
                   <div class="progress progress-xs m-b-none dker">
-                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="时间已经度过58.33%" style="width: 58.33%"></div>
+                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="时间已经度过75.00%" style="width: 75.00%"></div>
                   </div>
                 </li>
               </ul>
@@ -408,7 +408,7 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
              <!--发布时间-->
              <li class="meta-date"><span class="post-icons"><i data-feather="clock"></i></span><span class="sr-only">发布时间：</span><time class="meta-value">2019 年 01 月 31 日</time></li>
              <!--浏览数-->
-             <li class="meta-views"><span class="post-icons"><i data-feather="eye"></i></span><span class="meta-value">349次浏览</span></li>
+             <li class="meta-views"><span class="post-icons"><i data-feather="eye"></i></span><span class="meta-value">350次浏览</span></li>
              
              <!--文字数目-->
              <li class="meta-word"><span class="post-icons"><i data-feather="pen-tool"></i></span><span class="meta-value">2264字数</span></li>
@@ -423,7 +423,7 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
        <div id="postpage" class="blog-post">
         <article class="single-post panel">
         <!--文章页面的头图-->
-        <div class="entry-thumbnail" aria-hidden="true"><div class="item-thumb lazy" data-original="https://cdn.pixiv.world/images/headpic/tiny/cid=34.png" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=)"></div></div>         <!--文章内容-->
+        <div class="entry-thumbnail" aria-hidden="true"><div class="item-thumb lazy"  style="background-image: url(https://cdn.pixiv.world/images/headpic/tiny/cid=34.png)"></div></div>         <!--文章内容-->
          <div id="post-content" class="wrapper-lg">
           <div class="entry-content l-h-2x">
           <h2>何为TLS1.3</h2><p>说白了就是传输层安全协议（Transport Layer Security）的一个新版本，上一代TLS1.2发布距今已有近十年。所以TLS1.3应运而生，与18年8月正式发表，nginx自1.13起就支持TLS1.3，chrome67版本便默认启用TLS1.3。</p><p>在大势所趋下本站也支持TLS1.3，但限于基本国情，仍旧支持TLS1.2。</p><h2>为何TLS1.3</h2><p>TLS1.3握手只涉及一次往返，较TLS1.2有近一倍的速度提升。</p><p>TLS1.3也更加安全，所用加密套件具有前向安全性。</p><h2>如何TLS1.3</h2><h3>openssl</h3><p>首先openssl需要1.1.1版本，现在LTS版本也发布了，下载源码解压即可：</p><pre><code class="lang-shell">$ wget https://www.openssl.org/source/openssl-1.1.1.tar.gz
@@ -437,7 +437,7 @@ $ ./nginx</code></pre><p>这样就成功升级了nginx。</p><p>对于启用TLS1
 # ssl on;
 
 ssl_protocols TLSv1.2 TLSv1.3;
-ssl_ciphers TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+AES128:EECDH+AES256;</code></pre><p>注意的是<code>ssl on</code>这个选项在nginx1.15之后被弃用了，使用<code>listen 443 ssl;</code>即可。</p><p>还有一个值得注意的地方，所以虚拟主机都得启用TLS1.3才会生效（一开始我就高兴的把<code>sites-available</code>里面的主机都启用了，然后没发现<code>nginx.conf</code>中还有一个<code>ssl_protocols</code>，找了半天）。</p><h2>验证是否成功</h2><p>去<span class="external-link"><a href="https://www.ssllabs.com/ssltest/index.html" target="_blank">Qualys SSL Labs's SSL Server Test<i data-feather='external-link'></i></a></span> 即可。</p><p>或者在chrome浏览器的更多工具&gt;开发者工具&gt;安全选项卡查看。</p><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=" data-original="https://cdn.pixiv.world/images/headpic/tiny/cid=34.png" alt="" title="" /></p><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://4o5.xyz/archives/34/">https://4o5.xyz/archives/34/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>          </div>
+ssl_ciphers TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+AES128:EECDH+AES256;</code></pre><p>注意的是<code>ssl on</code>这个选项在nginx1.15之后被弃用了，使用<code>listen 443 ssl;</code>即可。</p><p>还有一个值得注意的地方，所以虚拟主机都得启用TLS1.3才会生效（一开始我就高兴的把<code>sites-available</code>里面的主机都启用了，然后没发现<code>nginx.conf</code>中还有一个<code>ssl_protocols</code>，找了半天）。</p><h2>验证是否成功</h2><p>去<span class="external-link"><a href="https://www.ssllabs.com/ssltest/index.html" target="_blank">Qualys SSL Labs's SSL Server Test<i data-feather='external-link'></i></a></span> 即可。</p><p>或者在chrome浏览器的更多工具&gt;开发者工具&gt;安全选项卡查看。</p><p><img src="https://cdn.pixiv.world/images/headpic/tiny/cid=34.png" alt="" title=""></p><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://4o5.xyz/archives/34/">https://4o5.xyz/archives/34/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>          </div>
                           <!--文章的页脚部件：打赏和其他信息的输出-->
              
              <div class="show-foot">
@@ -499,34 +499,34 @@ ssl_ciphers TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_
          <h5 class="widget-title m-t-none text-md">热门文章</h5>
          <ul class="list-group no-bg no-borders pull-in m-b-none">
           <li class="list-group-item">
-                <a href="https://4o5.xyz/archives/16/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/16/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/9.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/16/" title="[nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后）"> [nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后） </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">3974</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">3977</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/9/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/1.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/9/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/9/" title="[SSL]Let’s Encrypt野卡续费"> [SSL]Let’s Encrypt野卡续费 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1716</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1718</span>
                     </span>
               </small></div></li><li class="list-group-item">
                 <a href="https://4o5.xyz/archives/3/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/3/" title="[测试]Typecho Markdown测试"> [测试]Typecho Markdown测试 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1575</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1576</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/42/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/42/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/1.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/42/" title="[GFW]v2ray食用指北（口胡版）"> [GFW]v2ray食用指北（口胡版） </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1515</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1516</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/22/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/9.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/22/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/10.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/22/" title="[数学]离散微积分教程"> [数学]离散微积分教程 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1497</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1499</span>
                     </span>
               </small></div></li>         </ul>
         </div>
@@ -535,34 +535,34 @@ ssl_ciphers TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_
             <h5 class="widget-title m-t-none text-md">随机文章</h5>
             <ul class="list-group no-bg no-borders pull-in">
             <li class="list-group-item">
-                <a href="https://4o5.xyz/archives/16/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/9/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/9.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/16/" title="[nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后）"> [nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后） </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">3974</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/9/" title="[SSL]Let’s Encrypt野卡续费"> [SSL]Let’s Encrypt野卡续费 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1718</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/66/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/1.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/68/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/66/" title="[reCAPTCHA]typecho添加reCAPTCHA验证码"> [reCAPTCHA]typecho添加reCAPTCHA验证码 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">686</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/68/" title="[cdn]cloudflare大陆使用优化小技巧"> [cdn]cloudflare大陆使用优化小技巧 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">902</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/81/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/63/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/81/" title="[算法]斐波那契算法"> [算法]斐波那契算法 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">110</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/63/" title="[高考向]数学题集"> [高考向]数学题集 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">192</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/23/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
-                <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/23/" title="[Java]Java编程思想（Thinking in Java）第二章习题"> [Java]Java编程思想（Thinking in Java）第二章习题 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">517</span>
-                    </span>
-              </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/27/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/9.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/27/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/1.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/27/" title="[https]HSTS与全站https"> [https]HSTS与全站https </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">314</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">315</span>
+                    </span>
+              </small></div></li><li class="list-group-item">
+                <a href="https://4o5.xyz/archives/19/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/10.jpg" class="img-40px normal-shadow img-square"></a>
+                <div class="clear">
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/19/" title="[Windows]Windows解决80端口无故被占用"> [Windows]Windows解决80端口无故被占用 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">335</span>
                     </span>
               </small></div></li>            </ul>
         </div>
@@ -627,7 +627,7 @@ $ ./nginx</code></pre><p>这样就成功升级了nginx。</p><p>对于启用TLS1
 # ssl on;
 
 ssl_protocols TLSv1.2 TLSv1.3;
-ssl_ciphers TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+AES128:EECDH+AES256;</code></pre><p>注意的是<code>ssl on</code>这个选项在nginx1.15之后被弃用了，使用<code>listen 443 ssl;</code>即可。</p><p>还有一个值得注意的地方，所以虚拟主机都得启用TLS1.3才会生效（一开始我就高兴的把<code>sites-available</code>里面的主机都启用了，然后没发现<code>nginx.conf</code>中还有一个<code>ssl_protocols</code>，找了半天）。</p><h2>验证是否成功</h2><p>去<span class="external-link"><a href="https://www.ssllabs.com/ssltest/index.html" target="_blank">Qualys SSL Labs's SSL Server Test<i data-feather='external-link'></i></a></span> 即可。</p><p>或者在chrome浏览器的更多工具&gt;开发者工具&gt;安全选项卡查看。</p><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=" data-original="https://cdn.pixiv.world/images/headpic/tiny/cid=34.png" alt="" title="" /></p><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://4o5.xyz/archives/34/">https://4o5.xyz/archives/34/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>
+ssl_ciphers TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+AES128:EECDH+AES256;</code></pre><p>注意的是<code>ssl on</code>这个选项在nginx1.15之后被弃用了，使用<code>listen 443 ssl;</code>即可。</p><p>还有一个值得注意的地方，所以虚拟主机都得启用TLS1.3才会生效（一开始我就高兴的把<code>sites-available</code>里面的主机都启用了，然后没发现<code>nginx.conf</code>中还有一个<code>ssl_protocols</code>，找了半天）。</p><h2>验证是否成功</h2><p>去<span class="external-link"><a href="https://www.ssllabs.com/ssltest/index.html" target="_blank">Qualys SSL Labs's SSL Server Test<i data-feather='external-link'></i></a></span> 即可。</p><p>或者在chrome浏览器的更多工具&gt;开发者工具&gt;安全选项卡查看。</p><p><img src="https://cdn.pixiv.world/images/headpic/tiny/cid=34.png" alt="" title=""></p><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://4o5.xyz/archives/34/">https://4o5.xyz/archives/34/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>
         </div>
     </div>
     <script>
@@ -738,39 +738,30 @@ var registCommentEvent = function() {
                         input.type = 'hidden';
                         input.name = '_';
                             input.value = (function () {
-    var _RZFJX = //'i9K'
-'0'+'X'//'X'
-+//'t'
-'71'+//'h'
-'a7d'+'2'//'K'
-+/* 'pTq'//'pTq' */''+//'RgD'
-'RgD'+//'7v'
-'6'+//'Z'
-'7'+//'e'
-'8c'+'b5'//'Sg'
-+/* 'OY'//'OY' */''+''///*'KQ'*/'KQ'
-+//'pPV'
-'d3'+//'B'
-'6'+//'tKD'
-'5'+''///*'zQ'*/'zQ'
-+/* 'ol'//'ol' */''+//'U7'
-'22'+//'H6'
-'0'+//'ph'
-'67'+'b0'//'cp'
-+//'3'
-'d4'+//'usO'
-'eb'+'0c'//'xzV'
-+'5'//'E'
-+''///*'qbl'*/'qbl'
-+''///*'x'*/'x'
-+'c'//'pbT'
-, _3h8 = [[1,2],[7,10]];
+    var _u2LeZ2Q = '071'//'SGU'
++'Fa'//'Fa'
++'a7'//'f'
++'d26'//'CVl'
++''///*'Ty'*/'Ty'
++//'rEB'
+'78c'+'b'//'7kg'
++'5d'//'VFd'
++'36'//'PH'
++'522'//'w'
++'067'//'x31'
++//'J'
+'b0d'+//'ObE'
+'4eb'+'0c'//'h'
++''///*'S3'*/'S3'
++//'Tz'
+'5'+//'DW'
+'c', _vtj = [[3,5]];
     
-    for (var i = 0; i < _3h8.length; i ++) {
-        _RZFJX = _RZFJX.substring(0, _3h8[i][0]) + _RZFJX.substring(_3h8[i][1]);
+    for (var i = 0; i < _vtj.length; i ++) {
+        _u2LeZ2Q = _u2LeZ2Q.substring(0, _vtj[i][0]) + _u2LeZ2Q.substring(_vtj[i][1]);
     }
 
-    return _RZFJX;
+    return _u2LeZ2Q;
 })();
                     
                         f.appendChild(input);
@@ -901,7 +892,7 @@ SearchConfig = {
             MUSIC_FAILE_END: '当前音乐地址无效',
             MUSIC_LIST_SUCCESS: '歌单歌曲加载成功',
             CDN_NAME: '',
-            LAZY_LOAD: '1'
+            LAZY_LOAD: ''
         };
 
     </script>
@@ -920,39 +911,6 @@ SearchConfig = {
 
 <!--pjax动画组件-->
 
-    <script src="https://4o5.xyz/usr/themes/handsome/assets/js/features/lazyload.min.js"></script>
-    <script>
-        $("img").lazyload({
-            effect: "fadeIn",
-            threshold: "200"
-        });
-
-        $(".lazy").lazyload({
-            effect: "fadeIn",
-            threshold: "200"
-        });
-
-        //后退的时候
-        if (window.history && window.history.pushState) {
-            $(window).on('popstate', function () {
-                /// 当点击浏览器的 后退和前进按钮 时才会被触发，
-                window.history.pushState('forward', null, '');
-                window.history.forward(1);//当前页 ,
-                $("img").lazyload({
-                    effect: "fadeIn",
-                    threshold: "200"
-                });
-
-                $(".lazy").lazyload({
-                    effect: "fadeIn",
-                    threshold: "200"
-                });
-            });
-        }
-        //在ie中必须有这两行
-        window.history.pushState('forward', null, '');
-        window.history.forward(1);
-    </script>
 
 <script src="https://4o5.xyz/usr/themes/handsome/assets/js/features/feather.min.js?v=6.0.020191205"></script>
 

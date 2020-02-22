@@ -16,7 +16,7 @@
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
     <title>[reCAPTCHA]typecho添加reCAPTCHA验证码 - 马孔多不下雪</title>
-            <link rel="icon" type="image/ico" href="https://4o5.xyz/images/logo.png">
+            <link rel="icon" type="image/ico" href="https://4o5.xyz/images/logo.svg">
         <meta name="description" content="Head Pic: 【女の子】&quot;miku  环绕声&quot; / Illustration by &quot;千夜QYS3&quot; [pixiv]发现typecho的这类插件很少，而且很难用，所以干脆现学现卖自己整个。..." />
 <meta name="keywords" content="reCAPTCHA,typecho,集成" />
 <meta name="generator" content="Typecho 1.1/17.10.30" />
@@ -197,10 +197,10 @@
                 <li class="wrapper b-b m-b-sm bg-info m-n">
                   <span class="arrow top hidden-folded arrow-info"></span>
                   <div>
-                                                  <p>下午好，是时候打个盹了</p>
+                                                <p>晚上好，注意早点休息</p>
                                   </div>
                   <div class="progress progress-xs m-b-none dker">
-                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="时间已经度过58.33%" style="width: 58.33%"></div>
+                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="时间已经度过75.00%" style="width: 75.00%"></div>
                   </div>
                 </li>
               </ul>
@@ -408,7 +408,7 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
              <!--发布时间-->
              <li class="meta-date"><span class="post-icons"><i data-feather="clock"></i></span><span class="sr-only">发布时间：</span><time class="meta-value">2019 年 07 月 25 日</time></li>
              <!--浏览数-->
-             <li class="meta-views"><span class="post-icons"><i data-feather="eye"></i></span><span class="meta-value">685次浏览</span></li>
+             <li class="meta-views"><span class="post-icons"><i data-feather="eye"></i></span><span class="meta-value">686次浏览</span></li>
              
              <!--文字数目-->
              <li class="meta-word"><span class="post-icons"><i data-feather="pen-tool"></i></span><span class="meta-value">5888字数</span></li>
@@ -423,7 +423,7 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
        <div id="postpage" class="blog-post">
         <article class="single-post panel">
         <!--文章页面的头图-->
-        <div class="entry-thumbnail" aria-hidden="true"><div class="item-thumb lazy" data-original="https://cdn.pixiv.world/images/headpic/tiny/cid=66.jpg" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=)"></div></div>         <!--文章内容-->
+        <div class="entry-thumbnail" aria-hidden="true"><div class="item-thumb lazy"  style="background-image: url(https://cdn.pixiv.world/images/headpic/tiny/cid=66.jpg)"></div></div>         <!--文章内容-->
          <div id="post-content" class="wrapper-lg">
           <div class="entry-content l-h-2x">
           <p>Head Pic: <span class="external-link"><a href="https://www.pixiv.net/member_illust.php?mode=medium&illust_id=75863283" target="_blank">【女の子】"miku  环绕声" / Illustration by "千夜QYS3" [pixiv]<i data-feather='external-link'></i></a></span></p><p>发现typecho的这类插件很少，而且很难用，所以干脆现学现卖自己整个。</p><p>具体效果看本站的登陆界面就行了，handsome快捷登陆在右上角，typecho登陆则在<a href="https://4o5.xyz/admin/login.php">https://4o5.xyz/admin/login.php</a></p><h2>概述</h2><p>虽然typecho的这方面插件少，但是其本身的设计模式确实非常ok的：</p><p><code>admin/login.php</code>用来前端登陆，<code>var/Widget/Login.php</code>则处理登陆逻辑。</p><p>所以我们改动也就只需改这里就行啦，记得做好备份。</p><h2>reCaptcha申请</h2><p>前往<span class="external-link"><a href="https://www.google.com/recaptcha/admin" target="_blank">https://www.google.com/recaptcha/admin<i data-feather='external-link'></i></a></span> 申请一个key，只有这一步需要访问google.com，其余不再需要。代码已经使用recaptcha的google官方反向代理，国内正常使用。</p><p>申请的时候记得选择reCAPTCHA v2版本，v3我没试过不保证成功。</p><h2>登陆界面集成</h2><p>在<code>admin/login.php</code>中（这里是相对于typecho的安装位置）</p><p>引入js：<code>&lt;script src=&quot;https://www.recaptcha.net/recaptcha/api.js&quot;&gt;&lt;/script&gt;</code>（不会的话就随便放在一个&lt;div&gt;标签的前面）</p><p>然后大概在第26行，就是<code>&lt;input type=&quot;password&quot;......&gt;</code>的<code>&lt;p&gt;&lt;/p&gt;</code>标签后面一行加入。</p><pre><code class="lang-php">&lt;p&gt;
@@ -622,34 +622,34 @@ class Widget_Login extends Widget_Abstract_Users implements Widget_Interface_Do
          <h5 class="widget-title m-t-none text-md">热门文章</h5>
          <ul class="list-group no-bg no-borders pull-in m-b-none">
           <li class="list-group-item">
-                <a href="https://4o5.xyz/archives/16/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/16/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/6.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/16/" title="[nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后）"> [nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后） </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">3974</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">3977</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/9/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/9/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/1.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/9/" title="[SSL]Let’s Encrypt野卡续费"> [SSL]Let’s Encrypt野卡续费 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1716</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1718</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/3/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/7.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/3/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/10.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/3/" title="[测试]Typecho Markdown测试"> [测试]Typecho Markdown测试 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1575</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1576</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/42/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/6.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/42/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/3.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/42/" title="[GFW]v2ray食用指北（口胡版）"> [GFW]v2ray食用指北（口胡版） </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1514</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1515</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/22/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/10.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/22/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/7.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/22/" title="[数学]离散微积分教程"> [数学]离散微积分教程 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1497</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1499</span>
                     </span>
               </small></div></li>         </ul>
         </div>
@@ -658,34 +658,34 @@ class Widget_Login extends Widget_Abstract_Users implements Widget_Interface_Do
             <h5 class="widget-title m-t-none text-md">随机文章</h5>
             <ul class="list-group no-bg no-borders pull-in">
             <li class="list-group-item">
-                <a href="https://4o5.xyz/archives/74/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/69/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/6.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/74/" title="[学习项目]Java编程思想"> [学习项目]Java编程思想 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">177</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/69/" title="[VS Code]VS Code 设置透明背景（支援win/mac）"> [VS Code]VS Code 设置透明背景（支援win/mac） </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">352</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/77/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/19/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/1.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/77/" title="我的奋斗——2020高考"> 我的奋斗——2020高考 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">351</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/19/" title="[Windows]Windows解决80端口无故被占用"> [Windows]Windows解决80端口无故被占用 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">335</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/88/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/7.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/76/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/10.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/88/" title="真·静态化Typecho，让访问速度真正起飞"> 真·静态化Typecho，让访问速度真正起飞 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">10</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/76/" title="[白嫖]R星活动——Grand Theft Auto: San Andreas免费领取"> [白嫖]R星活动——Grand Theft Auto: San Andreas免费领取 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">578</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/84/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/6.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/87/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/3.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/84/" title="[Java项目]更方便的插入数学公式"> [Java项目]更方便的插入数学公式 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">80</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/87/" title="[Dnspod]QQ账号被永久冻结怎么登陆dnspod"> [Dnspod]QQ账号被永久冻结怎么登陆dnspod </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">57</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/63/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/10.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/5/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/7.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/63/" title="[高考向]数学题集"> [高考向]数学题集 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">190</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/5/" title="[OSS]挂载阿里云oss到伺服器"> [OSS]挂载阿里云oss到伺服器 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">288</span>
                     </span>
               </small></div></li>            </ul>
         </div>
@@ -984,38 +984,36 @@ var registCommentEvent = function() {
                         input.type = 'hidden';
                         input.name = '_';
                             input.value = (function () {
-    var _aJGqdx = '657'//'pS'
-+//'X'
-'96'+'ca7'//'ALD'
-+//'6'
-'616'+//'F'
-'1c'+'c'//'X'
-+//'iQf'
-'iQf'+'8'//'8'
-+//'UNz'
-'UNz'+//'omx'
-'e9'+/* 'R'//'R' */''+//'ym'
-'3'+'bx'//'bx'
-+'0'//'W'
-+'0'//'x'
-+//'n'
-'n'+'b3a'//'Myu'
-+//'YV'
-'ee'+'945'//'b'
-+'8'//'8'
-+'3'//'m'
-+'c3'//'DI'
-+/* 'rwn'//'rwn' */''+''///*'UT'*/'UT'
-+/* 'mP'//'mP' */''+'7'//'k'
-+'KRL'//'KRL'
-+/* 'w'//'w' */''+//'i7'
-'8', _64WM6c = [[14,17],[14,15],[14,17],[17,19],[19,20],[27,28],[31,34]];
+    var _TkKPpga = //'fE'
+'fE'+'65'//'s'
++//'Z'
+'796'+//'Y'
+'ca'+'761'//'71N'
++//'fo'
+'6'+//'PA6'
+'1cc'+//'Qg'
+'e'+'9'//'RoF'
++'kv'//'kv'
++'3'//'3'
++'00'//'G8D'
++'b3'//'rwq'
++'aee'//'d6Q'
++'9'//'4'
++//'vl'
+'453'+//'n'
+'c'+'09K'//'09K'
++'3'//'ql'
++'7'//'TP'
++'Xp'//'Xp'
++//'JBt'
+'JBt'+'8'//'8o'
+, _L2Sb = [[0,2],[16,18],[29,32],[31,33],[31,34]];
     
-    for (var i = 0; i < _64WM6c.length; i ++) {
-        _aJGqdx = _aJGqdx.substring(0, _64WM6c[i][0]) + _aJGqdx.substring(_64WM6c[i][1]);
+    for (var i = 0; i < _L2Sb.length; i ++) {
+        _TkKPpga = _TkKPpga.substring(0, _L2Sb[i][0]) + _TkKPpga.substring(_L2Sb[i][1]);
     }
 
-    return _aJGqdx;
+    return _TkKPpga;
 })();
                     
                         f.appendChild(input);
@@ -1146,7 +1144,7 @@ SearchConfig = {
             MUSIC_FAILE_END: '当前音乐地址无效',
             MUSIC_LIST_SUCCESS: '歌单歌曲加载成功',
             CDN_NAME: '',
-            LAZY_LOAD: '1'
+            LAZY_LOAD: ''
         };
 
     </script>
@@ -1165,39 +1163,6 @@ SearchConfig = {
 
 <!--pjax动画组件-->
 
-    <script src="https://4o5.xyz/usr/themes/handsome/assets/js/features/lazyload.min.js"></script>
-    <script>
-        $("img").lazyload({
-            effect: "fadeIn",
-            threshold: "200"
-        });
-
-        $(".lazy").lazyload({
-            effect: "fadeIn",
-            threshold: "200"
-        });
-
-        //后退的时候
-        if (window.history && window.history.pushState) {
-            $(window).on('popstate', function () {
-                /// 当点击浏览器的 后退和前进按钮 时才会被触发，
-                window.history.pushState('forward', null, '');
-                window.history.forward(1);//当前页 ,
-                $("img").lazyload({
-                    effect: "fadeIn",
-                    threshold: "200"
-                });
-
-                $(".lazy").lazyload({
-                    effect: "fadeIn",
-                    threshold: "200"
-                });
-            });
-        }
-        //在ie中必须有这两行
-        window.history.pushState('forward', null, '');
-        window.history.forward(1);
-    </script>
 
 <script src="https://4o5.xyz/usr/themes/handsome/assets/js/features/feather.min.js?v=6.0.020191205"></script>
 

@@ -16,7 +16,7 @@
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
     <title>将jar打包成pkg在macOS下安装吧 - 马孔多不下雪</title>
-            <link rel="icon" type="image/ico" href="https://4o5.xyz/images/logo.png">
+            <link rel="icon" type="image/ico" href="https://4o5.xyz/images/logo.svg">
         <meta name="description" content="最近将macOS作为主力，发现原先写的Java程式的图标太丑了，默认的，于是就把它打包成一个mac的pkg来安装算了。下面以Cinema Aliyu OSS Explorer(CAOE)为例，请..." />
 <meta name="generator" content="Typecho 1.1/17.10.30" />
 <meta name="template" content="handsome" />
@@ -196,10 +196,10 @@
                 <li class="wrapper b-b m-b-sm bg-info m-n">
                   <span class="arrow top hidden-folded arrow-info"></span>
                   <div>
-                                                  <p>下午好，是时候打个盹了</p>
+                                                <p>晚上好，注意早点休息</p>
                                   </div>
                   <div class="progress progress-xs m-b-none dker">
-                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="时间已经度过58.33%" style="width: 58.33%"></div>
+                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="时间已经度过75.00%" style="width: 75.00%"></div>
                   </div>
                 </li>
               </ul>
@@ -407,7 +407,7 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
              <!--发布时间-->
              <li class="meta-date"><span class="post-icons"><i data-feather="clock"></i></span><span class="sr-only">发布时间：</span><time class="meta-value">2019 年 05 月 25 日</time></li>
              <!--浏览数-->
-             <li class="meta-views"><span class="post-icons"><i data-feather="eye"></i></span><span class="meta-value">733次浏览</span></li>
+             <li class="meta-views"><span class="post-icons"><i data-feather="eye"></i></span><span class="meta-value">734次浏览</span></li>
              
              <!--文字数目-->
              <li class="meta-word"><span class="post-icons"><i data-feather="pen-tool"></i></span><span class="meta-value">1163字数</span></li>
@@ -422,7 +422,7 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
        <div id="postpage" class="blog-post">
         <article class="single-post panel">
         <!--文章页面的头图-->
-        <div class="entry-thumbnail" aria-hidden="true"><div class="item-thumb lazy" data-original="https://cdn.pixiv.world/images/textpic/cid=50.png" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=)"></div></div>         <!--文章内容-->
+        <div class="entry-thumbnail" aria-hidden="true"><div class="item-thumb lazy"  style="background-image: url(https://cdn.pixiv.world/images/textpic/cid=50.png)"></div></div>         <!--文章内容-->
          <div id="post-content" class="wrapper-lg">
           <div class="entry-content l-h-2x">
           <p>最近将macOS作为主力，发现原先写的Java程式的图标太丑了，默认的，于是就把它打包成一个mac的pkg来安装算了。</p><p>下面以Cinema Aliyu OSS Explorer(CAOE)为例，请自行灵性代换。</p><h2>图标</h2><p>需要png格式的图片。</p><pre><code class="lang-bash">mkdir CAOE.iconset
@@ -436,7 +436,7 @@ Rsrc-Main-Class: xyz.cinema000.main.Main
 Main-Class: org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader</code></pre><p>就是上面<code>Main-Class</code>后面的<code>org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader</code>，这个待会下面要用到。</p><p>然后开敲：</p><pre><code class="lang-bash">mkdir -p package/macosx
 mv *.icns package/macosx
 javapackager -version
-javapackager -deploy -native pkg -name CAOE -BappVersion=1.0.4 -Bicon=package/macosx/CAOE.icns -srcdir . -srcfiles CAOE.jar -appclass org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader -outdir out -v -outfile CAOE.pkg</code></pre><p>然后就可以在<code>out/bundles/</code>下面看到新鲜出炉的pkg。</p><p>安装之即可。</p><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=" data-original="https://cdn.pixiv.world/images/textpic/cid=50.png" alt="" title="" /></p><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://4o5.xyz/archives/50/">https://4o5.xyz/archives/50/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>          </div>
+javapackager -deploy -native pkg -name CAOE -BappVersion=1.0.4 -Bicon=package/macosx/CAOE.icns -srcdir . -srcfiles CAOE.jar -appclass org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader -outdir out -v -outfile CAOE.pkg</code></pre><p>然后就可以在<code>out/bundles/</code>下面看到新鲜出炉的pkg。</p><p>安装之即可。</p><p><img src="https://cdn.pixiv.world/images/textpic/cid=50.png" alt="" title=""></p><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://4o5.xyz/archives/50/">https://4o5.xyz/archives/50/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>          </div>
                           <!--文章的页脚部件：打赏和其他信息的输出-->
              
              <div class="show-foot">
@@ -498,34 +498,34 @@ javapackager -deploy -native pkg -name CAOE -BappVersion=1.0.4 -Bicon=package/ma
          <h5 class="widget-title m-t-none text-md">热门文章</h5>
          <ul class="list-group no-bg no-borders pull-in m-b-none">
           <li class="list-group-item">
-                <a href="https://4o5.xyz/archives/16/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/16/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/6.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/16/" title="[nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后）"> [nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后） </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">3974</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">3977</span>
                     </span>
               </small></div></li><li class="list-group-item">
                 <a href="https://4o5.xyz/archives/9/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/5.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/9/" title="[SSL]Let’s Encrypt野卡续费"> [SSL]Let’s Encrypt野卡续费 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1716</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1718</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/3/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/1.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/3/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/9.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/3/" title="[测试]Typecho Markdown测试"> [测试]Typecho Markdown测试 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1575</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1576</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/42/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/42/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/3.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/42/" title="[GFW]v2ray食用指北（口胡版）"> [GFW]v2ray食用指北（口胡版） </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1515</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1516</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/22/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/22/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/22/" title="[数学]离散微积分教程"> [数学]离散微积分教程 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1497</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1499</span>
                     </span>
               </small></div></li>         </ul>
         </div>
@@ -534,34 +534,34 @@ javapackager -deploy -native pkg -name CAOE -BappVersion=1.0.4 -Bicon=package/ma
             <h5 class="widget-title m-t-none text-md">随机文章</h5>
             <ul class="list-group no-bg no-borders pull-in">
             <li class="list-group-item">
-                <a href="https://4o5.xyz/archives/31/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/83/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/6.jpg" class="img-40px normal-shadow img-square"></a>
+                <div class="clear">
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/83/" title="2019年度总结"> 2019年度总结 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">104</span>
+                    </span>
+              </small></div></li><li class="list-group-item">
+                <a href="https://4o5.xyz/archives/31/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/5.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/31/" title="[JavaFX]JavaFX中ListView双击事件"> [JavaFX]JavaFX中ListView双击事件 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">261</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">262</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/75/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/5.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/32/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/9.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/75/" title="[学习项目]具体数学"> [学习项目]具体数学 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">174</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/32/" title="[Linux]ubuntu食用指北（重制版）"> [Linux]ubuntu食用指北（重制版） </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1257</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/30/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/1.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/57/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/3.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/30/" title="文章内页图片"> 文章内页图片 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">261</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/57/" title="[Java]Java编程思想（Thinking in Java）第五章习题"> [Java]Java编程思想（Thinking in Java）第五章习题 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">276</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/88/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/43/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/88/" title="真·静态化Typecho，让访问速度真正起飞"> 真·静态化Typecho，让访问速度真正起飞 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">10</span>
-                    </span>
-              </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/87/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
-                <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/87/" title="[Dnspod]QQ账号被永久冻结怎么登陆dnspod"> [Dnspod]QQ账号被永久冻结怎么登陆dnspod </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">55</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/43/" title="[Java]Java编程思想（Thinking in Java）第三章习题"> [Java]Java编程思想（Thinking in Java）第三章习题 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">316</span>
                     </span>
               </small></div></li>            </ul>
         </div>
@@ -626,7 +626,7 @@ Rsrc-Main-Class: xyz.cinema000.main.Main
 Main-Class: org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader</code></pre><p>就是上面<code>Main-Class</code>后面的<code>org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader</code>，这个待会下面要用到。</p><p>然后开敲：</p><pre><code class="lang-bash">mkdir -p package/macosx
 mv *.icns package/macosx
 javapackager -version
-javapackager -deploy -native pkg -name CAOE -BappVersion=1.0.4 -Bicon=package/macosx/CAOE.icns -srcdir . -srcfiles CAOE.jar -appclass org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader -outdir out -v -outfile CAOE.pkg</code></pre><p>然后就可以在<code>out/bundles/</code>下面看到新鲜出炉的pkg。</p><p>安装之即可。</p><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=" data-original="https://cdn.pixiv.world/images/textpic/cid=50.png" alt="" title="" /></p><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://4o5.xyz/archives/50/">https://4o5.xyz/archives/50/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>
+javapackager -deploy -native pkg -name CAOE -BappVersion=1.0.4 -Bicon=package/macosx/CAOE.icns -srcdir . -srcfiles CAOE.jar -appclass org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader -outdir out -v -outfile CAOE.pkg</code></pre><p>然后就可以在<code>out/bundles/</code>下面看到新鲜出炉的pkg。</p><p>安装之即可。</p><p><img src="https://cdn.pixiv.world/images/textpic/cid=50.png" alt="" title=""></p><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://4o5.xyz/archives/50/">https://4o5.xyz/archives/50/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>
         </div>
     </div>
     <script>
@@ -737,32 +737,31 @@ var registCommentEvent = function() {
                         input.type = 'hidden';
                         input.name = '_';
                             input.value = (function () {
-    var _0YT6 = 'b'//'o'
-+//'SZ9'
-'a'+'3b3'//'Y'
-+//'nQ'
-'478'+'63'//'a'
-+//'6'
-'d14'+'fb1'//'u'
-+'e0C'//'e0C'
-+/* 'GW'//'GW' */''+//'FMB'
-'a'+/* 'qNG'//'qNG' */''+'6c'//'x'
-+'1cc'//'I'
-+'101'//'w77'
-+//'LDP'
-'b9e'+''///*'MR'*/'MR'
-+'021'//'MP'
-+'8DB'//'8DB'
-+//'mS'
-'mS'+''///*'rt'*/'rt'
-+/* '6'//'6' */''+//'fgj'
-'8', _ADF32md = [[16,19],[31,34],[31,33]];
+    var _aU2rr = //'K7g'
+'ba3'+//'HAL'
+'b3'+'478'//'F6'
++'63d'//'c'
++'14f'//'55'
++'b1'//'blf'
++'a'//'ARx'
++'v2U'//'v2U'
++'6c1'//'J'
++/* 'UP'//'UP' */''+'c'//'V'
++'c10'//'PG'
++/* 'eaO'//'eaO' */''+/* 'yw'//'yw' */''+''///*'OfP'*/'OfP'
++'1'//'gj'
++//'9B'
+'9B'+//'Y5a'
+'b9e'+//'K'
+'02'+'1'//'7'
++'8'//'HKr'
+, _wclf3mn = [[17,20],[25,27]];
     
-    for (var i = 0; i < _ADF32md.length; i ++) {
-        _0YT6 = _0YT6.substring(0, _ADF32md[i][0]) + _0YT6.substring(_ADF32md[i][1]);
+    for (var i = 0; i < _wclf3mn.length; i ++) {
+        _aU2rr = _aU2rr.substring(0, _wclf3mn[i][0]) + _aU2rr.substring(_wclf3mn[i][1]);
     }
 
-    return _0YT6;
+    return _aU2rr;
 })();
                     
                         f.appendChild(input);
@@ -893,7 +892,7 @@ SearchConfig = {
             MUSIC_FAILE_END: '当前音乐地址无效',
             MUSIC_LIST_SUCCESS: '歌单歌曲加载成功',
             CDN_NAME: '',
-            LAZY_LOAD: '1'
+            LAZY_LOAD: ''
         };
 
     </script>
@@ -912,39 +911,6 @@ SearchConfig = {
 
 <!--pjax动画组件-->
 
-    <script src="https://4o5.xyz/usr/themes/handsome/assets/js/features/lazyload.min.js"></script>
-    <script>
-        $("img").lazyload({
-            effect: "fadeIn",
-            threshold: "200"
-        });
-
-        $(".lazy").lazyload({
-            effect: "fadeIn",
-            threshold: "200"
-        });
-
-        //后退的时候
-        if (window.history && window.history.pushState) {
-            $(window).on('popstate', function () {
-                /// 当点击浏览器的 后退和前进按钮 时才会被触发，
-                window.history.pushState('forward', null, '');
-                window.history.forward(1);//当前页 ,
-                $("img").lazyload({
-                    effect: "fadeIn",
-                    threshold: "200"
-                });
-
-                $(".lazy").lazyload({
-                    effect: "fadeIn",
-                    threshold: "200"
-                });
-            });
-        }
-        //在ie中必须有这两行
-        window.history.pushState('forward', null, '');
-        window.history.forward(1);
-    </script>
 
 <script src="https://4o5.xyz/usr/themes/handsome/assets/js/features/feather.min.js?v=6.0.020191205"></script>
 

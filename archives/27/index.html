@@ -16,7 +16,7 @@
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
     <title>[https]HSTS与全站https - 马孔多不下雪</title>
-            <link rel="icon" type="image/ico" href="https://4o5.xyz/images/logo.png">
+            <link rel="icon" type="image/ico" href="https://4o5.xyz/images/logo.svg">
         <meta name="description" content="Head Pic: 【女の子】「miku 颓废」/「千夜QYS3」のイラスト [pixiv]TLS1.3都来了，怎么能还支持http访问呢？前言18年11月，GFW停止了对阿里云香港节点http..." />
 <meta name="keywords" content="ssl,https,nginx" />
 <meta name="generator" content="Typecho 1.1/17.10.30" />
@@ -197,10 +197,10 @@
                 <li class="wrapper b-b m-b-sm bg-info m-n">
                   <span class="arrow top hidden-folded arrow-info"></span>
                   <div>
-                                                  <p>下午好，是时候打个盹了</p>
+                                                <p>晚上好，注意早点休息</p>
                                   </div>
                   <div class="progress progress-xs m-b-none dker">
-                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="时间已经度过58.33%" style="width: 58.33%"></div>
+                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="时间已经度过75.00%" style="width: 75.00%"></div>
                   </div>
                 </li>
               </ul>
@@ -408,7 +408,7 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
              <!--发布时间-->
              <li class="meta-date"><span class="post-icons"><i data-feather="clock"></i></span><span class="sr-only">发布时间：</span><time class="meta-value">2019 年 01 月 12 日</time></li>
              <!--浏览数-->
-             <li class="meta-views"><span class="post-icons"><i data-feather="eye"></i></span><span class="meta-value">314次浏览</span></li>
+             <li class="meta-views"><span class="post-icons"><i data-feather="eye"></i></span><span class="meta-value">315次浏览</span></li>
              
              <!--文字数目-->
              <li class="meta-word"><span class="post-icons"><i data-feather="pen-tool"></i></span><span class="meta-value">959字数</span></li>
@@ -423,7 +423,7 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
        <div id="postpage" class="blog-post">
         <article class="single-post panel">
         <!--文章页面的头图-->
-        <div class="entry-thumbnail" aria-hidden="true"><div class="item-thumb lazy" data-original="https://cdn.pixiv.world/images/headpic/tiny/cid=27.jpg" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=)"></div></div>         <!--文章内容-->
+        <div class="entry-thumbnail" aria-hidden="true"><div class="item-thumb lazy"  style="background-image: url(https://cdn.pixiv.world/images/headpic/tiny/cid=27.jpg)"></div></div>         <!--文章内容-->
          <div id="post-content" class="wrapper-lg">
           <div class="entry-content l-h-2x">
           <p>Head Pic: <span class="external-link"><a href="https://www.pixiv.net/member_illust.php?mode=medium&illust_id=66568021" target="_blank">【女の子】「miku 颓废」/「千夜QYS3」のイラスト [pixiv]<i data-feather='external-link'></i></a></span></p><p>TLS1.3都来了，怎么能还支持http访问呢？</p><h2>前言</h2><p>18年11月，GFW停止了对阿里云香港节点https访问的干扰（关于干扰问题见<span class="external-link"><a href="https://www.v2ex.com/t/456423" target="_blank">这里<i data-feather='external-link'></i></a></span>），其实可能更早就结束了，也许在对p站和维基百科使用SNI阻断后就停止了，我也是在把cloudflare这个著名的云减速停掉之后才发现的，这意味着本站https恢复正常，大陆访问再次直连，而不是绕好大一圈回大陆。<del>（当然全站https也就可以被SNI阻断了233）</del></p><p>既然这样，何不停止http访问呢？</p><h2>开搞</h2><p>网络上大多数全站https的教程都是直接<code>nginx rewrite</code>了，暴力且直接，但是这样会耗费一点服务器资源，也不够优雅，于是就去看了各大公司如何实现的。</p><p>百度的主页使用了<code>&lt;meta&gt;</code>标签做到的，其实本站主页4o5.xyz的http访问也是这么搞的。但是这种方法只适合单页面的东东。</p><p>淘宝则使用了一个名为<code>HSTS</code>的<span class="external-link"><a href="https://zh.wikipedia.org/wiki/HTTP%E4%B8%A5%E6%A0%BC%E4%BC%A0%E8%BE%93%E5%AE%89%E5%85%A8" target="_blank">技术<i data-feather='external-link'></i></a></span>，nginx里面也有它的实现。</p><h2>配置</h2><p>直接在nginx的根server中加入如下配置：</p><pre><code class="lang-shell">add_header Strict-Transport-Security &quot;max-age=31536000; includeSubDomains&quot; always;</code></pre><p>这样就可以达到所有子域名都有HSTS效果。</p><h2>效果</h2><p>当有https访问记录后，HSTS便会生效，就是即使你在地址栏里输入http，浏览器都会自动改为https。</p><p>如果之前没有任何https访问记录，就不会生效，所以还是得来一个rewrite。</p><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://4o5.xyz/archives/27/">https://4o5.xyz/archives/27/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>          </div>
@@ -488,34 +488,34 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
          <h5 class="widget-title m-t-none text-md">热门文章</h5>
          <ul class="list-group no-bg no-borders pull-in m-b-none">
           <li class="list-group-item">
-                <a href="https://4o5.xyz/archives/16/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/9.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/16/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/3.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/16/" title="[nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后）"> [nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后） </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">3974</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">3977</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/9/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/5.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/9/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/9/" title="[SSL]Let’s Encrypt野卡续费"> [SSL]Let’s Encrypt野卡续费 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1716</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1718</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/3/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/3/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/6.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/3/" title="[测试]Typecho Markdown测试"> [测试]Typecho Markdown测试 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1575</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1576</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/42/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/42/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/42/" title="[GFW]v2ray食用指北（口胡版）"> [GFW]v2ray食用指北（口胡版） </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1515</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1516</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/22/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/10.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/22/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/9.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/22/" title="[数学]离散微积分教程"> [数学]离散微积分教程 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1497</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1499</span>
                     </span>
               </small></div></li>         </ul>
         </div>
@@ -524,34 +524,34 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
             <h5 class="widget-title m-t-none text-md">随机文章</h5>
             <ul class="list-group no-bg no-borders pull-in">
             <li class="list-group-item">
-                <a href="https://4o5.xyz/archives/36/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/9.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/4/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/3.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/36/" title="[CSS]handsome主题非盒子模型下使用背景图片"> [CSS]handsome主题非盒子模型下使用背景图片 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">424</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/4/" title="[伺服器]论如何优雅的备份伺服器"> [伺服器]论如何优雅的备份伺服器 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">477</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/66/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/5.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/83/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/66/" title="[reCAPTCHA]typecho添加reCAPTCHA验证码"> [reCAPTCHA]typecho添加reCAPTCHA验证码 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">686</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/83/" title="2019年度总结"> 2019年度总结 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">104</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/73/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/42/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/6.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/73/" title="macOS开发环境搭建——打造mac神兵利器"> macOS开发环境搭建——打造mac神兵利器 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">116</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/42/" title="[GFW]v2ray食用指北（口胡版）"> [GFW]v2ray食用指北（口胡版） </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1516</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/77/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/26/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/77/" title="我的奋斗——2020高考"> 我的奋斗——2020高考 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">351</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/26/" title="[GateOne]自建web端ssh"> [GateOne]自建web端ssh </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">617</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/86/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/10.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/58/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/9.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/86/" title="[算法]Stern-Brocot树"> [算法]Stern-Brocot树 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">68</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/58/" title="将mac备份到Windows上"> 将mac备份到Windows上 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">382</span>
                     </span>
               </small></div></li>            </ul>
         </div>
@@ -716,38 +716,42 @@ var registCommentEvent = function() {
                         input.type = 'hidden';
                         input.name = '_';
                             input.value = (function () {
-    var _SOmPpS = '6'//'qTs'
-+//'ZX'
-'2'+//'3IO'
-'1c'+'a'//'n'
-+'dc'//'sv'
-+//'wk'
-'483'+/* 'FoL'//'FoL' */''+'21b'//'B'
-+'98'//'cJk'
-+'be'//'UnJ'
-+'mx'//'mx'
-+'8w'//'8w'
-+//'s5'
-'s5'+//'xd'
-'c'+//'qXC'
-'qXC'+//'Xe'
-'0'+//'nq'
-'ce'+'6'//'8ui'
-+'2'//'YwS'
-+//'Sz'
-'a'+//'q'
-'fa'+//'w2'
-'9'+/* 'B8B'//'B8B' */''+//'YX'
-'08'+''///*'q'*/'q'
-+//'2'
-'4e'+//'tC'
-'f', _xXVlE1v = [[17,19],[17,19],[17,19],[18,21]];
+    var _E1QeDa3 = 'AQg'//'AQg'
++//'Fhh'
+'62'+//'Ky'
+'1c'+//'i'
+'a'+//'at'
+'at'+''///*'kdW'*/'kdW'
++/* 'R6'//'R6' */''+//'oFI'
+'d'+'c48'//'2S2'
++//'W'
+'321'+//'XD'
+'b98'+'o'//'o'
++'be'//'zO'
++//'Q'
+'Q'+//'c'
+'c'+'c'//'ZiO'
++''///*'zjR'*/'zjR'
++'0c'//'jlc'
++//'8J'
+'e6'+'2a'//'9s'
++//'Z'
+'Z'+'fa'//'L'
++//'P'
+'9'+/* 'd'//'d' */''+'U'//'U'
++//'G'
+'0'+'t'//'t'
++'8'//'9Aw'
++''///*'y'*/'y'
++'4e'//'P6C'
++//'Z'
+'f', _vDRp = [[0,3],[5,7],[15,16],[17,18],[17,18],[24,25],[27,28],[28,29]];
     
-    for (var i = 0; i < _xXVlE1v.length; i ++) {
-        _SOmPpS = _SOmPpS.substring(0, _xXVlE1v[i][0]) + _SOmPpS.substring(_xXVlE1v[i][1]);
+    for (var i = 0; i < _vDRp.length; i ++) {
+        _E1QeDa3 = _E1QeDa3.substring(0, _vDRp[i][0]) + _E1QeDa3.substring(_vDRp[i][1]);
     }
 
-    return _SOmPpS;
+    return _E1QeDa3;
 })();
                     
                         f.appendChild(input);
@@ -878,7 +882,7 @@ SearchConfig = {
             MUSIC_FAILE_END: '当前音乐地址无效',
             MUSIC_LIST_SUCCESS: '歌单歌曲加载成功',
             CDN_NAME: '',
-            LAZY_LOAD: '1'
+            LAZY_LOAD: ''
         };
 
     </script>
@@ -897,39 +901,6 @@ SearchConfig = {
 
 <!--pjax动画组件-->
 
-    <script src="https://4o5.xyz/usr/themes/handsome/assets/js/features/lazyload.min.js"></script>
-    <script>
-        $("img").lazyload({
-            effect: "fadeIn",
-            threshold: "200"
-        });
-
-        $(".lazy").lazyload({
-            effect: "fadeIn",
-            threshold: "200"
-        });
-
-        //后退的时候
-        if (window.history && window.history.pushState) {
-            $(window).on('popstate', function () {
-                /// 当点击浏览器的 后退和前进按钮 时才会被触发，
-                window.history.pushState('forward', null, '');
-                window.history.forward(1);//当前页 ,
-                $("img").lazyload({
-                    effect: "fadeIn",
-                    threshold: "200"
-                });
-
-                $(".lazy").lazyload({
-                    effect: "fadeIn",
-                    threshold: "200"
-                });
-            });
-        }
-        //在ie中必须有这两行
-        window.history.pushState('forward', null, '');
-        window.history.forward(1);
-    </script>
 
 <script src="https://4o5.xyz/usr/themes/handsome/assets/js/features/feather.min.js?v=6.0.020191205"></script>
 

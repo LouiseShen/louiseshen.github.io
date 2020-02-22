@@ -16,7 +16,7 @@
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
     <title>[Windows]Windows解决80端口无故被占用 - 马孔多不下雪</title>
-            <link rel="icon" type="image/ico" href="https://4o5.xyz/images/logo.png">
+            <link rel="icon" type="image/ico" href="https://4o5.xyz/images/logo.svg">
         <meta name="description" content="Head Pic: 「逆流会 黑羽」/「千夜QYS3」のイラスト [pixiv]问题在做反代p站项目的时候经常发现80端口被占用，nginx总是提示出错：[emerg] 5092#7904: b..." />
 <meta name="keywords" content="Windows" />
 <meta name="generator" content="Typecho 1.1/17.10.30" />
@@ -197,10 +197,10 @@
                 <li class="wrapper b-b m-b-sm bg-info m-n">
                   <span class="arrow top hidden-folded arrow-info"></span>
                   <div>
-                                                  <p>下午好，是时候打个盹了</p>
+                                                <p>晚上好，注意早点休息</p>
                                   </div>
                   <div class="progress progress-xs m-b-none dker">
-                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="时间已经度过58.33%" style="width: 58.33%"></div>
+                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="时间已经度过75.00%" style="width: 75.00%"></div>
                   </div>
                 </li>
               </ul>
@@ -408,7 +408,7 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
              <!--发布时间-->
              <li class="meta-date"><span class="post-icons"><i data-feather="clock"></i></span><span class="sr-only">发布时间：</span><time class="meta-value">2018 年 12 月 31 日</time></li>
              <!--浏览数-->
-             <li class="meta-views"><span class="post-icons"><i data-feather="eye"></i></span><span class="meta-value">334次浏览</span></li>
+             <li class="meta-views"><span class="post-icons"><i data-feather="eye"></i></span><span class="meta-value">335次浏览</span></li>
              
              <!--文字数目-->
              <li class="meta-word"><span class="post-icons"><i data-feather="pen-tool"></i></span><span class="meta-value">767字数</span></li>
@@ -423,10 +423,10 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
        <div id="postpage" class="blog-post">
         <article class="single-post panel">
         <!--文章页面的头图-->
-        <div class="entry-thumbnail" aria-hidden="true"><div class="item-thumb lazy" data-original="https://cdn.pixiv.world/images/headpic/tiny/cid=19.jpg" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=)"></div></div>         <!--文章内容-->
+        <div class="entry-thumbnail" aria-hidden="true"><div class="item-thumb lazy"  style="background-image: url(https://cdn.pixiv.world/images/headpic/tiny/cid=19.jpg)"></div></div>         <!--文章内容-->
          <div id="post-content" class="wrapper-lg">
           <div class="entry-content l-h-2x">
-          <p>Head Pic: <span class="external-link"><a href="https://www.pixiv.net/member_illust.php?mode=medium&illust_id=70680912" target="_blank">「逆流会 黑羽」/「千夜QYS3」のイラスト [pixiv]<i data-feather='external-link'></i></a></span></p><h2>问题</h2><p>在做反代p站项目的时候经常发现80端口被占用，nginx总是提示出错：</p><p><code>[emerg] 5092#7904: bind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)</code></p><h2>解决方案</h2><p>去搜索一下发现可以结束占用端口的程序，在命令提示符中输入：</p><p><code>netstat -ano|findstr &quot;80&quot;</code></p><p>查找当前使用80端口的进程PID，然后如果不是系统进程，直接杀死即可。</p><p>如果是系统进程，如图：</p><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=" data-original="https://cdn.pixiv.world/images/textpic/cid=19_01.png" alt="" title="" /></p><p>这时候就无法杀死，得再输入：<code>netsh http show servicestate</code>，查看当前http状态</p><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=" data-original="https://cdn.pixiv.world/images/textpic/cid=19_02.png" alt="" title="" /></p><p>找到Controller process ID这一项，大陆系统是控制器进程ID。</p><p>将这个PID对应的程序杀死即可。</p><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=" data-original="https://cdn.pixiv.world/images/textpic/cid=19_03.png" alt="" title="" /></p><p>如果想要一劳永逸就直接把服务禁止即可。</p><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://4o5.xyz/archives/19/">https://4o5.xyz/archives/19/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>          </div>
+          <p>Head Pic: <span class="external-link"><a href="https://www.pixiv.net/member_illust.php?mode=medium&illust_id=70680912" target="_blank">「逆流会 黑羽」/「千夜QYS3」のイラスト [pixiv]<i data-feather='external-link'></i></a></span></p><h2>问题</h2><p>在做反代p站项目的时候经常发现80端口被占用，nginx总是提示出错：</p><p><code>[emerg] 5092#7904: bind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)</code></p><h2>解决方案</h2><p>去搜索一下发现可以结束占用端口的程序，在命令提示符中输入：</p><p><code>netstat -ano|findstr &quot;80&quot;</code></p><p>查找当前使用80端口的进程PID，然后如果不是系统进程，直接杀死即可。</p><p>如果是系统进程，如图：</p><p><img src="https://cdn.pixiv.world/images/textpic/cid=19_01.png" alt="" title=""></p><p>这时候就无法杀死，得再输入：<code>netsh http show servicestate</code>，查看当前http状态</p><p><img src="https://cdn.pixiv.world/images/textpic/cid=19_02.png" alt="" title=""></p><p>找到Controller process ID这一项，大陆系统是控制器进程ID。</p><p>将这个PID对应的程序杀死即可。</p><p><img src="https://cdn.pixiv.world/images/textpic/cid=19_03.png" alt="" title=""></p><p>如果想要一劳永逸就直接把服务禁止即可。</p><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://4o5.xyz/archives/19/">https://4o5.xyz/archives/19/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>          </div>
                           <!--文章的页脚部件：打赏和其他信息的输出-->
              
              <div class="show-foot">
@@ -488,34 +488,34 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
          <h5 class="widget-title m-t-none text-md">热门文章</h5>
          <ul class="list-group no-bg no-borders pull-in m-b-none">
           <li class="list-group-item">
-                <a href="https://4o5.xyz/archives/16/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/16/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/7.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/16/" title="[nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后）"> [nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后） </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">3974</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">3977</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/9/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/9.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/9/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/9/" title="[SSL]Let’s Encrypt野卡续费"> [SSL]Let’s Encrypt野卡续费 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1716</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1718</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/3/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/3/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/1.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/3/" title="[测试]Typecho Markdown测试"> [测试]Typecho Markdown测试 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1575</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1576</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/42/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/5.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/42/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/10.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/42/" title="[GFW]v2ray食用指北（口胡版）"> [GFW]v2ray食用指北（口胡版） </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1515</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1516</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/22/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/10.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/22/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/22/" title="[数学]离散微积分教程"> [数学]离散微积分教程 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1498</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1500</span>
                     </span>
               </small></div></li>         </ul>
         </div>
@@ -524,34 +524,34 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
             <h5 class="widget-title m-t-none text-md">随机文章</h5>
             <ul class="list-group no-bg no-borders pull-in">
             <li class="list-group-item">
-                <a href="https://4o5.xyz/archives/36/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/55/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/7.jpg" class="img-40px normal-shadow img-square"></a>
+                <div class="clear">
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/55/" title="[VS Code]透明化 VS Code（此法仅限macOS）"> [VS Code]透明化 VS Code（此法仅限macOS） </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">246</span>
+                    </span>
+              </small></div></li><li class="list-group-item">
+                <a href="https://4o5.xyz/archives/36/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/36/" title="[CSS]handsome主题非盒子模型下使用背景图片"> [CSS]handsome主题非盒子模型下使用背景图片 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">424</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">425</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/41/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/9.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/88/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/1.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/41/" title="[伺服器]添加自己的云监控"> [伺服器]添加自己的云监控 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">859</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/88/" title="真·静态化Typecho，让访问速度真正起飞"> 真·静态化Typecho，让访问速度真正起飞 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">13</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/76/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/84/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/10.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/76/" title="[白嫖]R星活动——Grand Theft Auto: San Andreas免费领取"> [白嫖]R星活动——Grand Theft Auto: San Andreas免费领取 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">576</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/84/" title="[Java项目]更方便的插入数学公式"> [Java项目]更方便的插入数学公式 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">81</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/58/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/5.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://4o5.xyz/archives/5/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/58/" title="将mac备份到Windows上"> 将mac备份到Windows上 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">381</span>
-                    </span>
-              </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/72/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/10.jpg" class="img-40px normal-shadow img-square"></a>
-                <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/72/" title="[Typecho插件]更方便的集成Cloudflare统计功能至typecho"> [Typecho插件]更方便的集成Cloudflare统计功能至typecho </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">431</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/5/" title="[OSS]挂载阿里云oss到伺服器"> [OSS]挂载阿里云oss到伺服器 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">288</span>
                     </span>
               </small></div></li>            </ul>
         </div>
@@ -605,7 +605,7 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
         <div class="page">
             <h1 class="title">[Windows]Windows解决80端口无故被占用</h1>
             <div class="metadata singleline"><a href="#" rel="author" class="byline">Louise</a>&nbsp;•&nbsp;<span class="delimiter"></span><time class="date">2018 年 12 月 31 日</time></div>
-            <p>Head Pic: <span class="external-link"><a href="https://www.pixiv.net/member_illust.php?mode=medium&illust_id=70680912" target="_blank">「逆流会 黑羽」/「千夜QYS3」のイラスト [pixiv]<i data-feather='external-link'></i></a></span></p><h2>问题</h2><p>在做反代p站项目的时候经常发现80端口被占用，nginx总是提示出错：</p><p><code>[emerg] 5092#7904: bind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)</code></p><h2>解决方案</h2><p>去搜索一下发现可以结束占用端口的程序，在命令提示符中输入：</p><p><code>netstat -ano|findstr &quot;80&quot;</code></p><p>查找当前使用80端口的进程PID，然后如果不是系统进程，直接杀死即可。</p><p>如果是系统进程，如图：</p><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=" data-original="https://cdn.pixiv.world/images/textpic/cid=19_01.png" alt="" title="" /></p><p>这时候就无法杀死，得再输入：<code>netsh http show servicestate</code>，查看当前http状态</p><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=" data-original="https://cdn.pixiv.world/images/textpic/cid=19_02.png" alt="" title="" /></p><p>找到Controller process ID这一项，大陆系统是控制器进程ID。</p><p>将这个PID对应的程序杀死即可。</p><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=" data-original="https://cdn.pixiv.world/images/textpic/cid=19_03.png" alt="" title="" /></p><p>如果想要一劳永逸就直接把服务禁止即可。</p><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://4o5.xyz/archives/19/">https://4o5.xyz/archives/19/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>
+            <p>Head Pic: <span class="external-link"><a href="https://www.pixiv.net/member_illust.php?mode=medium&illust_id=70680912" target="_blank">「逆流会 黑羽」/「千夜QYS3」のイラスト [pixiv]<i data-feather='external-link'></i></a></span></p><h2>问题</h2><p>在做反代p站项目的时候经常发现80端口被占用，nginx总是提示出错：</p><p><code>[emerg] 5092#7904: bind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)</code></p><h2>解决方案</h2><p>去搜索一下发现可以结束占用端口的程序，在命令提示符中输入：</p><p><code>netstat -ano|findstr &quot;80&quot;</code></p><p>查找当前使用80端口的进程PID，然后如果不是系统进程，直接杀死即可。</p><p>如果是系统进程，如图：</p><p><img src="https://cdn.pixiv.world/images/textpic/cid=19_01.png" alt="" title=""></p><p>这时候就无法杀死，得再输入：<code>netsh http show servicestate</code>，查看当前http状态</p><p><img src="https://cdn.pixiv.world/images/textpic/cid=19_02.png" alt="" title=""></p><p>找到Controller process ID这一项，大陆系统是控制器进程ID。</p><p>将这个PID对应的程序杀死即可。</p><p><img src="https://cdn.pixiv.world/images/textpic/cid=19_03.png" alt="" title=""></p><p>如果想要一劳永逸就直接把服务禁止即可。</p><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://4o5.xyz/archives/19/">https://4o5.xyz/archives/19/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>
         </div>
     </div>
     <script>
@@ -716,38 +716,39 @@ var registCommentEvent = function() {
                         input.type = 'hidden';
                         input.name = '_';
                             input.value = (function () {
-    var _ixMKDF = //'v'
-'5e2'+'e1'//'N'
-+'9'//'VT'
-+'e'//'b4'
-+//'Ows'
-'a'+'sq'//'sq'
-+//'9w'
-'b3'+'fe9'//'Fg'
-+//'x'
-'x'+'A'//'A'
-+'1'//'5k2'
-+'6b'//'QR'
-+'4'//'4'
-+//'cf'
-'9'+'da'//'a'
-+//'J5H'
-'J5H'+'3c2'//'x'
-+//'vr'
-'vr'+//'MeB'
-'2'+//'AV'
-'c'+//'U6b'
-'fd'+//'xsO'
-'0b'+'5'//'d'
-+//'Irj'
-'a'+//'e'
-'e', _xlDNaO = [[8,10],[13,14],[13,14],[20,23],[23,25]];
+    var _As6xlm9 = //'7'
+'5'+''///*'S'*/'S'
++//'05J'
+'05J'+//'jZ8'
+'e2e'+'1'//'UgD'
++/* 'n'//'n' */''+'9e'//'8'
++//'VLy'
+'ab3'+/* 'Ee'//'Ee' */''+//'Lk'
+'f'+//'wEQ'
+'e91'+'6'//'eg'
++'b'//'Z'
++//'2'
+'49'+//'4yx'
+'da'+'e8'//'e8'
++'3'//'coO'
++'c'//'4Wv'
++//'w3'
+'22'+/* 'rc'//'rc' */''+'cf'//'ifo'
++/* 'aN'//'aN' */''+//'DJZ'
+'DJZ'+'d0'//'u6I'
++'b'//'p'
++''///*'yN'*/'yN'
++'5'//'3hL'
++''///*'Dcs'*/'Dcs'
++'a'//'E'
++/* 'zEf'//'zEf' */''+/* 't'//'t' */''+/* 'aT'//'aT' */''+/* 'vvS'//'vvS' */''+'e'//'CtK'
+, _xjS7n = [[1,4],[20,22],[26,29]];
     
-    for (var i = 0; i < _xlDNaO.length; i ++) {
-        _ixMKDF = _ixMKDF.substring(0, _xlDNaO[i][0]) + _ixMKDF.substring(_xlDNaO[i][1]);
+    for (var i = 0; i < _xjS7n.length; i ++) {
+        _As6xlm9 = _As6xlm9.substring(0, _xjS7n[i][0]) + _As6xlm9.substring(_xjS7n[i][1]);
     }
 
-    return _ixMKDF;
+    return _As6xlm9;
 })();
                     
                         f.appendChild(input);
@@ -878,7 +879,7 @@ SearchConfig = {
             MUSIC_FAILE_END: '当前音乐地址无效',
             MUSIC_LIST_SUCCESS: '歌单歌曲加载成功',
             CDN_NAME: '',
-            LAZY_LOAD: '1'
+            LAZY_LOAD: ''
         };
 
     </script>
@@ -897,39 +898,6 @@ SearchConfig = {
 
 <!--pjax动画组件-->
 
-    <script src="https://4o5.xyz/usr/themes/handsome/assets/js/features/lazyload.min.js"></script>
-    <script>
-        $("img").lazyload({
-            effect: "fadeIn",
-            threshold: "200"
-        });
-
-        $(".lazy").lazyload({
-            effect: "fadeIn",
-            threshold: "200"
-        });
-
-        //后退的时候
-        if (window.history && window.history.pushState) {
-            $(window).on('popstate', function () {
-                /// 当点击浏览器的 后退和前进按钮 时才会被触发，
-                window.history.pushState('forward', null, '');
-                window.history.forward(1);//当前页 ,
-                $("img").lazyload({
-                    effect: "fadeIn",
-                    threshold: "200"
-                });
-
-                $(".lazy").lazyload({
-                    effect: "fadeIn",
-                    threshold: "200"
-                });
-            });
-        }
-        //在ie中必须有这两行
-        window.history.pushState('forward', null, '');
-        window.history.forward(1);
-    </script>
 
 <script src="https://4o5.xyz/usr/themes/handsome/assets/js/features/feather.min.js?v=6.0.020191205"></script>
 
