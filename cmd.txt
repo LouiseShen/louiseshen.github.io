@@ -6,6 +6,8 @@ curl https://4o5.xyz/contract.html > contract.html
 curl https://4o5.xyz/archives.html > archives.html
 curl https://4o5.xyz/links.html > links.html
 curl https://4o5.xyz/cross.html > cross.html
+mkdir -p archives/89/
+curl https://4o5.xyz/archives/89/ > archives/89/index.html
 mkdir -p archives/88/
 curl https://4o5.xyz/archives/88/ > archives/88/index.html
 mkdir -p archives/87/
@@ -200,3 +202,5 @@ mkdir -p tag/GH60/
 curl https://4o5.xyz/tag/GH60/ > tag/GH60/index.html
 mkdir -p tag/ubuntu/
 curl https://4o5.xyz/tag/ubuntu/ > tag/ubuntu/index.html
+mkdir -p tag/cdn/
+curl https://4o5.xyz/tag/cdn/ > tag/cdn/index.html
