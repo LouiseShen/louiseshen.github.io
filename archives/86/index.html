@@ -16,20 +16,20 @@
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
     <title>[算法]Stern-Brocot树 - 马孔多不下雪</title>
-            <link rel="icon" type="image/ico" href="https://4o5.xyz/images/logo.svg">
+            <link rel="icon" type="image/ico" href="https://blog.5v5.lol/images/logo.svg">
         <meta name="description" content="Head Pic: Absolute Duo, heavenly ass, barefoot / おやすみなさい - pixiv从两个分数$(\frac{0}{1},\frac{1}{0})$出..." />
 <meta name="keywords" content="数学,具体数学,算法,Stern-Brocot" />
 <meta name="generator" content="Typecho 1.1/17.10.30" />
 <meta name="template" content="handsome" />
-<link rel="pingback" href="https://4o5.xyz/action/xmlrpc" />
-<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://4o5.xyz/action/xmlrpc?rsd" />
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://4o5.xyz/action/xmlrpc?wlw" />
-<link rel="alternate" type="application/rss+xml" title="[算法]Stern-Brocot树 &raquo; 马孔多不下雪 &raquo; RSS 2.0" href="https://4o5.xyz/feed/archives/86/" />
-<link rel="alternate" type="application/rdf+xml" title="[算法]Stern-Brocot树 &raquo; 马孔多不下雪 &raquo; RSS 1.0" href="https://4o5.xyz/feed/rss/archives/86/" />
-<link rel="alternate" type="application/atom+xml" title="[算法]Stern-Brocot树 &raquo; 马孔多不下雪 &raquo; ATOM 1.0" href="https://4o5.xyz/feed/atom/archives/86/" />
-<link rel="stylesheet" type="text/css" href="https://4o5.xyz/usr/plugins/CodePrettify/static/styles/BlackMac.css" />
-<link rel="amphtml" href="https://4o5.xyz/amp/86">
-<link rel="miphtml" href="https://4o5.xyz/mip/86">
+<link rel="pingback" href="https://blog.5v5.lol/action/xmlrpc" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://blog.5v5.lol/action/xmlrpc?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://blog.5v5.lol/action/xmlrpc?wlw" />
+<link rel="alternate" type="application/rss+xml" title="[算法]Stern-Brocot树 &raquo; 马孔多不下雪 &raquo; RSS 2.0" href="https://blog.5v5.lol/feed/archives/86/" />
+<link rel="alternate" type="application/rdf+xml" title="[算法]Stern-Brocot树 &raquo; 马孔多不下雪 &raquo; RSS 1.0" href="https://blog.5v5.lol/feed/rss/archives/86/" />
+<link rel="alternate" type="application/atom+xml" title="[算法]Stern-Brocot树 &raquo; 马孔多不下雪 &raquo; ATOM 1.0" href="https://blog.5v5.lol/feed/atom/archives/86/" />
+<link rel="stylesheet" type="text/css" href="https://blog.5v5.lol/usr/plugins/CodePrettify/static/styles/BlackMac.css" />
+<link rel="amphtml" href="https://blog.5v5.lol/amp/86">
+<link rel="miphtml" href="https://blog.5v5.lol/mip/86">
 
         <script type="text/x-mathjax-config">
         MathJax.Hub.Config({messageStyle: "none",tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
@@ -39,17 +39,17 @@
 
 
     <!-- 本地css静态资源 -->
-    <link rel="stylesheet" href="https://4o5.xyz/usr/themes/handsome/assets/css/function.min.css?v=6.0.020191205" type="text/css" />
-    <link rel="stylesheet" href="https://4o5.xyz/usr/themes/handsome/assets/css/handsome.min.css?v=6.0.020191205" type="text/css" />
+    <link rel="stylesheet" href="https://blog.5v5.lol/usr/themes/handsome/assets/css/function.min.css?v=6.0.020191205" type="text/css" />
+    <link rel="stylesheet" href="https://blog.5v5.lol/usr/themes/handsome/assets/css/handsome.min.css?v=6.0.020191205" type="text/css" />
 
 
 
     <!--主题组件css文件加载-->
-    <link rel="stylesheet" href="https://4o5.xyz/usr/themes/handsome/assets/css/features/jquery.fancybox.min.css?v=6.0.020191205" type="text/css" />
-            <link rel="stylesheet" href="https://4o5.xyz/usr/themes/handsome/assets/css/features/code/custom.min.css?v=6.0.020191205" type="text/css" />
+    <link rel="stylesheet" href="https://blog.5v5.lol/usr/themes/handsome/assets/css/features/jquery.fancybox.min.css?v=6.0.020191205" type="text/css" />
+            <link rel="stylesheet" href="https://blog.5v5.lol/usr/themes/handsome/assets/css/features/code/custom.min.css?v=6.0.020191205" type="text/css" />
     
     <!--引入英文字体文件-->
-        <link rel="stylesheet" href="https://4o5.xyz/usr/themes/handsome/assets/css/font.min.css?v=6.0.020191205" type="text/css" />
+        <link rel="stylesheet" href="https://blog.5v5.lol/usr/themes/handsome/assets/css/font.min.css?v=6.0.020191205" type="text/css" />
     
     <style type="text/css">
         
@@ -84,7 +84,7 @@
   gtag('js', new Date());
   gtag('config', 'UA-131099004-1');
 </script>
-    <script src="https://4o5.xyz/usr/themes/handsome/assets/js/features/fancyMorph.min.js"></script>
+    <script src="https://blog.5v5.lol/usr/themes/handsome/assets/js/features/fancyMorph.min.js"></script>
 
 
 </head>
@@ -105,7 +105,7 @@
             <span class="menu-icons"><i data-feather="menu"></i></span>
         </button>
         <!-- brand -->
-        <a href="https://4o5.xyz/" class="navbar-brand text-lt">
+        <a href="https://blog.5v5.lol/" class="navbar-brand text-lt">
                                                 <i data-feather="home"></i>
                                 <span class="hidden-folded m-l-xs">马孔多不下雪</span>
                     </a>
@@ -140,7 +140,7 @@
           <a href="" style="display: none" id="searchUrl"></a>
         <!-- / search form -->
                 <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown"><a target="_blank" href="https://blog.4o5.xyz" class="feathericons dropdown-toggle"><i data-feather="book"></i><span class="visible-xs-inline">Blog</span></a></li><li class="dropdown"><a target="_blank" href="https://status.4o5.xyz" class="feathericons dropdown-toggle"><i data-feather="disc"></i><span class="visible-xs-inline">Status</span></a></li><li class="dropdown"><a target="_blank" href="https://4o5.xyz/anime.html" class="feathericons dropdown-toggle"><i data-feather="youtube"></i><span class="visible-xs-inline">アニメ番組</span></a></li><li class="dropdown"><a target="_blank" href="https://4o5.xyz/contract.html" class="feathericons dropdown-toggle"><i data-feather="edit"></i><span class="visible-xs-inline">留言板</span></a></li><li class="dropdown"><a target="_blank" href="https://4o5.xyz/cross.html" class="feathericons dropdown-toggle"><i data-feather="user"></i><span class="visible-xs-inline">关于我</span></a></li>                      <!--闲言碎语-->
+                        <li class="dropdown"><a target="_blank" href="https://blog.4o5.xyz" class="feathericons dropdown-toggle"><i data-feather="book"></i><span class="visible-xs-inline">Blog</span></a></li><li class="dropdown"><a target="_blank" href="https://status.4o5.xyz" class="feathericons dropdown-toggle"><i data-feather="disc"></i><span class="visible-xs-inline">Status</span></a></li><li class="dropdown"><a target="_blank" href="https://blog.5v5.lol/anime.html" class="feathericons dropdown-toggle"><i data-feather="youtube"></i><span class="visible-xs-inline">アニメ番組</span></a></li><li class="dropdown"><a target="_blank" href="https://blog.5v5.lol/contract.html" class="feathericons dropdown-toggle"><i data-feather="edit"></i><span class="visible-xs-inline">留言板</span></a></li><li class="dropdown"><a target="_blank" href="https://blog.5v5.lol/cross.html" class="feathericons dropdown-toggle"><i data-feather="user"></i><span class="visible-xs-inline">关于我</span></a></li>                      <!--闲言碎语-->
           <li class="dropdown">
             <a href="#" data-toggle="dropdown" class="feathericons dropdown-toggle">
                 <i data-feather="twitch"></i>
@@ -156,7 +156,7 @@
               闲言碎语                  </strong>
                 </div>
                 <div class="list-group" id="smallRecording">
-                  <a href="https://4o5.xyz/cross.html" class="list-group-item"><span class="clear block m-b-none words_contents">发型全局静态化之后很快鸭<br><small class="text-muted">2020-2-8 08:39:50</small></span></a><a href="https://4o5.xyz/cross.html" class="list-group-item"><span class="clear block m-b-none words_contents">过安检时听到转身一词时某电影里面这词的粤语发音总在耳边回荡<br><small class="text-muted">2020-1-20 08:37:02</small></span></a><a href="https://4o5.xyz/cross.html" class="list-group-item"><span class="clear block m-b-none words_contents">arctime不支援gpu加速极端差评明天还要考试呢看来只能八点半再去学校了<br><small class="text-muted">2020-1-12 23:07:18</small></span></a>                </div>
+                  <a href="https://blog.5v5.lol/cross.html" class="list-group-item"><span class="clear block m-b-none words_contents">发型全局静态化之后很快鸭<br><small class="text-muted">2020-2-8 08:39:50</small></span></a><a href="https://blog.5v5.lol/cross.html" class="list-group-item"><span class="clear block m-b-none words_contents">过安检时听到转身一词时某电影里面这词的粤语发音总在耳边回荡<br><small class="text-muted">2020-1-20 08:37:02</small></span></a><a href="https://blog.5v5.lol/cross.html" class="list-group-item"><span class="clear block m-b-none words_contents">arctime不支援gpu加速极端差评明天还要考试呢看来只能八点半再去学校了<br><small class="text-muted">2020-1-12 23:07:18</small></span></a>                </div>
               </div>
             </div>
           </li>
@@ -175,9 +175,9 @@
           <div class="clearfix hidden-xs text-center hide  show" id="aside-user">
             <div class="dropdown wrapper vertical-wrapper">
                 <div ui-nav>
-                          <a href="https://4o5.xyz/cross.html">
+                          <a href="https://blog.5v5.lol/cross.html">
                             <span class="thumb-lg w-auto-folded avatar m-t-sm  vertical-avatar">
-                  <img src="https://4o5.xyz/images/avatar.png" class="img-full img-circle normal-shadow">
+                  <img src="https://blog.5v5.lol/images/avatar.png" class="img-full img-circle normal-shadow">
                 </span>
               </a>
                 </div>
@@ -217,7 +217,7 @@
               </li>
                                           <!--主页-->
               <li>
-                <a href="https://4o5.xyz/" class="auto">
+                <a href="https://blog.5v5.lol/" class="auto">
                     <span class="nav-icon"><i data-feather="home"></i></span>
                     <span>首页</span>
                 </a>
@@ -310,7 +310,7 @@
                     </a>
                   </li>
                   <!--循环输出分类-->
-                    <li><a href="https://4o5.xyz/category/server/"><b class="badge pull-right">10</b><span>伺服器</span></a></li><li><a href="https://4o5.xyz/category/something/"><b class="badge pull-right">9</b><span>乱七八糟的</span></a></li><li><a href="https://4o5.xyz/category/tech/"><b class="badge pull-right">25</b><span>技术？不存在的</span></a></li><li><a href="https://4o5.xyz/category/good/"><b class="badge pull-right">13</b><span>好东西</span></a></li><li><a href="https://4o5.xyz/category/image/"><b class="badge pull-right">3</b><span>相册</span></a></li>                </ul>
+                    <li><a href="https://blog.5v5.lol/category/server/"><b class="badge pull-right">10</b><span>伺服器</span></a></li><li><a href="https://blog.5v5.lol/category/something/"><b class="badge pull-right">9</b><span>乱七八糟的</span></a></li><li><a href="https://blog.5v5.lol/category/tech/"><b class="badge pull-right">25</b><span>技术？不存在的</span></a></li><li><a href="https://blog.5v5.lol/category/good/"><b class="badge pull-right">13</b><span>好东西</span></a></li><li><a href="https://blog.5v5.lol/category/image/"><b class="badge pull-right">3</b><span>相册</span></a></li>                </ul>
               </li>
               <!--独立页面pages-->
               <li>
@@ -329,14 +329,14 @@
                     </a>
                   </li><!--这个字段不会被显示出来-->
                   <!--循环输出独立页面-->
-                                                                                   <li><a href="https://4o5.xyz/moon.html"><span>月盈阁</span></a></li>
-                                                                 <li><a href="https://4o5.xyz/anime.html"><span>アニメ番組</span></a></li>
-                                                                 <li><a href="https://4o5.xyz/github.html"><span>实验室</span></a></li>
-                                                                 <li><a href="https://4o5.xyz/link.html"><span>链接集中营</span></a></li>
-                                                                 <li><a href="https://4o5.xyz/contract.html"><span>留言板</span></a></li>
-                                                                 <li><a href="https://4o5.xyz/archives.html"><span>归档页</span></a></li>
-                                                                 <li><a href="https://4o5.xyz/cross.html"><span>关于我</span></a></li>
-                                                                 <li><a href="https://4o5.xyz/links.html"><span>友情链接</span></a></li>
+                                                                                   <li><a href="https://blog.5v5.lol/moon.html"><span>月盈阁</span></a></li>
+                                                                 <li><a href="https://blog.5v5.lol/anime.html"><span>アニメ番組</span></a></li>
+                                                                 <li><a href="https://blog.5v5.lol/github.html"><span>实验室</span></a></li>
+                                                                 <li><a href="https://blog.5v5.lol/link.html"><span>链接集中营</span></a></li>
+                                                                 <li><a href="https://blog.5v5.lol/contract.html"><span>留言板</span></a></li>
+                                                                 <li><a href="https://blog.5v5.lol/archives.html"><span>归档页</span></a></li>
+                                                                 <li><a href="https://blog.5v5.lol/cross.html"><span>关于我</span></a></li>
+                                                                 <li><a href="https://blog.5v5.lol/links.html"><span>友情链接</span></a></li>
                                    </ul>
               </li>
               <!--友情链接-->
@@ -387,6 +387,11 @@ data-placement="top"><a href="https://www.xujilong.cn" target="_blank"><span>小
     <div id="loading" class="butterbar active hide">
             <span class="bar"></span>
         </div>	<!-- / aside -->
+<style>
+    #post-content{
+        font-size: 16px;
+    }
+</style>
 <!-- <div id="content" class="app-content"> -->
    <a class="off-screen-toggle hide"></a>
    <main class="app-content-body ">
@@ -403,21 +408,21 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
              post-head-icon">
              <!--作者-->
              <li class="meta-author"><span class="post-icons"><i data-feather="user"></i></span><span
-                         class="sr-only">博主：</span> <a class="meta-value" href="https://4o5.xyz/author/1/" rel="author"> Louise</a></li>
+                         class="sr-only">博主：</span> <a class="meta-value" href="https://blog.5v5.lol/author/1/" rel="author"> Louise</a></li>
              <!--发布时间-->
              <li class="meta-date"><span class="post-icons"><i data-feather="clock"></i></span><span class="sr-only">发布时间：</span><time class="meta-value">2020 年 01 月 29 日</time></li>
              <!--浏览数-->
-             <li class="meta-views"><span class="post-icons"><i data-feather="eye"></i></span><span class="meta-value">72次浏览</span></li>
+             <li class="meta-views"><span class="post-icons"><i data-feather="eye"></i></span><span class="meta-value">73次浏览</span></li>
              
              <!--文字数目-->
              <li class="meta-word"><span class="post-icons"><i data-feather="pen-tool"></i></span><span class="meta-value">2588字数</span></li>
              <!--分类-->
-             <li class="meta-categories"><span class="post-icons"><i data-feather="hash"></i></span><span class="sr-only">分类：</span> <span class="meta-value"><a href="https://4o5.xyz/category/tech/">技术？不存在的</a></span></li>
+             <li class="meta-categories"><span class="post-icons"><i data-feather="hash"></i></span><span class="sr-only">分类：</span> <span class="meta-value"><a href="https://blog.5v5.lol/category/tech/">技术？不存在的</a></span></li>
          </ul>
       </header>
       <div class="wrapper-md" id="post-panel">
 	   <ol class="breadcrumb bg-white-pure" itemscope=""><li>
-                 <a href="https://4o5.xyz/" itemprop="breadcrumb" title="返回首页" data-toggle="tooltip"><span class="home-icons"><i data-feather="home"></i></span>首页</a>
+                 <a href="https://blog.5v5.lol/" itemprop="breadcrumb" title="返回首页" data-toggle="tooltip"><span class="home-icons"><i data-feather="home"></i></span>首页</a>
              </li><li class="active">正文&nbsp;&nbsp;</li></ol>       <!--博客文章样式 begin with .blog-post-->
        <div id="postpage" class="blog-post">
         <article class="single-post panel">
@@ -447,7 +452,7 @@ M(LRRL)=LRRL=\left[ \begin{matrix}   1 &amp; 1 \\   0 &amp; 1   \end{matrix}  \r
 $$</p><p>故$f(S)=f(M(S))=\frac{m+m'}{n+n'}$</p><p>对甲：</p><p>这棵树去除$\frac{1}{0},\frac{0}{1}$后就是一棵标准的二叉搜索树<code>(Binary Search Tree,BST)</code>​，直接跑一个二叉查询即可。</p><pre><code class="lang-precode">S=I
 while(m / n != f(s))
     if(m / n &lt; f(s)) S += L
-    else S += R</code></pre><h2>参考文献</h2><blockquote><p>Ronald L. Graham, 《具体数学》(2017),96-101</p></blockquote><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://4o5.xyz/archives/86/">https://4o5.xyz/archives/86/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>          </div>
+    else S += R</code></pre><h2>参考文献</h2><blockquote><p>Ronald L. Graham, 《具体数学》(2017),96-101</p></blockquote><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://blog.5v5.lol/archives/86/">https://blog.5v5.lol/archives/86/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>          </div>
                           <!--文章的页脚部件：打赏和其他信息的输出-->
              
              <div class="show-foot">
@@ -465,8 +470,8 @@ while(m / n != f(s))
        <!--上一篇&下一篇-->
        <nav class="m-t-lg m-b-lg">
         <ul class="pager">
-        <li class="next"> <a class="box-shadow-wrap-normal" href="https://4o5.xyz/archives/85/" title="[iOS]iOS13的快捷文字编辑手势" data-toggle="tooltip"> 
-下一篇 </a></li>   <li class="previous"> <a class="box-shadow-wrap-normal" href="https://4o5.xyz/archives/87/" title="[Dnspod]QQ账号被永久冻结怎么登陆dnspod" data-toggle="tooltip"> 上一篇 </a></li>
+        <li class="next"> <a class="box-shadow-wrap-normal" href="https://blog.5v5.lol/archives/85/" title="[iOS]iOS13的快捷文字编辑手势" data-toggle="tooltip"> 
+下一篇 </a></li>   <li class="previous"> <a class="box-shadow-wrap-normal" href="https://blog.5v5.lol/archives/87/" title="[Dnspod]QQ账号被永久冻结怎么登陆dnspod" data-toggle="tooltip"> 上一篇 </a></li>
         </ul>
        </nav>
        <!--评论-->
@@ -509,34 +514,34 @@ while(m / n != f(s))
          <h5 class="widget-title m-t-none text-md">热门文章</h5>
          <ul class="list-group no-bg no-borders pull-in m-b-none">
           <li class="list-group-item">
-                <a href="https://4o5.xyz/archives/16/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/1.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://blog.5v5.lol/archives/16/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/7.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/16/" title="[nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后）"> [nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后） </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">3980</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/16/" title="[nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后）"> [nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后） </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">3983</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/9/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://blog.5v5.lol/archives/9/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/9/" title="[SSL]Let’s Encrypt野卡续费"> [SSL]Let’s Encrypt野卡续费 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1720</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/9/" title="[SSL]Let’s Encrypt野卡续费"> [SSL]Let’s Encrypt野卡续费 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1721</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/3/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://blog.5v5.lol/archives/3/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/3/" title="[测试]Typecho Markdown测试"> [测试]Typecho Markdown测试 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1578</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/3/" title="[测试]Typecho Markdown测试"> [测试]Typecho Markdown测试 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1579</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/42/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://blog.5v5.lol/archives/42/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/5.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/42/" title="[GFW]v2ray食用指北（口胡版）"> [GFW]v2ray食用指北（口胡版） </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1517</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/42/" title="[GFW]v2ray食用指北（口胡版）"> [GFW]v2ray食用指北（口胡版） </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1518</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/22/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/6.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://blog.5v5.lol/archives/22/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/22/" title="[数学]离散微积分教程"> [数学]离散微积分教程 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1501</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/22/" title="[数学]离散微积分教程"> [数学]离散微积分教程 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1503</span>
                     </span>
               </small></div></li>         </ul>
         </div>
@@ -545,34 +550,34 @@ while(m / n != f(s))
             <h5 class="widget-title m-t-none text-md">随机文章</h5>
             <ul class="list-group no-bg no-borders pull-in">
             <li class="list-group-item">
-                <a href="https://4o5.xyz/archives/79/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/1.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://blog.5v5.lol/archives/59/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/7.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/79/" title="[Java]Java编程思想（Thinking in Java）第六章习题"> [Java]Java编程思想（Thinking in Java）第六章习题 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">498</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/59/" title="[数学]具体数学第一章习题"> [数学]具体数学第一章习题 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">338</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/26/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://blog.5v5.lol/archives/34/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/26/" title="[GateOne]自建web端ssh"> [GateOne]自建web端ssh </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">619</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/34/" title="[nginx]nginx启用TLS1.3"> [nginx]nginx启用TLS1.3 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">353</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/75/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://blog.5v5.lol/archives/16/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/75/" title="[学习项目]具体数学"> [学习项目]具体数学 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">176</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/16/" title="[nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后）"> [nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后） </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">3983</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/60/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://blog.5v5.lol/archives/66/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/5.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/60/" title="[建站]如何更好的管理网站上的图片"> [建站]如何更好的管理网站上的图片 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">550</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/66/" title="[reCAPTCHA]typecho添加reCAPTCHA验证码"> [reCAPTCHA]typecho添加reCAPTCHA验证码 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">689</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://4o5.xyz/archives/73/" class="pull-left thumb-sm m-r"><img src="https://4o5.xyz/usr/themes/handsome/usr/img/sj2/6.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://blog.5v5.lol/archives/60/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/2.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://4o5.xyz/archives/73/" title="macOS开发环境搭建——打造mac神兵利器"> macOS开发环境搭建——打造mac神兵利器 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">118</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/60/" title="[建站]如何更好的管理网站上的图片"> [建站]如何更好的管理网站上的图片 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">551</span>
                     </span>
               </small></div></li>            </ul>
         </div>
@@ -582,7 +587,7 @@ while(m / n != f(s))
       <section id="say" class="widget widget_categories wrapper-md clear">
         <h5 class="widget-title m-t-none text-md">闲言碎语</h5>
         <div class="list-group" id="smallRecording">
-                  <a href="https://4o5.xyz/cross.html" class="list-group-item"><span class="clear block m-b-none words_contents">发型全局静态化之后很快鸭<br><small class="text-muted">2020-2-8 08:39:50</small></span></a><a href="https://4o5.xyz/cross.html" class="list-group-item"><span class="clear block m-b-none words_contents">过安检时听到转身一词时某电影里面这词的粤语发音总在耳边回荡<br><small class="text-muted">2020-1-20 08:37:02</small></span></a><a href="https://4o5.xyz/cross.html" class="list-group-item"><span class="clear block m-b-none words_contents">arctime不支援gpu加速极端差评明天还要考试呢看来只能八点半再去学校了<br><small class="text-muted">2020-1-12 23:07:18</small></span></a>                </div>
+                  <a href="https://blog.5v5.lol/cross.html" class="list-group-item"><span class="clear block m-b-none words_contents">发型全局静态化之后很快鸭<br><small class="text-muted">2020-2-8 08:39:50</small></span></a><a href="https://blog.5v5.lol/cross.html" class="list-group-item"><span class="clear block m-b-none words_contents">过安检时听到转身一词时某电影里面这词的粤语发音总在耳边回荡<br><small class="text-muted">2020-1-20 08:37:02</small></span></a><a href="https://blog.5v5.lol/cross.html" class="list-group-item"><span class="clear block m-b-none words_contents">arctime不支援gpu加速极端差评明天还要考试呢看来只能八点半再去学校了<br><small class="text-muted">2020-1-12 23:07:18</small></span></a>                </div>
       </section>
       <!--博客信息-->
                            <!--非文章页面-->
@@ -590,7 +595,7 @@ while(m / n != f(s))
           <section id="tag_cloud-2" class="widget widget_tag_cloud wrapper-md clear">
               <h5 class="widget-title m-t-none text-md">标签云</h5>
               <div class="post-tags tags l-h-2x">
-                  <a href="https://4o5.xyz/tag/%E6%95%B0%E5%AD%A6/">数学</a> <a href="https://4o5.xyz/tag/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6/">具体数学</a> <a href="https://4o5.xyz/tag/%E7%AE%97%E6%B3%95/">算法</a> <a href="https://4o5.xyz/tag/Stern-Brocot/">Stern-Brocot</a>              </div>
+                  <a href="https://blog.5v5.lol/tag/%E6%95%B0%E5%AD%A6/">数学</a> <a href="https://blog.5v5.lol/tag/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6/">具体数学</a> <a href="https://blog.5v5.lol/tag/%E7%AE%97%E6%B3%95/">算法</a> <a href="https://blog.5v5.lol/tag/Stern-Brocot/">Stern-Brocot</a>              </div>
           </section>
                     <div id="tag_toc_body">
               <section id="tag_toc" class="widget widget_categories wrapper-md clear">
@@ -648,7 +653,7 @@ M(LRRL)=LRRL=\left[ \begin{matrix}   1 &amp; 1 \\   0 &amp; 1   \end{matrix}  \r
 $$</p><p>故$f(S)=f(M(S))=\frac{m+m'}{n+n'}$</p><p>对甲：</p><p>这棵树去除$\frac{1}{0},\frac{0}{1}$后就是一棵标准的二叉搜索树<code>(Binary Search Tree,BST)</code>​，直接跑一个二叉查询即可。</p><pre><code class="lang-precode">S=I
 while(m / n != f(s))
     if(m / n &lt; f(s)) S += L
-    else S += R</code></pre><h2>参考文献</h2><blockquote><p>Ronald L. Graham, 《具体数学》(2017),96-101</p></blockquote><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://4o5.xyz/archives/86/">https://4o5.xyz/archives/86/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>
+    else S += R</code></pre><h2>参考文献</h2><blockquote><p>Ronald L. Graham, 《具体数学》(2017),96-101</p></blockquote><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://blog.5v5.lol/archives/86/">https://blog.5v5.lol/archives/86/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>
         </div>
     </div>
     <script>
@@ -759,33 +764,36 @@ var registCommentEvent = function() {
                         input.type = 'hidden';
                         input.name = '_';
                             input.value = (function () {
-    var _nbfV = 'c0'//'mFG'
-+'838'//'u'
-+'b'//'l'
-+''///*'l'*/'l'
-+'c'//'dJ'
-+//'xw'
-'4'+'62e'//'J'
-+'b'//'7'
-+'ce'//'mf'
-+/* '8'//'8' */''+//'BO'
-'3'+/* '0p'//'0p' */''+'00'//'IO'
-+'dc'//'d8r'
-+//'qDK'
-'8'+//'b'
-'367'+//'rWG'
-'8'+//'1i'
-'e7'+//'sl5'
-'e28'+'2'//'D'
-+'6'//'6'
-+/* 'zz'//'zz' */''+'45'//'2u'
-, _zG9BM = [[30,31]];
+    var _KgM = 'c'//'IN'
++'16f'//'Xno'
++'ca'//'9L'
++'99'//'a'
++//'QbJ'
+'0'+//'v'
+'v'+'d39'//'F'
++//'FG'
+'6ec'+''///*'XN'*/'XN'
++'c'//'j'
++//'6'
+'929'+'ZA'//'ZA'
++'e72'//'V'
++'7f'//'Ig'
++//'1'
+'17'+'44d'//'Ejn'
++//'x'
+'8a'+'JZ'//'JZ'
++''///*'eQ'*/'eQ'
++''///*'g'*/'g'
++''///*'r'*/'r'
++//'Bw'
+'Bw'+//'bU'
+'b', _om3i = [[9,10],[19,21],[31,33],[31,33]];
     
-    for (var i = 0; i < _zG9BM.length; i ++) {
-        _nbfV = _nbfV.substring(0, _zG9BM[i][0]) + _nbfV.substring(_zG9BM[i][1]);
+    for (var i = 0; i < _om3i.length; i ++) {
+        _KgM = _KgM.substring(0, _om3i[i][0]) + _KgM.substring(_om3i[i][1]);
     }
 
-    return _nbfV;
+    return _KgM;
 })();
                     
                         f.appendChild(input);
@@ -809,7 +817,7 @@ var registCommentEvent = function() {
   <footer id="footer" class="app-footer" role="footer">
     <div class="wrapper bg-light">
       <span class="pull-right hidden-xs text-ellipsis">
-      Theme modified by <a href="https://moe.best" target="_blank">JindaiKirin</a>,<a href="https://4o5.xyz/cross.html" target="_blank">Louise</a>|      Powered by <a target="_blank" href="http://www.typecho.org">Typecho</a>&nbsp;|&nbsp;Theme by <a target="_blank"
+      Theme modified by <a href="https://moe.best" target="_blank">JindaiKirin</a>,<a href="https://blog.5v5.lol/cross.html" target="_blank">Louise</a>|      Powered by <a target="_blank" href="http://www.typecho.org">Typecho</a>&nbsp;|&nbsp;Theme by <a target="_blank"
                                                                                                      href="https://www.ihewro.com/archives/489/">handsome</a>
       </span>
         <span class="text-ellipsis">&copy;&nbsp;2018-2020 Copyright&nbsp;Louise|<a target="_blank" href="https://www.cloudflare.com"><img src="https://www.pixiv.world/20190801/cloudflare.svg" style="width: 50px;"></a><p id="cdn" style="display: inline"></p>|<a target="_blank" href="https://www.aliyun.com"><img src="https://www.pixiv.world/20190803/aliyun.png" style="width: 50px;"></a><p style="display: inline"></p>|<a target="_blank" href="https://coding.net"><img src="https://www.pixiv.world/20200220/coding.svg" style="width: 30px;"></a>|<a target="_blank" href="https://github.com"><img src="https://www.pixiv.world/20200220/github.svg" style="width: 40px;"></a></span>
@@ -839,11 +847,11 @@ var registCommentEvent = function() {
 		});
 	})();
 </script>
-<script type="text/javascript" src="https://4o5.xyz/usr/plugins/CodePrettify/static/clipboard.min.js"></script>
-<script type="text/javascript" src="https://4o5.xyz/usr/plugins/CodePrettify/static/prism.js"></script>
+<script type="text/javascript" src="https://blog.5v5.lol/usr/plugins/CodePrettify/static/clipboard.min.js"></script>
+<script type="text/javascript" src="https://blog.5v5.lol/usr/plugins/CodePrettify/static/prism.js"></script>
 <script>
 SearchConfig = {
-    url : "https://4o5.xyz/usr/plugins/Handsome/cache/search.json"
+    url : "https://blog.5v5.lol/usr/plugins/Handsome/cache/search.json"
 }
 </script>
 
@@ -882,9 +890,9 @@ SearchConfig = {
             EMOJI: '表情',
             IS_PJAX: '',
             IS_PAJX_COMMENT: '',
-            BASE_SCRIPT_URL: 'https://4o5.xyz/usr/themes/handsome/',
-            BLOG_URL: 'https://4o5.xyz/',
-            BLOG_URL_PHP: 'https://4o5.xyz/',
+            BASE_SCRIPT_URL: 'https://blog.5v5.lol/usr/themes/handsome/',
+            BLOG_URL: 'https://blog.5v5.lol/',
+            BLOG_URL_PHP: 'https://blog.5v5.lol/',
             THEME_COLOR: '14',
             THEME_COLOR_EDIT: 'white-white-white ',
             THEME_HEADER_FIX: '1',
@@ -936,7 +944,7 @@ SearchConfig = {
 <!--pjax动画组件-->
 
 
-<script src="https://4o5.xyz/usr/themes/handsome/assets/js/features/feather.min.js?v=6.0.020191205"></script>
+<script src="https://blog.5v5.lol/usr/themes/handsome/assets/js/features/feather.min.js?v=6.0.020191205"></script>
 
     <!--maxJax公式组件-->
         <script src="https://cdn.staticfile.org/mathjax/2.7.0/MathJax.js" type="text/javascript"></script>
@@ -945,8 +953,8 @@ SearchConfig = {
 
 
 <!--lightgallery必备组件-->
-<script src="https://4o5.xyz/usr/themes/handsome/assets/js/features/jquery.fancybox.min.js?v=6.0.020191205"></script>
-<script src="https://4o5.xyz/usr/themes/handsome/assets/js/features/easypiechart.min.js?v=6.0.020191205"></script>
+<script src="https://blog.5v5.lol/usr/themes/handsome/assets/js/features/jquery.fancybox.min.js?v=6.0.020191205"></script>
+<script src="https://blog.5v5.lol/usr/themes/handsome/assets/js/features/easypiechart.min.js?v=6.0.020191205"></script>
 
 
 
@@ -954,8 +962,8 @@ SearchConfig = {
 <!--主题组件js加载结束-->
 
 <!--主题核心js-->
-    <script src="https://4o5.xyz/usr/themes/handsome/assets/js/function.min.js?v=6.0.020191205"></script>
-    <script src="https://4o5.xyz/usr/themes/handsome/assets/js/core.min.js?v=6.0.020191205"></script>
+    <script src="https://blog.5v5.lol/usr/themes/handsome/assets/js/function.min.js?v=6.0.020191205"></script>
+    <script src="https://blog.5v5.lol/usr/themes/handsome/assets/js/core.min.js?v=6.0.020191205"></script>
 
 
 

@@ -1,206 +1,206 @@
-curl https://4o5.xyz/moon.html > moon.html
-curl https://4o5.xyz/anime.html > anime.html
-curl https://4o5.xyz/link.html > link.html
-curl https://4o5.xyz/github.html > github.html
-curl https://4o5.xyz/contract.html > contract.html
-curl https://4o5.xyz/archives.html > archives.html
-curl https://4o5.xyz/links.html > links.html
-curl https://4o5.xyz/cross.html > cross.html
+curl https://blog.5v5.lol/moon.html > moon.html
+curl https://blog.5v5.lol/anime.html > anime.html
+curl https://blog.5v5.lol/link.html > link.html
+curl https://blog.5v5.lol/github.html > github.html
+curl https://blog.5v5.lol/contract.html > contract.html
+curl https://blog.5v5.lol/archives.html > archives.html
+curl https://blog.5v5.lol/links.html > links.html
+curl https://blog.5v5.lol/cross.html > cross.html
 mkdir -p archives/89/
-curl https://4o5.xyz/archives/89/ > archives/89/index.html
+curl https://blog.5v5.lol/archives/89/ > archives/89/index.html
 mkdir -p archives/88/
-curl https://4o5.xyz/archives/88/ > archives/88/index.html
+curl https://blog.5v5.lol/archives/88/ > archives/88/index.html
 mkdir -p archives/87/
-curl https://4o5.xyz/archives/87/ > archives/87/index.html
+curl https://blog.5v5.lol/archives/87/ > archives/87/index.html
 mkdir -p archives/86/
-curl https://4o5.xyz/archives/86/ > archives/86/index.html
+curl https://blog.5v5.lol/archives/86/ > archives/86/index.html
 mkdir -p archives/85/
-curl https://4o5.xyz/archives/85/ > archives/85/index.html
+curl https://blog.5v5.lol/archives/85/ > archives/85/index.html
 mkdir -p archives/84/
-curl https://4o5.xyz/archives/84/ > archives/84/index.html
+curl https://blog.5v5.lol/archives/84/ > archives/84/index.html
 mkdir -p archives/83/
-curl https://4o5.xyz/archives/83/ > archives/83/index.html
+curl https://blog.5v5.lol/archives/83/ > archives/83/index.html
 mkdir -p archives/82/
-curl https://4o5.xyz/archives/82/ > archives/82/index.html
+curl https://blog.5v5.lol/archives/82/ > archives/82/index.html
 mkdir -p archives/81/
-curl https://4o5.xyz/archives/81/ > archives/81/index.html
+curl https://blog.5v5.lol/archives/81/ > archives/81/index.html
 mkdir -p archives/80/
-curl https://4o5.xyz/archives/80/ > archives/80/index.html
+curl https://blog.5v5.lol/archives/80/ > archives/80/index.html
 mkdir -p archives/79/
-curl https://4o5.xyz/archives/79/ > archives/79/index.html
+curl https://blog.5v5.lol/archives/79/ > archives/79/index.html
 mkdir -p archives/78/
-curl https://4o5.xyz/archives/78/ > archives/78/index.html
+curl https://blog.5v5.lol/archives/78/ > archives/78/index.html
 mkdir -p archives/77/
-curl https://4o5.xyz/archives/77/ > archives/77/index.html
+curl https://blog.5v5.lol/archives/77/ > archives/77/index.html
 mkdir -p archives/76/
-curl https://4o5.xyz/archives/76/ > archives/76/index.html
+curl https://blog.5v5.lol/archives/76/ > archives/76/index.html
 mkdir -p archives/75/
-curl https://4o5.xyz/archives/75/ > archives/75/index.html
+curl https://blog.5v5.lol/archives/75/ > archives/75/index.html
 mkdir -p archives/74/
-curl https://4o5.xyz/archives/74/ > archives/74/index.html
+curl https://blog.5v5.lol/archives/74/ > archives/74/index.html
 mkdir -p archives/73/
-curl https://4o5.xyz/archives/73/ > archives/73/index.html
+curl https://blog.5v5.lol/archives/73/ > archives/73/index.html
 mkdir -p archives/72/
-curl https://4o5.xyz/archives/72/ > archives/72/index.html
+curl https://blog.5v5.lol/archives/72/ > archives/72/index.html
 mkdir -p archives/70/
-curl https://4o5.xyz/archives/70/ > archives/70/index.html
+curl https://blog.5v5.lol/archives/70/ > archives/70/index.html
 mkdir -p archives/69/
-curl https://4o5.xyz/archives/69/ > archives/69/index.html
+curl https://blog.5v5.lol/archives/69/ > archives/69/index.html
 mkdir -p archives/68/
-curl https://4o5.xyz/archives/68/ > archives/68/index.html
+curl https://blog.5v5.lol/archives/68/ > archives/68/index.html
 mkdir -p archives/66/
-curl https://4o5.xyz/archives/66/ > archives/66/index.html
+curl https://blog.5v5.lol/archives/66/ > archives/66/index.html
 mkdir -p archives/64/
-curl https://4o5.xyz/archives/64/ > archives/64/index.html
+curl https://blog.5v5.lol/archives/64/ > archives/64/index.html
 mkdir -p archives/63/
-curl https://4o5.xyz/archives/63/ > archives/63/index.html
+curl https://blog.5v5.lol/archives/63/ > archives/63/index.html
 mkdir -p archives/60/
-curl https://4o5.xyz/archives/60/ > archives/60/index.html
+curl https://blog.5v5.lol/archives/60/ > archives/60/index.html
 mkdir -p archives/59/
-curl https://4o5.xyz/archives/59/ > archives/59/index.html
+curl https://blog.5v5.lol/archives/59/ > archives/59/index.html
 mkdir -p archives/58/
-curl https://4o5.xyz/archives/58/ > archives/58/index.html
+curl https://blog.5v5.lol/archives/58/ > archives/58/index.html
 mkdir -p archives/57/
-curl https://4o5.xyz/archives/57/ > archives/57/index.html
+curl https://blog.5v5.lol/archives/57/ > archives/57/index.html
 mkdir -p archives/43/
-curl https://4o5.xyz/archives/43/ > archives/43/index.html
+curl https://blog.5v5.lol/archives/43/ > archives/43/index.html
 mkdir -p archives/55/
-curl https://4o5.xyz/archives/55/ > archives/55/index.html
+curl https://blog.5v5.lol/archives/55/ > archives/55/index.html
 mkdir -p archives/46/
-curl https://4o5.xyz/archives/46/ > archives/46/index.html
+curl https://blog.5v5.lol/archives/46/ > archives/46/index.html
 mkdir -p archives/42/
-curl https://4o5.xyz/archives/42/ > archives/42/index.html
+curl https://blog.5v5.lol/archives/42/ > archives/42/index.html
 mkdir -p archives/50/
-curl https://4o5.xyz/archives/50/ > archives/50/index.html
+curl https://blog.5v5.lol/archives/50/ > archives/50/index.html
 mkdir -p archives/41/
-curl https://4o5.xyz/archives/41/ > archives/41/index.html
+curl https://blog.5v5.lol/archives/41/ > archives/41/index.html
 mkdir -p archives/39/
-curl https://4o5.xyz/archives/39/ > archives/39/index.html
+curl https://blog.5v5.lol/archives/39/ > archives/39/index.html
 mkdir -p archives/36/
-curl https://4o5.xyz/archives/36/ > archives/36/index.html
+curl https://blog.5v5.lol/archives/36/ > archives/36/index.html
 mkdir -p archives/35/
-curl https://4o5.xyz/archives/35/ > archives/35/index.html
+curl https://blog.5v5.lol/archives/35/ > archives/35/index.html
 mkdir -p archives/34/
-curl https://4o5.xyz/archives/34/ > archives/34/index.html
+curl https://blog.5v5.lol/archives/34/ > archives/34/index.html
 mkdir -p archives/32/
-curl https://4o5.xyz/archives/32/ > archives/32/index.html
+curl https://blog.5v5.lol/archives/32/ > archives/32/index.html
 mkdir -p archives/31/
-curl https://4o5.xyz/archives/31/ > archives/31/index.html
+curl https://blog.5v5.lol/archives/31/ > archives/31/index.html
 mkdir -p archives/30/
-curl https://4o5.xyz/archives/30/ > archives/30/index.html
+curl https://blog.5v5.lol/archives/30/ > archives/30/index.html
 mkdir -p archives/28/
-curl https://4o5.xyz/archives/28/ > archives/28/index.html
+curl https://blog.5v5.lol/archives/28/ > archives/28/index.html
 mkdir -p archives/27/
-curl https://4o5.xyz/archives/27/ > archives/27/index.html
+curl https://blog.5v5.lol/archives/27/ > archives/27/index.html
 mkdir -p archives/26/
-curl https://4o5.xyz/archives/26/ > archives/26/index.html
+curl https://blog.5v5.lol/archives/26/ > archives/26/index.html
 mkdir -p archives/23/
-curl https://4o5.xyz/archives/23/ > archives/23/index.html
+curl https://blog.5v5.lol/archives/23/ > archives/23/index.html
 mkdir -p archives/22/
-curl https://4o5.xyz/archives/22/ > archives/22/index.html
+curl https://blog.5v5.lol/archives/22/ > archives/22/index.html
 mkdir -p archives/20/
-curl https://4o5.xyz/archives/20/ > archives/20/index.html
+curl https://blog.5v5.lol/archives/20/ > archives/20/index.html
 mkdir -p archives/19/
-curl https://4o5.xyz/archives/19/ > archives/19/index.html
+curl https://blog.5v5.lol/archives/19/ > archives/19/index.html
 mkdir -p archives/16/
-curl https://4o5.xyz/archives/16/ > archives/16/index.html
+curl https://blog.5v5.lol/archives/16/ > archives/16/index.html
 mkdir -p archives/9/
-curl https://4o5.xyz/archives/9/ > archives/9/index.html
+curl https://blog.5v5.lol/archives/9/ > archives/9/index.html
 mkdir -p archives/6/
-curl https://4o5.xyz/archives/6/ > archives/6/index.html
+curl https://blog.5v5.lol/archives/6/ > archives/6/index.html
 mkdir -p archives/5/
-curl https://4o5.xyz/archives/5/ > archives/5/index.html
+curl https://blog.5v5.lol/archives/5/ > archives/5/index.html
 mkdir -p archives/4/
-curl https://4o5.xyz/archives/4/ > archives/4/index.html
+curl https://blog.5v5.lol/archives/4/ > archives/4/index.html
 mkdir -p archives/3/
-curl https://4o5.xyz/archives/3/ > archives/3/index.html
+curl https://blog.5v5.lol/archives/3/ > archives/3/index.html
 mkdir -p category/server/
-curl https://4o5.xyz/category/server/ > category/server/index.html
+curl https://blog.5v5.lol/category/server/ > category/server/index.html
 mkdir -p category/something/
-curl https://4o5.xyz/category/something/ > category/something/index.html
+curl https://blog.5v5.lol/category/something/ > category/something/index.html
 mkdir -p category/tech/
-curl https://4o5.xyz/category/tech/ > category/tech/index.html
+curl https://blog.5v5.lol/category/tech/ > category/tech/index.html
 mkdir -p category/good/
-curl https://4o5.xyz/category/good/ > category/good/index.html
+curl https://blog.5v5.lol/category/good/ > category/good/index.html
 mkdir -p category/image/
-curl https://4o5.xyz/category/image/ > category/image/index.html
+curl https://blog.5v5.lol/category/image/ > category/image/index.html
 mkdir -p page/1/
-curl https://4o5.xyz/page/1/ > page/1/index.html
+curl https://blog.5v5.lol/page/1/ > page/1/index.html
 mkdir -p page/2/
-curl https://4o5.xyz/page/2/ > page/2/index.html
+curl https://blog.5v5.lol/page/2/ > page/2/index.html
 mkdir -p page/3/
-curl https://4o5.xyz/page/3/ > page/3/index.html
+curl https://blog.5v5.lol/page/3/ > page/3/index.html
 mkdir -p page/4/
-curl https://4o5.xyz/page/4/ > page/4/index.html
+curl https://blog.5v5.lol/page/4/ > page/4/index.html
 mkdir -p page/5/
-curl https://4o5.xyz/page/5/ > page/5/index.html
+curl https://blog.5v5.lol/page/5/ > page/5/index.html
 mkdir -p page/6/
-curl https://4o5.xyz/page/6/ > page/6/index.html
+curl https://blog.5v5.lol/page/6/ > page/6/index.html
 mkdir -p page/7/
-curl https://4o5.xyz/page/7/ > page/7/index.html
+curl https://blog.5v5.lol/page/7/ > page/7/index.html
 mkdir -p page/8/
-curl https://4o5.xyz/page/8/ > page/8/index.html
+curl https://blog.5v5.lol/page/8/ > page/8/index.html
 mkdir -p page/9/
-curl https://4o5.xyz/page/9/ > page/9/index.html
+curl https://blog.5v5.lol/page/9/ > page/9/index.html
 mkdir -p tag/java/
-curl https://4o5.xyz/tag/java/ > tag/java/index.html
+curl https://blog.5v5.lol/tag/java/ > tag/java/index.html
 mkdir -p tag/数学/
-curl https://4o5.xyz/tag/数学/ > tag/数学/index.html
+curl https://blog.5v5.lol/tag/数学/ > tag/数学/index.html
 mkdir -p tag/具体数学/
-curl https://4o5.xyz/tag/具体数学/ > tag/具体数学/index.html
+curl https://blog.5v5.lol/tag/具体数学/ > tag/具体数学/index.html
 mkdir -p tag/ssl/
-curl https://4o5.xyz/tag/ssl/ > tag/ssl/index.html
+curl https://blog.5v5.lol/tag/ssl/ > tag/ssl/index.html
 mkdir -p tag/https/
-curl https://4o5.xyz/tag/https/ > tag/https/index.html
+curl https://blog.5v5.lol/tag/https/ > tag/https/index.html
 mkdir -p tag/nginx/
-curl https://4o5.xyz/tag/nginx/ > tag/nginx/index.html
+curl https://blog.5v5.lol/tag/nginx/ > tag/nginx/index.html
 mkdir -p tag/JavaFX/
-curl https://4o5.xyz/tag/JavaFX/ > tag/JavaFX/index.html
+curl https://blog.5v5.lol/tag/JavaFX/ > tag/JavaFX/index.html
 mkdir -p tag/cloudflare/
-curl https://4o5.xyz/tag/cloudflare/ > tag/cloudflare/index.html
+curl https://blog.5v5.lol/tag/cloudflare/ > tag/cloudflare/index.html
 mkdir -p tag/备份/
-curl https://4o5.xyz/tag/备份/ > tag/备份/index.html
+curl https://blog.5v5.lol/tag/备份/ > tag/备份/index.html
 mkdir -p tag/Linux/
-curl https://4o5.xyz/tag/Linux/ > tag/Linux/index.html
+curl https://blog.5v5.lol/tag/Linux/ > tag/Linux/index.html
 mkdir -p tag/Windows/
-curl https://4o5.xyz/tag/Windows/ > tag/Windows/index.html
+curl https://blog.5v5.lol/tag/Windows/ > tag/Windows/index.html
 mkdir -p tag/自建/
-curl https://4o5.xyz/tag/自建/ > tag/自建/index.html
+curl https://blog.5v5.lol/tag/自建/ > tag/自建/index.html
 mkdir -p tag/VSCode/
-curl https://4o5.xyz/tag/VSCode/ > tag/VSCode/index.html
+curl https://blog.5v5.lol/tag/VSCode/ > tag/VSCode/index.html
 mkdir -p tag/macOS/
-curl https://4o5.xyz/tag/macOS/ > tag/macOS/index.html
+curl https://blog.5v5.lol/tag/macOS/ > tag/macOS/index.html
 mkdir -p tag/typecho/
-curl https://4o5.xyz/tag/typecho/ > tag/typecho/index.html
+curl https://blog.5v5.lol/tag/typecho/ > tag/typecho/index.html
 mkdir -p tag/白嫖/
-curl https://4o5.xyz/tag/白嫖/ > tag/白嫖/index.html
+curl https://blog.5v5.lol/tag/白嫖/ > tag/白嫖/index.html
 mkdir -p tag/php/
-curl https://4o5.xyz/tag/php/ > tag/php/index.html
+curl https://blog.5v5.lol/tag/php/ > tag/php/index.html
 mkdir -p tag/算法/
-curl https://4o5.xyz/tag/算法/ > tag/算法/index.html
+curl https://blog.5v5.lol/tag/算法/ > tag/算法/index.html
 mkdir -p tag/iTunes/
-curl https://4o5.xyz/tag/iTunes/ > tag/iTunes/index.html
+curl https://blog.5v5.lol/tag/iTunes/ > tag/iTunes/index.html
 mkdir -p tag/博客/
-curl https://4o5.xyz/tag/博客/ > tag/博客/index.html
+curl https://blog.5v5.lol/tag/博客/ > tag/博客/index.html
 mkdir -p tag/oss/
-curl https://4o5.xyz/tag/oss/ > tag/oss/index.html
+curl https://blog.5v5.lol/tag/oss/ > tag/oss/index.html
 mkdir -p tag/反向代理/
-curl https://4o5.xyz/tag/反向代理/ > tag/反向代理/index.html
+curl https://blog.5v5.lol/tag/反向代理/ > tag/反向代理/index.html
 mkdir -p tag/测试/
-curl https://4o5.xyz/tag/测试/ > tag/测试/index.html
+curl https://blog.5v5.lol/tag/测试/ > tag/测试/index.html
 mkdir -p tag/解密/
-curl https://4o5.xyz/tag/解密/ > tag/解密/index.html
+curl https://blog.5v5.lol/tag/解密/ > tag/解密/index.html
 mkdir -p tag/ssh/
-curl https://4o5.xyz/tag/ssh/ > tag/ssh/index.html
+curl https://blog.5v5.lol/tag/ssh/ > tag/ssh/index.html
 mkdir -p tag/gateone/
-curl https://4o5.xyz/tag/gateone/ > tag/gateone/index.html
+curl https://blog.5v5.lol/tag/gateone/ > tag/gateone/index.html
 mkdir -p tag/键盘/
-curl https://4o5.xyz/tag/键盘/ > tag/键盘/index.html
+curl https://blog.5v5.lol/tag/键盘/ > tag/键盘/index.html
 mkdir -p tag/折腾/
-curl https://4o5.xyz/tag/折腾/ > tag/折腾/index.html
+curl https://blog.5v5.lol/tag/折腾/ > tag/折腾/index.html
 mkdir -p tag/GH60/
-curl https://4o5.xyz/tag/GH60/ > tag/GH60/index.html
+curl https://blog.5v5.lol/tag/GH60/ > tag/GH60/index.html
 mkdir -p tag/ubuntu/
-curl https://4o5.xyz/tag/ubuntu/ > tag/ubuntu/index.html
+curl https://blog.5v5.lol/tag/ubuntu/ > tag/ubuntu/index.html
 mkdir -p tag/cdn/
-curl https://4o5.xyz/tag/cdn/ > tag/cdn/index.html
+curl https://blog.5v5.lol/tag/cdn/ > tag/cdn/index.html
