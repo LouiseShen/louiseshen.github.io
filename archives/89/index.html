@@ -195,10 +195,10 @@
                 <li class="wrapper b-b m-b-sm bg-info m-n">
                   <span class="arrow top hidden-folded arrow-info"></span>
                   <div>
-                                                  <p>下午好，是时候打个盹了</p>
+                                                <p>晚上好，注意早点休息</p>
                                   </div>
                   <div class="progress progress-xs m-b-none dker">
-                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="时间已经度过70.83%" style="width: 70.83%"></div>
+                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="时间已经度过75.00%" style="width: 75.00%"></div>
                   </div>
                 </li>
               </ul>
@@ -412,10 +412,10 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
              <!--发布时间-->
              <li class="meta-date"><span class="post-icons"><i data-feather="clock"></i></span><span class="sr-only">发布时间：</span><time class="meta-value">2020 年 02 月 23 日</time></li>
              <!--浏览数-->
-             <li class="meta-views"><span class="post-icons"><i data-feather="eye"></i></span><span class="meta-value">8次浏览</span></li>
+             <li class="meta-views"><span class="post-icons"><i data-feather="eye"></i></span><span class="meta-value">10次浏览</span></li>
              
              <!--文字数目-->
-             <li class="meta-word"><span class="post-icons"><i data-feather="pen-tool"></i></span><span class="meta-value">1192字数</span></li>
+             <li class="meta-word"><span class="post-icons"><i data-feather="pen-tool"></i></span><span class="meta-value">1252字数</span></li>
              <!--分类-->
              <li class="meta-categories"><span class="post-icons"><i data-feather="hash"></i></span><span class="sr-only">分类：</span> <span class="meta-value"><a href="https://blog.5v5.lol/category/tech/">技术？不存在的</a></span></li>
          </ul>
@@ -430,13 +430,13 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
         <div class="entry-thumbnail" aria-hidden="true"><div class="item-thumb lazy"  style="background-image: url(https://www.pixiv.world/20200223/79620347_p0_master1200.jpg)"><div class="img_copyright" data-toggle="tooltip" data-placement="left" data-original-title="background, scenery, original / ｒ - pixiv"><i class="glyphicon glyphicon-copyright-mark"></i></div></div></div>         <!--文章内容-->
          <div id="post-content" class="wrapper-lg">
           <div class="entry-content l-h-2x">
-          <p>通过curl来模拟用户操作达到提前缓存的目的</p><p>Head Pic: <span class="external-link"><a href="https://www.pixiv.world/20200223/79620347_p0_master1200.jpg" target="_blank">background, scenery, original / ｒ - pixiv<i data-feather='external-link'></i></a></span></p><h2>预缓存</h2><p>一开始看到<span class="external-link"><a href="https://zhangge.net/5154.html" target="_blank">张戈博客<i data-feather='external-link'></i></a></span>的一篇文章介绍了预缓存和脚本，发现蛮有道理的。</p><p>预缓存就是你提前访问位于CDN节点上的网站，然后后面的人再访问的话，CDN节点就可以不用再去请求源站，而是直接返回内容，当然一些CDN服务商就有自己的预热缓存提交接口，但是一般都有次数频率等限制。所以就有了这个小程式，直接模拟用户访问来达到预缓存。</p><p><div class="tip inlineBlock warning">注意：cloudflare免费版等CDN节点之间缓存是不同步的，即一个节点缓存了，另一个节点不会同步更新。</div></p><p>那么问题来了，既然节点不同步，那这个程式还有什么意义呢。当然，虽然节点不会同步更新，但是只要你的内容被缓存到了其中一个节点，另外的节点就可以在他们的CDN内抓取数据，而不用走源站了。（这个具体我没有条件测试，但是根据网路上其他人的测试是这样的）</p><p>好了，既然理论部分搞定，我们就只需要找个curl库再加上java fx，一气呵成，这个程式就完成啦。（雾）</p><h2>Website-Precache</h2><p>其实<span class="external-link"><a href="https://zhangge.net/5154.html" target="_blank">张戈博客<i data-feather='external-link'></i></a></span>那片文章里面的脚本也很好使用，但是我不想再为客户机跑一个脚本去装python，并且服务器端hosts有改动，所以很尴尬的就出现了这个Java版的。</p><p>因为使用纯Java实现的curl库，所以速度肯定比不过系统自带的了。</p><p>当然刚刚完成的程式比较简陋，从它的UI和提示信息就可以发现了。</p><p><button class="btn m-b-xs btn-dark btn-addon" onclick='window.open("https://github.com/CinemaMediaGroup/Website-Precache","_blank")'><i class="data-feather=github"></i>Website-Precache</button></p><p>当然我会持续开发的，虽然现在基本功能已经完备了。</p><h2>原理</h2><p>CDN在缓存的时候，http header里面就会带有是否缓存的标志，比如Cloudflare和百度云加速的就是<code>cf-cache-status</code>（百度连请求头的不改的，估计直接运行cloudflare的程式）。</p><p>常见的值有：<code>HIT（命中），MISS（未命中），EXPIRED（过期），DYNAMIC（动态）</code></p><p>所以我们只需要检查其中的值即可。</p><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://blog.5v5.lol/archives/89/">https://blog.5v5.lol/archives/89/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>          </div>
+          <p>通过curl来模拟用户操作达到提前缓存的目的</p><p>Head Pic: <span class="external-link"><a href="https://www.pixiv.world/20200223/79620347_p0_master1200.jpg" target="_blank">background, scenery, original / ｒ - pixiv<i data-feather='external-link'></i></a></span></p><h2>预缓存</h2><p>一开始看到<span class="external-link"><a href="https://zhangge.net/5154.html" target="_blank">张戈博客<i data-feather='external-link'></i></a></span>的一篇文章介绍了预缓存和脚本，发现蛮有道理的。</p><p>预缓存就是你提前访问位于CDN节点上的网站，然后后面的人再访问的话，CDN节点就可以不用再去请求源站，而是直接返回内容，当然一些CDN服务商就有自己的预热缓存提交接口，但是一般都有次数频率等限制。所以就有了这个小程式，直接模拟用户访问来达到预缓存。</p><p><div class="tip inlineBlock warning">注意：cloudflare免费版等CDN节点之间缓存是不同步的，即一个节点缓存了，另一个节点不会同步更新。</div></p><p>那么问题来了，既然节点不同步，那这个程式还有什么意义呢。当然，虽然节点不会同步更新，但是只要你的内容被缓存到了其中一个节点，另外的节点就可以在他们的CDN内抓取数据，而不用走源站了。（这个具体我没有条件测试，但是根据网路上其他人的测试是这样的）</p><p>好了，既然理论部分搞定，我们就只需要找个curl库再加上java fx，一气呵成，这个程式就完成啦。（雾）</p><h2>Website-Precache</h2><p>其实<span class="external-link"><a href="https://zhangge.net/5154.html" target="_blank">张戈博客<i data-feather='external-link'></i></a></span>那片文章里面的脚本也很好使用，但是我不想再为客户机跑一个脚本去装python，并且服务器端hosts有改动，所以很尴尬的就出现了这个Java版的。</p><p>因为使用纯Java实现的curl库，所以速度肯定比不过系统自带的了。</p><p>当然刚刚完成的程式比较简陋，从它的UI和提示信息就可以发现了。</p><p><button class="btn m-b-xs btn-dark btn-addon" onclick='window.open("https://github.com/CinemaMediaGroup/Website-Precache","_blank")'><i class="data-feather=github"></i>Website-Precache</button></p><p>当然我会持续开发的，虽然现在基本功能已经完备了。</p><p><img src="https://www.pixiv.world/20200225/20200225185311.jpg" alt="" title=""></p><h2>原理</h2><p>CDN在缓存的时候，http header里面就会带有是否缓存的标志，比如Cloudflare和百度云加速的就是<code>cf-cache-status</code>（百度连请求头都不改的，估计直接运行cloudflare的程式）。</p><p>常见的值有：<code>HIT（命中），MISS（未命中），EXPIRED（过期），DYNAMIC（动态）</code></p><p>所以我们只需要检查其中的值即可。</p><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://blog.5v5.lol/archives/89/">https://blog.5v5.lol/archives/89/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>          </div>
                           <!--文章的页脚部件：打赏和其他信息的输出-->
              
              <div class="show-foot">
                  <div class="notebook">
                      <i class="fontello fontello-clock-o"></i>
-                     <span>最后修改：2020 年 02 月 23 日 04 : 02  PM</span>
+                     <span>最后修改：2020 年 02 月 25 日 06 : 56  PM</span>
                  </div>
                  <div class="copyright" data-toggle="tooltip" data-html="true" data-original-title="转载请保留本文转载地址，著作权归作者所有"><span>© 允许规范转载</span>
                  </div>
@@ -491,34 +491,34 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
          <h5 class="widget-title m-t-none text-md">热门文章</h5>
          <ul class="list-group no-bg no-borders pull-in m-b-none">
           <li class="list-group-item">
-                <a href="https://blog.5v5.lol/archives/16/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://blog.5v5.lol/archives/16/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/3.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/16/" title="[nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后）"> [nginx]这大概就是萌新也看得懂的p站恢复教程（针对18年9月后） </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">3983</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">3984</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://blog.5v5.lol/archives/9/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/10.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://blog.5v5.lol/archives/9/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/9.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/9/" title="[SSL]Let’s Encrypt野卡续费"> [SSL]Let’s Encrypt野卡续费 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1721</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1722</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://blog.5v5.lol/archives/3/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/3.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://blog.5v5.lol/archives/3/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/5.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/3/" title="[测试]Typecho Markdown测试"> [测试]Typecho Markdown测试 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1579</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1580</span>
                     </span>
               </small></div></li><li class="list-group-item">
                 <a href="https://blog.5v5.lol/archives/42/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/42/" title="[GFW]v2ray食用指北（口胡版）"> [GFW]v2ray食用指北（口胡版） </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1518</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1519</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://blog.5v5.lol/archives/22/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/5.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://blog.5v5.lol/archives/22/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/1.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/22/" title="[数学]离散微积分教程"> [数学]离散微积分教程 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1503</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1504</span>
                     </span>
               </small></div></li>         </ul>
         </div>
@@ -527,34 +527,34 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
             <h5 class="widget-title m-t-none text-md">随机文章</h5>
             <ul class="list-group no-bg no-borders pull-in">
             <li class="list-group-item">
-                <a href="https://blog.5v5.lol/archives/86/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://blog.5v5.lol/archives/3/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/3.jpg" class="img-40px normal-shadow img-square"></a>
+                <div class="clear">
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/3/" title="[测试]Typecho Markdown测试"> [测试]Typecho Markdown测试 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1580</span>
+                    </span>
+              </small></div></li><li class="list-group-item">
+                <a href="https://blog.5v5.lol/archives/86/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/9.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/86/" title="[算法]Stern-Brocot树"> [算法]Stern-Brocot树 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">73</span>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">74</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://blog.5v5.lol/archives/78/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/10.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://blog.5v5.lol/archives/77/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/5.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/78/" title="[数学]具体数学第二章习题"> [数学]具体数学第二章习题 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">124</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/77/" title="我的奋斗——2020高考"> 我的奋斗——2020高考 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">357</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://blog.5v5.lol/archives/22/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/3.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://blog.5v5.lol/archives/79/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/22/" title="[数学]离散微积分教程"> [数学]离散微积分教程 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">1503</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/79/" title="[Java]Java编程思想（Thinking in Java）第六章习题"> [Java]Java编程思想（Thinking in Java）第六章习题 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">500</span>
                     </span>
               </small></div></li><li class="list-group-item">
-                <a href="https://blog.5v5.lol/archives/35/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
+                <a href="https://blog.5v5.lol/archives/26/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/1.jpg" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/35/" title="[个人项目]Cinema Aliyun OSS Explorer"> [个人项目]Cinema Aliyun OSS Explorer </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">437</span>
-                    </span>
-              </small></div></li><li class="list-group-item">
-                <a href="https://blog.5v5.lol/archives/82/" class="pull-left thumb-sm m-r"><img src="https://blog.5v5.lol/usr/themes/handsome/usr/img/sj2/5.jpg" class="img-40px normal-shadow img-square"></a>
-                <div class="clear">
-                    <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/82/" title="Real Racing 3画廊"> Real Racing 3画廊 </a></h4>
-                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">54</span>
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.5v5.lol/archives/26/" title="[GateOne]自建web端ssh"> [GateOne]自建web端ssh </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">621</span>
                     </span>
               </small></div></li>            </ul>
         </div>
@@ -608,7 +608,7 @@ data-toggle="tooltip" data-placement="right" data-original-title="阅读模式">
         <div class="page">
             <h1 class="title">[Java项目]Website Precache网站CDN预缓存</h1>
             <div class="metadata singleline"><a href="#" rel="author" class="byline">Louise</a>&nbsp;•&nbsp;<span class="delimiter"></span><time class="date">2020 年 02 月 23 日</time></div>
-            <p>通过curl来模拟用户操作达到提前缓存的目的</p><p>Head Pic: <span class="external-link"><a href="https://www.pixiv.world/20200223/79620347_p0_master1200.jpg" target="_blank">background, scenery, original / ｒ - pixiv<i data-feather='external-link'></i></a></span></p><h2>预缓存</h2><p>一开始看到<span class="external-link"><a href="https://zhangge.net/5154.html" target="_blank">张戈博客<i data-feather='external-link'></i></a></span>的一篇文章介绍了预缓存和脚本，发现蛮有道理的。</p><p>预缓存就是你提前访问位于CDN节点上的网站，然后后面的人再访问的话，CDN节点就可以不用再去请求源站，而是直接返回内容，当然一些CDN服务商就有自己的预热缓存提交接口，但是一般都有次数频率等限制。所以就有了这个小程式，直接模拟用户访问来达到预缓存。</p><p><div class="tip inlineBlock warning">注意：cloudflare免费版等CDN节点之间缓存是不同步的，即一个节点缓存了，另一个节点不会同步更新。</div></p><p>那么问题来了，既然节点不同步，那这个程式还有什么意义呢。当然，虽然节点不会同步更新，但是只要你的内容被缓存到了其中一个节点，另外的节点就可以在他们的CDN内抓取数据，而不用走源站了。（这个具体我没有条件测试，但是根据网路上其他人的测试是这样的）</p><p>好了，既然理论部分搞定，我们就只需要找个curl库再加上java fx，一气呵成，这个程式就完成啦。（雾）</p><h2>Website-Precache</h2><p>其实<span class="external-link"><a href="https://zhangge.net/5154.html" target="_blank">张戈博客<i data-feather='external-link'></i></a></span>那片文章里面的脚本也很好使用，但是我不想再为客户机跑一个脚本去装python，并且服务器端hosts有改动，所以很尴尬的就出现了这个Java版的。</p><p>因为使用纯Java实现的curl库，所以速度肯定比不过系统自带的了。</p><p>当然刚刚完成的程式比较简陋，从它的UI和提示信息就可以发现了。</p><p><button class="btn m-b-xs btn-dark btn-addon" onclick='window.open("https://github.com/CinemaMediaGroup/Website-Precache","_blank")'><i class="data-feather=github"></i>Website-Precache</button></p><p>当然我会持续开发的，虽然现在基本功能已经完备了。</p><h2>原理</h2><p>CDN在缓存的时候，http header里面就会带有是否缓存的标志，比如Cloudflare和百度云加速的就是<code>cf-cache-status</code>（百度连请求头的不改的，估计直接运行cloudflare的程式）。</p><p>常见的值有：<code>HIT（命中），MISS（未命中），EXPIRED（过期），DYNAMIC（动态）</code></p><p>所以我们只需要检查其中的值即可。</p><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://blog.5v5.lol/archives/89/">https://blog.5v5.lol/archives/89/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>
+            <p>通过curl来模拟用户操作达到提前缓存的目的</p><p>Head Pic: <span class="external-link"><a href="https://www.pixiv.world/20200223/79620347_p0_master1200.jpg" target="_blank">background, scenery, original / ｒ - pixiv<i data-feather='external-link'></i></a></span></p><h2>预缓存</h2><p>一开始看到<span class="external-link"><a href="https://zhangge.net/5154.html" target="_blank">张戈博客<i data-feather='external-link'></i></a></span>的一篇文章介绍了预缓存和脚本，发现蛮有道理的。</p><p>预缓存就是你提前访问位于CDN节点上的网站，然后后面的人再访问的话，CDN节点就可以不用再去请求源站，而是直接返回内容，当然一些CDN服务商就有自己的预热缓存提交接口，但是一般都有次数频率等限制。所以就有了这个小程式，直接模拟用户访问来达到预缓存。</p><p><div class="tip inlineBlock warning">注意：cloudflare免费版等CDN节点之间缓存是不同步的，即一个节点缓存了，另一个节点不会同步更新。</div></p><p>那么问题来了，既然节点不同步，那这个程式还有什么意义呢。当然，虽然节点不会同步更新，但是只要你的内容被缓存到了其中一个节点，另外的节点就可以在他们的CDN内抓取数据，而不用走源站了。（这个具体我没有条件测试，但是根据网路上其他人的测试是这样的）</p><p>好了，既然理论部分搞定，我们就只需要找个curl库再加上java fx，一气呵成，这个程式就完成啦。（雾）</p><h2>Website-Precache</h2><p>其实<span class="external-link"><a href="https://zhangge.net/5154.html" target="_blank">张戈博客<i data-feather='external-link'></i></a></span>那片文章里面的脚本也很好使用，但是我不想再为客户机跑一个脚本去装python，并且服务器端hosts有改动，所以很尴尬的就出现了这个Java版的。</p><p>因为使用纯Java实现的curl库，所以速度肯定比不过系统自带的了。</p><p>当然刚刚完成的程式比较简陋，从它的UI和提示信息就可以发现了。</p><p><button class="btn m-b-xs btn-dark btn-addon" onclick='window.open("https://github.com/CinemaMediaGroup/Website-Precache","_blank")'><i class="data-feather=github"></i>Website-Precache</button></p><p>当然我会持续开发的，虽然现在基本功能已经完备了。</p><p><img src="https://www.pixiv.world/20200225/20200225185311.jpg" alt="" title=""></p><h2>原理</h2><p>CDN在缓存的时候，http header里面就会带有是否缓存的标志，比如Cloudflare和百度云加速的就是<code>cf-cache-status</code>（百度连请求头都不改的，估计直接运行cloudflare的程式）。</p><p>常见的值有：<code>HIT（命中），MISS（未命中），EXPIRED（过期），DYNAMIC（动态）</code></p><p>所以我们只需要检查其中的值即可。</p><hr class="content-copyright" style="margin-top:50px" /><blockquote class="content-copyright" style="font-style:normal"><p class="content-copyright">版权属于：Cinema</p><p class="content-copyright">本文链接：<a class="content-copyright" href="https://blog.5v5.lol/archives/89/">https://blog.5v5.lol/archives/89/</a></p><p class="content-copyright">所有文章无特殊说明均采用<span class="external-link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0<i data-feather='external-link'></i></a></span>协议许可，您可自由共享和演绎，惟须留下文章来源且不可用于商业用途。</p></blockquote>
         </div>
     </div>
     <script>
@@ -719,32 +719,34 @@ var registCommentEvent = function() {
                         input.type = 'hidden';
                         input.name = '_';
                             input.value = (function () {
-    var _dcjEhA = //'xK'
-'b'+//'t'
-'f71'+//'7t'
-'5'+//'7'
-'f9f'+//'VwB'
-'8'+//'mr4'
-'9d3'+/* '4'//'4' */''+'cf'//'o'
-+'7'//'BKc'
-+''///*'QfD'*/'QfD'
-+//'y'
-'ea4'+'3'//'6Z'
-+'o9'//'o9'
-+//'zWM'
-'ce'+'b44'//'ad'
-+'LM'//'LM'
-+'efd'//'dKV'
-+//'U'
-'d44'+//'ATe'
-'f'+'b'//'fKc'
-, _xydaM = [[19,21],[24,26]];
+    var _T5G = //'S'
+'bf7'+'15'//'yeI'
++'f9f'//'Q'
++'8'//'5'
++'9d3'//'K'
++//'C'
+'C'+'w'//'w'
++'cf7'//'b'
++'e'//'si3'
++//'GY'
+'a43'+//'d'
+'c'+//'I'
+'e'+//'Y'
+'Y'+//'C'
+'b'+//'9S5'
+'4'+'4'//'IoD'
++'efd'//'zpV'
++'d4'//'DwD'
++/* 'M'//'M' */''+//'v'
+'4'+'f'//'WKb'
++'b'//'HZb'
+, _JFIf = [[12,13],[12,13],[21,22]];
     
-    for (var i = 0; i < _xydaM.length; i ++) {
-        _dcjEhA = _dcjEhA.substring(0, _xydaM[i][0]) + _dcjEhA.substring(_xydaM[i][1]);
+    for (var i = 0; i < _JFIf.length; i ++) {
+        _T5G = _T5G.substring(0, _JFIf[i][0]) + _T5G.substring(_JFIf[i][1]);
     }
 
-    return _dcjEhA;
+    return _T5G;
 })();
                     
                         f.appendChild(input);
