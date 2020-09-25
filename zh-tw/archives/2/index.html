@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/3.0.0'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>如何優雅的備份伺服器 - 馬孔多不下雪</title>
+  
+    <meta name="keywords" content="備份">
+  
+
+  
+    <meta name="description" content="究极优雅且不要钱的方法">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+    <link rel="shortcut icon" type='image/x-icon' href="https://cdn.jsdelivr.net/gh/CinemaMediaGroup/static-file@latest/2020/00000132.ico">
+  
+
+  
+
+  
+
+  <!-- import link -->
+  
+  
+  <link rel="stylesheet" href="">
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/zh-tw/css/style.css">
+
+  
+
+  
+  
+</head>
+
+<body>
+  
+  
+    <header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/zh-tw/'>
+          
+            <img no-lazy class='logo' src='https://cdn.jsdelivr.net/gh/CinemaMediaGroup/static-file@latest/2020/00000130.svg'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/zh-tw/
+                  
+                  
+                  
+                    id="zh-tw"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>部落格
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/zh-tw/moon.html
+                  
+                  
+                  
+                    id="zh-twmoonhtml"
+                  >
+                  <i class='fas fa-book fa-fw'></i>月盈閣
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/zh-tw/anime.html
+                  
+                  
+                  
+                    id="zh-twanimehtml"
+                  >
+                  <i class='fab fa-youtube fa-fw'></i>動畫
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/zh-tw/film.html
+                  
+                  
+                  
+                    id="zh-twfilmhtml"
+                  >
+                  <i class='fas fa-film fa-fw'></i>追劇
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/zh-tw/archives/
+                  
+                  
+                  
+                    id="zh-twarchives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>歸檔
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/zh-tw/friends/
+                  
+                  
+                  
+                    id="zh-twfriends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友情連結
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/zh-tw/about/
+                  
+                  
+                  
+                    id="zh-twabout"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>關於
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-language fa-fw'></i>語言
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://blog.5v5.lol/zh-tw/
+                  
+                  
+                  
+                    id="https:blog5v5lolzh-tw"
+                  >
+                  台灣正體
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://blog.5v5.lol/
+                  
+                  
+                  
+                    id="https:blog5v5lol"
+                  >
+                  大陆简体
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://blog.5v5.lol/en/
+                  
+                  
+                  
+                    id="https:blog5v5lolen"
+                  >
+                  English
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/zh-tw/
+                  
+                  
+                  
+                    id="zh-tw"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>部落格
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/zh-tw/moon.html
+                  
+                  
+                  
+                    id="zh-twmoonhtml"
+                  >
+                  <i class='fas fa-book fa-fw'></i>月盈閣
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/zh-tw/anime.html
+                  
+                  
+                  
+                    id="zh-twanimehtml"
+                  >
+                  <i class='fab fa-youtube fa-fw'></i>動畫
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/zh-tw/film.html
+                  
+                  
+                  
+                    id="zh-twfilmhtml"
+                  >
+                  <i class='fas fa-film fa-fw'></i>追劇
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/zh-tw/archives/
+                  
+                  
+                  
+                    id="zh-twarchives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>歸檔
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/zh-tw/friends/
+                  
+                  
+                  
+                    id="zh-twfriends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友情連結
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/zh-tw/about/
+                  
+                  
+                  
+                    id="zh-twabout"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>關於
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-language fa-fw'></i>語言
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://blog.5v5.lol/zh-tw/
+                  
+                  
+                  
+                    id="https:blog5v5lolzh-tw"
+                  >
+                  台灣正體
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://blog.5v5.lol/
+                  
+                  
+                  
+                    id="https:blog5v5lol"
+                  >
+                  大陆简体
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://blog.5v5.lol/en/
+                  
+                  
+                  
+                    id="https:blog5v5lolen"
+                  >
+                  English
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper' id="pjax-container">
+      
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/zh-tw/archives/2/">
+      如何優雅的備份伺服器
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/CinemaMediaGroup/static-file@latest/images/avatar.png">
+    <p>Louise</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/zh-tw/categories/%E4%BC%BA%E6%9C%8D%E5%99%A8/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>伺服器</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>發布於：2020年8月29日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <div class="note info"><p>我嫌原來寫的太水了，已經重寫了這篇文章</p></div>
+
+<p>用github等git服務備份，不僅可以隨時看到commit修改狀況，方便回滾，還可以自動化！</p>
+<p>（若無特殊說明，所有的命令皆在類UNIX系統下執行）</p>
+<h2 id="先決條件"><a href="#先決條件" class="headerlink" title="先決條件"></a>先決條件</h2><ul>
+<li>github帳號</li>
+<li>git</li>
+<li>SSH key</li>
+</ul>
+<h2 id="1-創建SSH-key"><a href="#1-創建SSH-key" class="headerlink" title="1.創建SSH key"></a>1.創建SSH key</h2><p>打開終端機，用下面的命令創建RSA密鑰</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+
+<p>然後會讓你回答以下問題：</p>
+<ol>
+<li>Enter file in which to save the key（在哪個檔案中保存key，輸入那個檔案的路徑）</li>
+<li>Enter passphrase (empty for no passphrase)（鍵入passphrase，可以為空，但是要和下面的一致，為空就敲兩下確認鍵）</li>
+<li>Enter same passphrase again（再輸入一次）</li>
+</ol>
+<p>結果大概是這樣，你會得到一個key和一個key.pub檔案（假設你保存的檔案名字叫做key）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/CinemaMediaGroup/static-file@latest/2020/00000045.jpg" alt="圖片45"></p>
+<p>然後將key.pub檔案裡的內容拷貝下來，再到github上，右鍵-&gt;Settings-&gt;SSH and GPG keys-&gt;New SSH key，將拷貝的內容粘貼到<code>Key</code>輸入框，<code>Title</code>由你決定，不影響。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/CinemaMediaGroup/static-file@latest/2020/00000044.jpg" alt="圖片44"></p>
+<p>之所以創建SSH key是因為以SSH而非HTTPS模式需要，而不用HTTPS模式是因為那樣要帳號和密碼，而自動化時明文輸入帳號密碼是非常不安全的！</p>
+<h2 id="2-建立Github倉庫"><a href="#2-建立Github倉庫" class="headerlink" title="2.建立Github倉庫"></a>2.建立Github倉庫</h2><p>推薦選擇私人(private)，即使你備份的是一個網站，但是考慮到如果是公開(public)的，可能讓你的整個網站被盜走。</p>
+<h2 id="3-本地準備"><a href="#3-本地準備" class="headerlink" title="3.本地準備"></a>3.本地準備</h2><p><strong>到你要備份網站的目錄</strong>，然後初始化一個git專案，這樣做只是會在本地生成一個<code>.git</code>隱藏目錄，不會對原有檔案產生影響。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin git@github.com:xxxxxx/xxxxx.git</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>git@github.com:xxxxxx/xxxxx.git</code>是你建立的倉庫地址，透過SSH模式！</p>
+<p>然後我們先試著push一下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git add -A</span><br><span class="line">git commit -m <span class="string">&quot;隨便寫的消息，但是不能不填&quot;</span></span><br><span class="line">ssh-agent bash</span><br><span class="line">ssh-add key</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<p>其中第1、2行是將這個目錄下的檔案變化（新增、刪除、修改）提交到快取區，然後啟動ssh-agent來管理密鑰（在macOS下似乎可以跳過這步），然後將<code>key</code>(而非<code>key.pub</code>)加入到ssh-agent。</p>
+<p>最後push到遠端倉庫，<code>origin</code>是你<code>remote add</code>那一步設置的，後續push不需要再用<code>-u</code>參數。</p>
+<p>然後你的網站就上載了！</p>
+<h2 id="4-定時同步"><a href="#4-定時同步" class="headerlink" title="4.定時同步"></a>4.定時同步</h2><p>用crontab定時push一次</p>
+<p>写一个腳本：<code>backup.sh</code>，寫入如下內容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /網站路徑</span><br><span class="line">git add -A</span><br><span class="line">git commit -m <span class="string">&quot;隨便寫的消息，但不能不寫&quot;</span></span><br><span class="line">ssh-add /生成的密鑰</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<p>然後改一下crontab設定檔(<code>/var/spool/cron/crontabs/用户名</code>)，加入如下內容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 0 * * * ssh-agent bash /剛剛寫好的backup.sh</span><br></pre></td></tr></table></figure>
+
+<p>記得重啟crontab（<code>/etc/init.d/restart</code>）</p>
+<h2 id="參考連結"><a href="#參考連結" class="headerlink" title="參考連結"></a>參考連結</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://moe.best/gotagota/backup-to-github.html">https://moe.best/gotagota/backup-to-github.html</a></li>
+</ol>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>部落格內容在 姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議之條款下提供。</p>
+
+          
+        
+          
+            <p>本文的永久連結是：<a href=https://blog.5v5.lol/zh-tw/archives/2/>https://blog.5v5.lol/zh-tw/archives/2/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-29T18:17:28+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新於：2020年8月29日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/zh-tw/tags/%E5%82%99%E4%BB%BD/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>備份</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/zh-tw/archives/1/'>
+                <p class='title'>Markdown測試<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>Head Pic: 「千夜 V6」/「千夜QYS3」のイラスト - pixiv
+Markdown 文件NOTE: This is Traditional Chinese Edition Docu...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      <section id="comments">
+        <div id="isso-thread"></div>
+
+      </section>
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+  <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目錄</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E6%B1%BA%E6%A2%9D%E4%BB%B6"><span class="toc-text">先決條件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%89%B5%E5%BB%BASSH-key"><span class="toc-text">1.創建SSH key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BB%BA%E7%AB%8BGithub%E5%80%89%E5%BA%AB"><span class="toc-text">2.建立Github倉庫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%9C%AC%E5%9C%B0%E6%BA%96%E5%82%99"><span class="toc-text">3.本地準備</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AE%9A%E6%99%82%E5%90%8C%E6%AD%A5"><span class="toc-text">4.定時同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%83%E8%80%83%E9%80%A3%E7%B5%90"><span class="toc-text">參考連結</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+    </div>
+    
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/zh-tw/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:91louiseshen@gmail.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/CinemaMediaGroup/"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客內容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+</div>
+      
+    
+      
+        
+          <div><p>由<a target="_blank" rel="noopener" href="https://github.com/CinemaMediaGroup/Macondo">Macondo</a>管理，<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>驅動，並使用<a target="_blank" rel="noopener" href="https://volantis.js.org/">Volantis</a>主題</p>
+</div>
+        
+      
+    
+      
+        <div class='copyright'>
+        <p>Copyright © 2018-2020 Louise</p>
+
+        </div>
+      
+    
+  </footer>
+
+
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <div>
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+
+
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+  <script data-isso="https://isso.5v5.lol:12361/" src="https://isso.5v5.lol:12361/js/embed.min.js"</script>
+
+
+
+
+<!-- darkmodejs -->
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5/lib/darkmode-js.min.js" aysc></script>
+
+  <script type="text/javascript">
+	function getClientHeight(){
+	  var clientHeight=0;
+	  if(document.body.clientHeight&&document.documentElement.clientHeight){
+	  var clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+	  }else{
+	  var clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+	  }
+	  return clientHeight;
+	}
+	function supportCss3(style) {
+		var prefix = ['webkit', 'Moz', 'ms', 'o'],
+		i,
+		humpString = [],
+		htmlStyle = document.documentElement.style,
+		_toHumb = function (string) {
+		return string.replace(/-(\w)/g, function ($0, $1) {
+		return $1.toUpperCase();
+		});
+		};
+		for (i in prefix)
+		humpString.push(_toHumb(prefix[i] + '-' + style));
+		humpString.push(_toHumb(style));
+		for (i in humpString)
+		if (humpString[i] in htmlStyle) return true;
+		return false;
+	};
+	//配置信息
+	var options = {
+	  bottom: '32px',
+	  right: 'unset',
+	  left: '16px',
+	  time: '0s',
+	  mixColor: '#f4f4f4',
+	  backgroundColor: '#f4f4f4',
+	  buttonColorDark: '#100f2c',
+	  buttonColorLight: '#f4f4f4',
+	  saveInCookies: true,
+	  label: '🌓',
+	  autoMatchOsTheme: true
+	};
+	// 卡片兼容处理 mix-blend-mode 与 effect: [shadow, floatable, blur] 冲突???
+	function pjax_darkmodejs(){
+		
+	}
+	// mix-blend-mode support?
+	if(supportCss3('mix-blend-mode')){
+		const darkmode = new Darkmode(options);
+		darkmode.showWidget();
+		pjax_darkmodejs();
+	}
+  </script>
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+<!-- scrollreveal -->
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    function pjax_scrollrebeal() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '32px',
+        duration: '800',
+        interval: '20',
+        scale: '1',
+        easing: 'ease-out'
+      });
+    }
+
+    $(function () {
+      pjax_scrollrebeal();
+    });
+  </script>
+
+<!-- ******************************** -->
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+<!-- ******************************** -->
+
+
+  
+<script src="/zh-tw/js/app.js"></script>
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+
+
+
+
+
+    
+  </div>
+</body>
+</html>
