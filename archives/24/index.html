@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -19,9 +17,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：macOS - 马孔多不下雪</title>
+  <title>AtCoder ABC 042 D - 马孔多不下雪</title>
+  
+    <meta name="keywords" content="AtCoder">
   
 
+  
+    <meta name="description" content="一场因看错题而引发的头发危机。">
   
 
   <!-- feed -->
@@ -498,74 +500,303 @@
         
         
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        AtCoder ABC 042 D
+      </h1>
+      <div class='new-meta-box'>
         
           
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/CinemaMediaGroup/ImagePack2@latest/00000163.webp">
+    <p>Louise</p>
+  </a>
+</div>
+
+          
         
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/archives/73/">
-        打造mac神兵利器
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>工欲善其事，必先利其器</p>
-    
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84/">乱七八糟的</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2019-09-14</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年10月5日</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%A5%BD%E4%B8%9C%E8%A5%BF/">好东西</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="AtCoder ABC 042 D" data-path="/archives/24/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <p>AtCoder ABC 042 D</p>
+<p>在$H\times W$的棋盘中，伊吕波每次只能走一步且只可往右和往下两个方向走，且在棋盘左下角有$A\times B$的禁区无法行走，现在伊吕波在棋盘左上角，问你她走到右下角有多少种不同的方法。</p>
+<p>$$1\leq H,W\leq 100,000\quad1\leq A,B&lt;H,W$$</p>
+<p>先来思考一个简单的问题，即没有行走禁区时，从左上到右下有多少种方法？</p>
+<p>这样是一个签到题，只需要计算往下走（记为$D$）$m$个格子，往左走（记为$R$）$n$个格子，然后把这个$m$个$D$和$n$个$R$排成一排，每一种排列就是一种走法，简单的求一下多重集全排列，一通计算猛如虎，结果非常amazing。</p>
+<p>$$\frac{(m+n)!}{m!n!}=\frac{(m+n)!}{n!(m+n-n)!}=\begin{pmatrix}m+n \\ n\end{pmatrix}$$</p>
+<p>直接便是<strong>简单</strong>的二项式系数。</p>
+<p>好现在回到这一题，因为有禁区的存在，刚刚得到的方法不能直接应用到这里，但是我们可以考虑分割，即按着禁区的一条边，把这个可行走区域分成两个长方形，然后分别应用上面的方法就好了。</p>
+<p><del>好了这题完了，签到题实锤。</del></p>
+<p>但是看了下数据范围，才发现：</p>
+<ul>
+<li>直接递推，空间存不下</li>
+<li>直接计算，除法取模配合费马小定理数学溢出</li>
+</ul>
+<p>所以现在核心问题就是如何快速求出组合数取模，很幸运，有两个方法：</p>
+<ul>
+<li>威尔逊定理配合乘法逆元</li>
+<li>卢卡斯定理</li>
+</ul>
+<p>但很不幸的是，我一个都不会。</p>
+<p>没想到我还可以继续写这篇文章，并且有完成的迹象了。</p>
+<p>之前我们说过有两个方法，而且这题模数比较大，所以我选择了前者。</p>
+<p>先来说下乘法逆元：</p>
+<p>$$nn’\equiv 1(\mod p)$$</p>
+<p>意思就是$n$和$n’$互为倒数，在模$p$意义下，因而我们可以把二项式系数的除法转化成乘法，这样解决了两个问题中的后者。</p>
+<p>所以就有了下面的<strong>线性</strong>求逆元：</p>
+<blockquote>
+<p>显然$1^{-1}\equiv1(\mod p)$</p>
+<p>令$p=ki+j\quad (j&lt;i,1&lt;i&lt;p)$</p>
+<p>则$ki+j\equiv0(\mod p)$</p>
+<p>两边同乘$i^{-1},j^{-1}$就有$kj^{-1}+i^{-1}\equiv0(\mod p)$</p>
+<p>即$i^{-1}\equiv-kj^{-1}(\mod p)$</p>
+<p>又$k=\lfloor\frac pi\rfloor,j=p-ki$</p>
+<p>则$-kj^{-1}=\frac{-\lfloor\frac pi\rfloor}{p-i\lfloor\frac pi\rfloor}=-\lfloor\frac pi\rfloor(p\mod i)^{-1}$</p>
+<p>即$i^{-1}\equiv[-\lfloor\frac pi\rfloor(p\mod i)^{-1}](\mod p)$</p>
+</blockquote>
+<p>于是现在难点就在于快速计算阶乘$n!\mod p$：</p>
+<blockquote>
+<p>令$n!=ap^c$</p>
+<p>显然$c=\epsilon_p(n)$（$\epsilon_{p}(n)=\sum_{k\geq1}\lfloor\frac n{p^k}\rfloor$，指整除$n!$的$p$的最大幂）</p>
+<p>然后求解$a$，将$n!$中能被$p$整除的数放一边，不能整除的数放一边。</p>
+<p>例如，$n=11,p=3$时</p>
+<p>$11!=1\times2\times4\times5\times7\times8\times10\times11\times(3\times6\times9)$</p>
+<p>则$11!\equiv1\times2\times1\times2\times1\times2\times1\times2(\mod 3)$</p>
+<p>又$n=10,p=5$</p>
+<p>$10!\equiv1\times2\times3\times4\times1\times2\times3\times4(\mod 5)$</p>
+<p>简单观察一下就可以得到一个式子：</p>
+<p>$a=[(p-1)!]^{\lfloor\frac np\rfloor}(n\mod p)!$</p>
+<p>但是里面有个$(p-1)!$，这时候就是威尔逊定理发挥作用的时候：</p>
+<p>$$(n-1)!\equiv -1(\mod n),\quad n\in Prime$$</p>
+<p>则$a=(-1)^{\lfloor\frac np\rfloor}(n\mod p)!$</p>
+<p>故则$n!\mod p=(-1)^{\lfloor\frac np\rfloor}(n\mod p)!+c$</p>
+</blockquote>
+<p>靠我后面才意识到，本来阶乘就可以线性递推出来，而且这里的模数太大，逆元应该是要一个求一个，所以最后只需要拓展欧几里得算法就可以了，淦，所以刚刚做的推演几乎没有任何用处，心疼头发亿秒钟。</p>
+<p>最后结果</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> input = <span class="built_in">readLine</span>()!.<span class="built_in">split</span>(separator: <span class="string">&quot; &quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="type">H</span> = <span class="type">Int</span>(input[<span class="number">0</span>])!</span><br><span class="line"><span class="keyword">var</span> <span class="type">W</span> = <span class="type">Int</span>(input[<span class="number">1</span>])!</span><br><span class="line"><span class="keyword">var</span> <span class="type">A</span> = <span class="type">Int</span>(input[<span class="number">2</span>])!</span><br><span class="line"><span class="keyword">var</span> <span class="type">B</span> = <span class="type">Int</span>(input[<span class="number">3</span>])!</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="type">MOD</span> : <span class="type">Int</span> = <span class="number">1000000000</span> + <span class="number">7</span></span><br><span class="line"><span class="keyword">var</span> fac = [<span class="type">Int</span>]()</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">exgcd</span><span class="params">(a : Int,b : Int)</span></span> -&gt; [<span class="type">Int</span>]&#123;</span><br><span class="line">    <span class="keyword">var</span> ans = [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> b == <span class="number">0</span>&#123;</span><br><span class="line">        ans[<span class="number">0</span>] = a</span><br><span class="line">        ans[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">        ans[<span class="number">2</span>] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> delta = exgcd(a: b, b: a % b)</span><br><span class="line">    </span><br><span class="line">    ans[<span class="number">0</span>] = delta[<span class="number">0</span>]</span><br><span class="line">    ans[<span class="number">1</span>] = delta[<span class="number">2</span>]</span><br><span class="line">    ans[<span class="number">2</span>] = delta[<span class="number">1</span>] - (a / b) * delta[<span class="number">2</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">inv</span><span class="params">(a : Int)</span></span> -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> ans = exgcd(a: a, b: <span class="type">MOD</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> (ans[<span class="number">1</span>] % <span class="type">MOD</span> + <span class="type">MOD</span>) % <span class="type">MOD</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">C</span><span class="params">(r : Int,k : Int)</span></span> -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> fac[r] % <span class="type">MOD</span> * inv(a: fac[k]) % <span class="type">MOD</span> * inv(a: fac[r - k]) % <span class="type">MOD</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fac.append(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span> ... <span class="number">200000</span> + <span class="number">7</span>&#123;</span><br><span class="line">    fac.append(i * fac[i - <span class="number">1</span>] % <span class="type">MOD</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> n = <span class="type">H</span> - <span class="type">A</span></span><br><span class="line"><span class="keyword">var</span> ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span> ... n&#123;</span><br><span class="line">    ans += ((<span class="type">C</span>(r: <span class="type">B</span> + i - <span class="number">2</span>, k: i - <span class="number">1</span>) % <span class="type">MOD</span>) * (<span class="type">C</span>(r: <span class="type">W</span> + <span class="type">H</span> - <span class="type">B</span> - i - <span class="number">1</span>, k: <span class="type">H</span> - i) % <span class="type">MOD</span>)) % <span class="type">MOD</span></span><br><span class="line">    ans %= <span class="type">MOD</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li>《具体数学第二版》，Ronald L. Graham，94, 109-110</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/116698264">https://zhuanlan.zhihu.com/p/116698264</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zaq19970105/p/10775072.html">https://www.cnblogs.com/zaq19970105/p/10775072.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://oi-wiki.org/math/inverse/">https://oi-wiki.org/math/inverse/</a></li>
+</ol>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/archives/73/'>
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://blog.5v5.lol/archives/24/>https://blog.5v5.lol/archives/24/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-05T20:10:28+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年10月5日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/AtCoder/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>AtCoder</p></a></div>
 
 
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
   
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/archives/49/'>
+          <p class='title'>键盘折腾记（二）「Daisy 40」<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>20年7月，在键盘折腾记（一）第一次客制化打造的GH60宣告退役，因为当初不成熟的焊接技术，以至于让我每隔两个月左右要补焊一两颗轴，太麻烦了www，又加上高考完有一波资金加持，于是就有了本文。
+...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="isso-thread"></div>
+
+  </article>
+
+
+
+
+
+  <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -573,101 +804,28 @@
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/CinemaMediaGroup/static-file@latest/images/avatar.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">马孔多不下雪</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84/" href="/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84/"
-            id="categoriesE4B9B1E4B883E585ABE7B39FE79A84"
-            ><div class='name'>乱七八糟的</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%A5%BD%E4%B8%9C%E8%A5%BF/" href="/categories/%E5%A5%BD%E4%B8%9C%E8%A5%BF/"
-            id="categoriesE5A5BDE4B89CE8A5BF"
-            ><div class='name'>好东西</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%8A%80%E6%9C%AF%EF%BC%9F%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84/" href="/categories/%E6%8A%80%E6%9C%AF%EF%BC%9F%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84/"
-            id="categoriesE68A80E69CAFEFBC9FE4B88DE5AD98E59CA8E79A84"
-            ><div class='name'>技术？不存在的</div><div class='badge'>(12)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"
-            id="categoriesE69C8DE58AA1E599A8"
-            ><div class='name'>服务器</div><div class='badge'>(3)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/AtCoder/" style="font-size: 14px; color: #999">AtCoder</a> <a href="/tags/Macondo/" style="font-size: 14px; color: #999">Macondo</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/https/" style="font-size: 14px; color: #999">https</a> <a href="/tags/isso/" style="font-size: 14px; color: #999">isso</a> <a href="/tags/mac/" style="font-size: 14px; color: #999">mac</a> <a href="/tags/macOS/" style="font-size: 14px; color: #999">macOS</a> <a href="/tags/macbook/" style="font-size: 14px; color: #999">macbook</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/ssl/" style="font-size: 14px; color: #999">ssl</a> <a href="/tags/swift/" style="font-size: 14px; color: #999">swift</a> <a href="/tags/typecho/" style="font-size: 24px; color: #555">typecho</a> <a href="/tags/ubuntu/" style="font-size: 14px; color: #999">ubuntu</a> <a href="/tags/vscode/" style="font-size: 14px; color: #999">vscode</a> <a href="/tags/windows/" style="font-size: 14px; color: #999">windows</a> <a href="/tags/%E5%A4%87%E4%BB%BD/" style="font-size: 14px; color: #999">备份</a> <a href="/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" style="font-size: 14px; color: #999">年度总结</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 24px; color: #555">数学</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 14px; color: #999">数据结构</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 14px; color: #999">服务器</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 14px; color: #999">测试</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a> <a href="/tags/%E9%94%AE%E7%9B%98/" style="font-size: 19px; color: #777">键盘</a> <a href="/tags/%E9%AB%98%E8%80%83/" style="font-size: 14px; color: #999">高考</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
+
 
 
       </div>
