@@ -17,13 +17,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Let’s Encrypt野卡续费 - 马孔多不下雪</title>
+  <title>Let’s Encrypt通配符证书签发和续签 - 马孔多不下雪</title>
   
     <meta name="keywords" content="ssl,https">
   
 
   
-    <meta name="description" content="我发现Google真是一个优秀的搜索引擎。">
+    <meta name="description" content="无可提供的摘要。">
   
 
   <!-- feed -->
@@ -511,7 +511,7 @@
     
     
       <h1 class="title">
-        Let’s Encrypt野卡续费
+        Let’s Encrypt通配符证书签发和续签
       </h1>
       <div class='new-meta-box'>
         
@@ -553,7 +553,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="Let’s Encrypt野卡续费" data-path="/archives/9/">
+      <div id="lc-pv" data-title="Let’s Encrypt通配符证书签发和续签" data-path="/archives/9/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -570,28 +570,38 @@
 
 
   
-  <p>我发现Google真是一个优秀的搜索引擎。</p>
-<h2 id="发现问题"><a href="#发现问题" class="headerlink" title="发现问题"></a>发现问题</h2><p>因为一开始我抓的是泛域名的野卡证书，所以就只能用dns-01验证，而certbot的交互式操作不能做到自动续费，好像就只能重抓证书了。</p>
-<p>但是后来发现因为我域名的dns是cloudflare，好像有个插件可以来搞。</p>
-<h2 id="使用certbot-dns-cloudflare插件"><a href="#使用certbot-dns-cloudflare插件" class="headerlink" title="使用certbot-dns-cloudflare插件"></a>使用certbot-dns-cloudflare插件</h2><p>这玩意就是certbot用来给cloudflare的dns-01验证续费/新签的，也有类似的插件对于其他dns商。</p>
-<p>正常就是<code>pip install certbot-dns-cloudflare</code>就可以正常使用了，但是我不知为何我这certbot死也装不上，于是就只能用脚本的certbot-auto。</p>
-<p>但是这样的话并不能用上面的方法安装插件。</p>
-<p>多亏了Google，让我搜到一个和我类似经历的人和他的解决方案：</p>
-<blockquote>
-<p>Use this command:<br><code>certbot-auto --version</code><br>If it needs to upgrade it will do, then use this command to install the plugin:<br><code>/opt/eff.org/certbot/venv/bin/pip install certbot-dns-cloudflare</code><br>and try again, <code>certbot-auto plugins</code></p>
-</blockquote>
-<p>这样就愉快的安装好了。</p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>需要使用cloudflare的全局API，自己去它的网站上抓一个下来，然后创建一个配置文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">echo &gt; /etc/letsencrypt/cloudflare.ini</span><br><span class="line">emacs /etc/letsencrypt/cloudflare.ini</span><br><span class="line"><span class="meta">#</span><span class="bash"> 写入如下内容：</span></span><br><span class="line">dns_cloudflare_email = cloudflare@example.com </span><br><span class="line">dns_cloudflare_api_key = your_cloudflare_api</span><br></pre></td></tr></table></figure>
+  <h2 id="安装certbot"><a href="#安装certbot" class="headerlink" title="安装certbot"></a>安装certbot</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt install python3-pip</span><br><span class="line">pip3 install certbot</span><br></pre></td></tr></table></figure>
 
-<h2 id="续期（命）"><a href="#续期（命）" class="headerlink" title="续期（命）"></a>续期（命）</h2><p>因为不小心直接把原来的certbot删掉了，所以证书直接没了，然后就重新抓了一个，用下面的命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./certbot-auto certonly \</span><br><span class="line">   --server &quot;https://acme-v02.api.letsencrypt.org/directory&quot; \</span><br><span class="line">   --dns-cloudflare \</span><br><span class="line">   --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini \</span><br><span class="line">   -d 4o5.xyz -d *.4o5.xyz</span><br></pre></td></tr></table></figure>
+<p>因为是开通配符证书，所以要使用DNS插件来进行验证。</p>
+<h3 id="安装DNS插件"><a href="#安装DNS插件" class="headerlink" title="安装DNS插件"></a>安装DNS插件</h3><h4 id="cloudflare"><a href="#cloudflare" class="headerlink" title="cloudflare"></a>cloudflare</h4><p>对于DNS服务商为<code>cloudflare</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install certbot-dns-cloudflare</span><br></pre></td></tr></table></figure>
 
-<p>这里的<code>\</code>表示显示断点，实际不应输入。</p>
-<p>续费的话应该把<code>certonly</code>换成<code>renew</code>就行了。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
-<li><a target="_blank" rel="noopener" href="https://community.letsencrypt.org/t/unrecognized-arguments-dns-cloudflare-credentials/60996/6">https://community.letsencrypt.org/t/unrecognized-arguments-dns-cloudflare-credentials/60996/6</a></li>
-</ol>
+<p>需要<code>cloudflare</code>全局API Key，然后创建一个配置文件，写入如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> &gt; /etc/letsencrypt/cloudflare.ini</span><br><span class="line">nano /etc/letsencrypt/cloudflare.ini</span><br><span class="line"><span class="comment"># 写入如下内容</span></span><br><span class="line">dns_cloudflare_email = cloudflare@example.com </span><br><span class="line">dns_cloudflare_api_key = your_cloudflare_api_key</span><br></pre></td></tr></table></figure>
+
+<h4 id="aliyun"><a href="#aliyun" class="headerlink" title="aliyun"></a>aliyun</h4><p>对于DNS服务商为<code>aliyun</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install certbot-dns-aliyun</span><br></pre></td></tr></table></figure>
+
+<p>需要<code>aliyun</code>全局Access Key，然后创建一个配置文件，写入如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> &gt; /etc/letsencrypt/aliyun.ini</span><br><span class="line">nano /etc/letsencrypt/aliyun.ini</span><br><span class="line"><span class="comment"># 写入如下内容</span></span><br><span class="line">certbot_dns_aliyun:dns_aliyun_access_key = ACCESS_KEY</span><br><span class="line">certbot_dns_aliyun:dns_aliyun_access_key_secret = ACCESS_KEY_SECRET</span><br></pre></td></tr></table></figure>
+
+<h4 id="dnspod"><a href="#dnspod" class="headerlink" title="dnspod"></a>dnspod</h4><p>对于DNS服务商为<code>dnspod</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install certbot-dns-dnspod</span><br></pre></td></tr></table></figure>
+
+<p>需要<code>aliyun</code>全局API Token，然后创建一个配置文件，写入如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> &gt; /etc/letsencrypt/dnspod.ini</span><br><span class="line">nano /etc/letsencrypt/dnspod.ini</span><br><span class="line"><span class="comment"># 写入如下内容</span></span><br><span class="line">certbot_dns_dnspod:dns_dnspod_api_token = <span class="string">&quot;ID,TOKEN&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="获取证书"><a href="#获取证书" class="headerlink" title="获取证书"></a>获取证书</h2><h3 id="cloudflare-1"><a href="#cloudflare-1" class="headerlink" title="cloudflare"></a>cloudflare</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">certbot certonly \</span><br><span class="line">	--server <span class="string">&quot;https://acme-v02.api.letsencrypt.org/directory&quot;</span> \</span><br><span class="line">	--dns-cloudflare \</span><br><span class="line">	--dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini \</span><br><span class="line">	-d <span class="string">&quot;example.com&quot;</span> -d <span class="string">&quot;example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="aliyun-1"><a href="#aliyun-1" class="headerlink" title="aliyun"></a>aliyun</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">certbot certonly \</span><br><span class="line">	-a certbot-dns-aliyun:dns-aliyun \</span><br><span class="line">	--certbot-dns-aliyun:dns-aliyun-credentials /etc/letsencrypt/aliyun.ini \</span><br><span class="line">	-d <span class="string">&quot;example.com&quot;</span> -d <span class="string">&quot;example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="dnspod-1"><a href="#dnspod-1" class="headerlink" title="dnspod"></a>dnspod</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">certbot certonly \</span><br><span class="line">	-a certbot-dns-dnspod:dns-dnspod \</span><br><span class="line">	--certbot-dns-dnspod:dns-dnspod-credentials /etc/letsencrypt/dnspod.ini \</span><br><span class="line">	-d <span class="string">&quot;example.com&quot;</span> -d <span class="string">&quot;example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>所有的<code>\</code>表示显示断点，实际上不应输入。</p>
+<h2 id="续签"><a href="#续签" class="headerlink" title="续签"></a>续签</h2><p>只需运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot renew</span><br></pre></td></tr></table></figure>
+
+
 
   
   
@@ -626,10 +636,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-12T12:20:55+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-15T12:12:43+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年10月12日</p>
+    <p>更新于：2020年10月15日</p>
   </a>
 </div>
 
@@ -724,7 +734,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E7%8E%B0%E9%97%AE%E9%A2%98"><span class="toc-text">发现问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8certbot-dns-cloudflare%E6%8F%92%E4%BB%B6"><span class="toc-text">使用certbot-dns-cloudflare插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%AD%E6%9C%9F%EF%BC%88%E5%91%BD%EF%BC%89"><span class="toc-text">续期（命）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-text">参考链接</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85certbot"><span class="toc-text">安装certbot</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85DNS%E6%8F%92%E4%BB%B6"><span class="toc-text">安装DNS插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#cloudflare"><span class="toc-text">cloudflare</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#aliyun"><span class="toc-text">aliyun</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dnspod"><span class="toc-text">dnspod</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E8%AF%81%E4%B9%A6"><span class="toc-text">获取证书</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cloudflare-1"><span class="toc-text">cloudflare</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#aliyun-1"><span class="toc-text">aliyun</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dnspod-1"><span class="toc-text">dnspod</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%AD%E7%AD%BE"><span class="toc-text">续签</span></a></li></ol>
     </div>
   </section>
 

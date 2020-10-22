@@ -17,9 +17,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>我的朋友们 - 马孔多不下雪</title>
+  <title>树莓派折腾记（一） - 马孔多不下雪</title>
+  
+    <meta name="keywords" content="Raspberry Pi,linux">
   
 
+  
+    <meta name="description" content="Hello, Raspberry Pi 4B">
   
 
   <!-- feed -->
@@ -497,7 +501,7 @@
         
 
 <div class='l_main'>
-  <article class="article post white-box reveal md shadow article-type-links" id="links" itemscope itemprop="blogPost">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
 
 
@@ -507,7 +511,7 @@
     
     
       <h1 class="title">
-        我的朋友们
+        树莓派折腾记（一）
       </h1>
       <div class='new-meta-box'>
         
@@ -524,6 +528,13 @@
         
           
             
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%EF%BC%9F%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84/">技术？不存在的</a>
+    </a>
+  </div>
+
 
           
         
@@ -531,7 +542,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年10月12日</p>
+    <p>发布于：2020年10月22日</p>
   </a>
 </div>
 
@@ -542,7 +553,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="我的朋友们" data-path="/friends/">
+      <div id="lc-pv" data-title="树莓派折腾记（一）" data-path="/archives/96/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -559,12 +570,170 @@
 
 
   
+  <h2 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h2><p>很久之前就知道树莓派这小小的机器，但是当年一直没有钱买，而到了有钱买的年纪，却忘记了这个机器。</p>
+<p>后来，因为某些需求需要放到云端实现，用过一段时间的阿里云HK，奈何每月xx元是在太贵，遂不再续费，而转投Cloudcone US，虽然便宜但中美之间的网络状态却不能保证，到了晚上可用度很低，还是不能满足要求。</p>
+<p>而后想到了直接放到自己身边，思来想去，低功耗又占地小的就非树莓派莫属了，而且去年也出现了新一代的树莓派4 Model B版本，于是选配置、下单、等收货，一气呵成（尽管因为天气物流延误了四天）。</p>
+<h2 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h2><p><img src="https://cdn.jsdelivr.net/gh/CinemaMediaGroup/ImagePack2@latest/00000170.webp" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/CinemaMediaGroup/ImagePack2@latest/00000170.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图片170"></p>
+<p>这代树莓派相对于前代几乎是质的飞跃，CPU的提升先不谈，终于支持满速千兆有线网络和USB3.0才让树莓派可以满足我的需要。</p>
+<p>至于塔式散热器嘛，这种定制产品卖的都比玄冰400贵了，这合理吗？</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><img src="https://cdn.jsdelivr.net/gh/CinemaMediaGroup/ImagePack2@latest/00000171.webp" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/CinemaMediaGroup/ImagePack2@latest/00000171.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图片170"></p>
+<p>系统选择的是<code>ubuntu-20.04.1-preinstalled-server-arm64+raspi.img</code>，因为习惯<code>ubuntu</code>，而且官方正式版系统<strong>好像</strong>没有64位。</p>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>先在路由器里找到ip，顺便设置成静态ip地址，然后SSH连接，默认用户名和密码都是ubuntu。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h3><p>因为习惯编译安装了，就编译安装。</p>
+<p>安装编译依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install gcc cmake libpcre3-dev libssl-dev zlib1g-dev</span><br></pre></td></tr></table></figure>
+
+<p>下载并解压<code>nginx</code>源代码（截至本文写就，最新的版本是<code>1.19.3</code>）</p>
+<p>然后切换到源代码目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://nginx.org/download/nginx-1.19.3.tar.gz</span><br><span class="line">tar -xvf nginx-1.19.3.tar.gz</span><br><span class="line"><span class="built_in">cd</span> nginx-1.19.3</span><br></pre></td></tr></table></figure>
+
+<p>编译参数，相关修改的参数也在这里产生。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --with-cc-opt=<span class="string">&#x27;-g -O2 -fPIE -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2&#x27;</span> --with-ld-opt=<span class="string">&#x27;-Wl,-Bsymbolic-functions -fPIE -pie -Wl,-z,relro -Wl,-z,now&#x27;</span> --prefix=/usr/share/nginx --conf-path=/etc/nginx/nginx.conf --http-log-path=/var/<span class="built_in">log</span>/nginx/access.log --error-log-path=/var/<span class="built_in">log</span>/nginx/error.log --lock-path=/var/lock/nginx.lock --pid-path=/run/nginx.pid --http-client-body-temp-path=/var/lib/nginx/body --http-fastcgi-temp-path=/var/lib/nginx/fastcgi --http-proxy-temp-path=/var/lib/nginx/proxy --http-scgi-temp-path=/var/lib/nginx/scgi --http-uwsgi-temp-path=/var/lib/nginx/uwsgi --with-debug --with-pcre-jit --with-ipv6 --with-http_ssl_module --with-http_stub_status_module --with-http_realip_module --with-http_auth_request_module --with-http_addition_module --with-http_dav_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_v2_module --with-http_sub_module --with-stream --with-stream_ssl_module --with-mail --with-mail_ssl_module --with-threads</span><br></pre></td></tr></table></figure>
+
+<p>开始编译与安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+<p>启动与停止</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/usr/share/nginx/sbin/nginx </span><br><span class="line">/usr/share/nginx/sbin/nginx -s reload</span><br><span class="line">/usr/share/nginx/sbin/nginx -s stop</span><br></pre></td></tr></table></figure>
+
+<p>如果启动报错<code>nginx: [emerg] mkdir() &quot;/var/lib/nginx/body&quot; failed (2: No such file or directory)</code>，就创建该目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /var/lib/nginx/body</span><br></pre></td></tr></table></figure>
+
+<p>顺便再<strong>简单的</strong>补充一下nginx的基本配置介绍给某位小哥哥：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">以我的方式安装后，主要配置文件就在/etc/nginx/nginx.conf中</span><br><span class="line"></span><br><span class="line">在这个文件里，每一个server&#123;&#125;包括的内容，就是一个虚拟主机。</span><br><span class="line">比如：</span><br><span class="line">    server&#123;</span><br><span class="line">        listen 443 ssl http2;</span><br><span class="line">        server_name example.com;</span><br><span class="line"></span><br><span class="line">        index index.php;</span><br><span class="line"></span><br><span class="line">        ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;</span><br><span class="line">        ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;</span><br><span class="line"></span><br><span class="line">        ssl_protocols TLSv1.2 TLSv1.3;</span><br><span class="line">        root /usr/share/nginx/example;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.php;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location ~ \.php$ &#123;</span><br><span class="line">            fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;</span><br><span class="line">            fastcgi_index index.php;</span><br><span class="line">            fastcgi_param SCRIPT_FILENAME <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">            include fastcgi_params;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">listen 表示监听的端口，443是默认的https访问端口（而http是80），ssl则是开启https，http2则启用http2</span><br><span class="line">server_name 表示你想用哪个域名访问这个服务器</span><br><span class="line">index 则是访问网站的默认主页，即访问example.com时，按照上面的设置会打开example.com/index.php</span><br><span class="line">ssl_certificate 开头的则是这个域名的证书与私钥的路径（仅https需要）</span><br><span class="line">ssl_protocols 是tls协议类型</span><br><span class="line">root 则是网站的路径</span><br><span class="line">两个location再说的话就超出本文范围，也说不清楚。</span><br></pre></td></tr></table></figure>
+
+<h3 id="php"><a href="#php" class="headerlink" title="php"></a>php</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install php7.4 php7.4-fpm php7.4-mbstring php7.4-xml php7.4-sqlite3</span><br></pre></td></tr></table></figure>
+
+<p>注意在<code>php.ini</code>文件中启用相关<code>extension </code>，以及相关目录的权限问题。</p>
+<h3 id="plex"><a href="#plex" class="headerlink" title="plex"></a>plex</h3><p>下载并安装，注意这里安装的是arm平台的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://downloads.plex.tv/plex-media-server-new/1.20.3.3437-f1f08d65b/debian/plexmediaserver_1.20.3.3437-f1f08d65b_arm64.deb</span><br><span class="line">dpkg -i plexmediaserver_1.20.3.3437-f1f08d65b_arm64.deb</span><br></pre></td></tr></table></figure>
+
+<p>先启动一次，然后停止，生成<code>Preferences.xml</code>配置文件，下面会用到。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service plexmediaserver start</span><br><span class="line">service plexmediaserver stop</span><br></pre></td></tr></table></figure>
+
+<p>因为plex安装好后默认是禁止远程访问的，意思是你正常来说不挂图形介面，是连不上去无法进行登录的，而利用下面的方法，则可以实现命令行登录，记得修改下面的用户名和密码。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">apt install xmlstarlet</span><br><span class="line"></span><br><span class="line">PLEX_TOKEN=$(curl -qu <span class="string">&quot;Plex用户名&quot;</span>:<span class="string">&quot;Plex密码&quot;</span> <span class="string">&#x27;https://plex.tv/users/sign_in.xml&#x27;</span> \</span><br><span class="line"> -X POST -H <span class="string">&#x27;X-Plex-Device-Name: PlexMediaServer&#x27;</span> \</span><br><span class="line"> -H <span class="string">&#x27;X-Plex-Provides: server&#x27;</span> \</span><br><span class="line"> -H <span class="string">&#x27;X-Plex-Version: 0.9&#x27;</span> \</span><br><span class="line"> -H <span class="string">&#x27;X-Plex-Platform-Version: 0.9&#x27;</span> \</span><br><span class="line"> -H <span class="string">&#x27;X-Plex-Platform: xcid&#x27;</span> \</span><br><span class="line"> -H <span class="string">&#x27;X-Plex-Product: Plex Media Server&#x27;</span>\</span><br><span class="line"> -H <span class="string">&#x27;X-Plex-Device: Linux&#x27;</span>\</span><br><span class="line"> -H <span class="string">&#x27;X-Plex-Client-Identifier: XXXX&#x27;</span> --compressed | sed -n <span class="string">&#x27;s/.*&lt;authentication-token&gt;\(.*\)&lt;\/authentication-token&gt;.*/\1/p&#x27;</span>)</span><br><span class="line"> </span><br><span class="line">xmlstarlet ed --inplace --insert <span class="string">&quot;Preferences&quot;</span> --<span class="built_in">type</span> attr -n <span class="string">&quot;AcceptedEULA&quot;</span> -v <span class="string">&quot;1&quot;</span> <span class="string">&quot;/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Preferences.xml&quot;</span></span><br><span class="line">xmlstarlet ed --inplace --insert <span class="string">&quot;Preferences&quot;</span> --<span class="built_in">type</span> attr -n <span class="string">&quot;FirstRun&quot;</span> -v <span class="string">&quot;0&quot;</span> <span class="string">&quot;/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Preferences.xml&quot;</span></span><br><span class="line">xmlstarlet ed --inplace --insert <span class="string">&quot;Preferences&quot;</span> --<span class="built_in">type</span> attr -n <span class="string">&quot;PlexOnlineUsername&quot;</span> -v <span class="string">&quot;Plex用户名&quot;</span> <span class="string">&quot;/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Preferences.xml&quot;</span></span><br><span class="line">xmlstarlet ed --inplace --insert <span class="string">&quot;Preferences&quot;</span> --<span class="built_in">type</span> attr -n <span class="string">&quot;PublishServerOnPlexOnlineKey&quot;</span> -v <span class="string">&quot;1&quot;</span> <span class="string">&quot;/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Preferences.xml&quot;</span></span><br><span class="line">xmlstarlet ed --inplace --insert <span class="string">&quot;Preferences&quot;</span> --<span class="built_in">type</span> attr -n <span class="string">&quot;PlexOnlineToken&quot;</span> -v <span class="string">&quot;<span class="variable">$&#123;PLEX_TOKEN&#125;</span>&quot;</span> <span class="string">&quot;/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Preferences.xml&quot;</span></span><br><span class="line"></span><br><span class="line">service plexmediaserver restart</span><br></pre></td></tr></table></figure>
+
+<h3 id="smb"><a href="#smb" class="headerlink" title="smb"></a>smb</h3><p>安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install samba</span><br></pre></td></tr></table></figure>
+
+<p>修改配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/samba/smb.conf</span><br></pre></td></tr></table></figure>
+
+<p>在<code>[global]</code>写入如下内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">security = user</span><br><span class="line">passdb backend = smbpasswd</span><br></pre></td></tr></table></figure>
+
+<p>然后在最后面写入如下内容，<code>path</code>即为你想开放的目录。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[share]</span><br><span class="line">path = /mnt/</span><br><span class="line">writable = yes</span><br><span class="line">create mask = 0644</span><br><span class="line">force create mode = 0644</span><br><span class="line">directory mask = 0755</span><br><span class="line">force directory mode = 0755</span><br><span class="line">available = yes</span><br></pre></td></tr></table></figure>
+
+<p>最后创建一个smb账户</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">smbpasswd -a root</span><br></pre></td></tr></table></figure>
+
+<h3 id="挂载外置硬盘"><a href="#挂载外置硬盘" class="headerlink" title="挂载外置硬盘"></a>挂载外置硬盘</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br><span class="line">mount /dev/sda1 /mnt/</span><br></pre></td></tr></table></figure>
+
+<h2 id="开机启动项目"><a href="#开机启动项目" class="headerlink" title="开机启动项目"></a>开机启动项目</h2><ol>
+<li><p>nginx</p>
+</li>
+<li><p>挂载硬盘</p>
+</li>
+</ol>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://ubuntu.com/download/raspberry-pi">https://ubuntu.com/download/raspberry-pi</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/140952829">https://zhuanlan.zhihu.com/p/140952829</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhaoyi2/article/details/82804356">https://blog.csdn.net/zhaoyi2/article/details/82804356</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.senra.me/build-your-own-cloud-storage-series-plex-media-server-private-online-media-library/">http://www.senra.me/build-your-own-cloud-storage-series-plex-media-server-private-online-media-library/</a></li>
+</ol>
+
   
   
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://blog.5v5.lol/archives/96/>https://blog.5v5.lol/archives/96/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
   
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-22T22:39:09+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年10月22日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Raspberry-Pi/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Raspberry Pi</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>linux</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
   
   
 
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/archives/25/'>
+          <p class='title'>Windows to go 系统升级<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>因为Windows to go的特殊性，所以正常情况下Windows Update只会推送质量更新，而不会推送功能更新给你。
+然后我试过通过修改注册表获得功能更新和直接从iso文件安装当前最新的...</p>
+        </a>
+      
+    </div>
   
 </article>
 
@@ -586,6 +755,20 @@
     
 
 
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D"><span class="toc-text">写在最前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6"><span class="toc-text">硬件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8"><span class="toc-text">启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx"><span class="toc-text">nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#php"><span class="toc-text">php</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#plex"><span class="toc-text">plex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#smb"><span class="toc-text">smb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%82%E8%BD%BD%E5%A4%96%E7%BD%AE%E7%A1%AC%E7%9B%98"><span class="toc-text">挂载外置硬盘</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE"><span class="toc-text">开机启动项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-text">参考链接</span></a></li></ol>
+    </div>
+  </section>
 
 
   
