@@ -17,7 +17,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>利用swift来实现自己的hexo可视化管理吧 - 马孔多不下雪</title>
+  <title>Macondo——一个hexo可视化管理软件 - 马孔多不下雪</title>
   
     <meta name="keywords" content="typecho,Macondo,swift,hexo">
   
@@ -96,7 +96,7 @@
         
         <a class="title flat-box" target="_self" href='/'>
           
-            <img no-lazy class='logo' src='https://cdn.jsdelivr.net/gh/CinemaMediaGroup/static-file@latest/2020/00000130.svg'/>
+            <img no-lazy class='logo' src='https://cdn.jsdelivr.net/gh/LouiseDevTeam/ImagePack2@latest/00000130.svg'/>
           
           
           
@@ -511,7 +511,7 @@
     
     
       <h1 class="title">
-        利用swift来实现自己的hexo可视化管理吧
+        Macondo——一个hexo可视化管理软件
       </h1>
       <div class='new-meta-box'>
         
@@ -519,7 +519,7 @@
             
 <div class='new-meta-item author'>
   <a class='author' href="/" rel="nofollow">
-    <img no-lazy src="https://cdn.jsdelivr.net/gh/CinemaMediaGroup/ImagePack2@latest/00000163.webp">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/LouiseDevTeam/ImagePack2@latest/00000163.webp">
     <p>Louise</p>
   </a>
 </div>
@@ -553,7 +553,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="利用swift来实现自己的hexo可视化管理吧" data-path="/archives/95/">
+      <div id="lc-pv" data-title="Macondo——一个hexo可视化管理软件" data-path="/archives/95/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -570,7 +570,13 @@
 
 
   
-  <h2 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h2><p>之前把自己的<code>Typecho</code>博客静态化了，从最初的脚本到独立的私有的<code>Typecho-Handsome-Java</code>程序、从最初通过<code>curl</code>将<code>html</code>保存下来到用<code>JavaFX</code>配合<code>jdbc-sqlite ,han-lp</code>等第三方库完全自主将<code>markdown</code>渲染成<code>html</code>。</p>
+  <h2 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h2><h3 id="2020年10月23日"><a href="#2020年10月23日" class="headerlink" title="2020年10月23日"></a>2020年10月23日</h3><p>在SwiftUI macOS平台上，一个List的样式<code>SidebarListStyle()</code>的bug直到macOS Big Sur beta 10才修好。</p>
+<blockquote>
+<p>Resolved in macOS Big Sur beta 10</p>
+<p>You can now reorder a list using SiderbarListStyle as expected.</p>
+</blockquote>
+<p>这个bug在list内容较少时不会出现，而当内容大于30条时会出现卡顿。</p>
+<h3 id="之前"><a href="#之前" class="headerlink" title="之前"></a>之前</h3><p>之前把自己的<code>Typecho</code>博客静态化了，从最初的脚本到独立的私有的<code>Typecho-Handsome-Java</code>程序、从最初通过<code>curl</code>将<code>html</code>保存下来到用<code>JavaFX</code>配合<code>jdbc-sqlite ,han-lp</code>等第三方库完全自主将<code>markdown</code>渲染成<code>html</code>。</p>
 <p>我从这个项目上得到了许多关于宝贵的经验、欢乐与成就感，当然也付出了多个休息日。</p>
 <p>不过<code>Typecho-Handsome-Java</code> (简称<code>THJ</code>)有两个问题：</p>
 <ul>
@@ -591,22 +597,34 @@
 <p>一开始打算完全在本项目渲染生成HTML，就像<code>THJ</code>中做的一样，但是后面我发现我太懒了swift正则好像没有Java那样顺手（懒得去找文档了），再加上从<code>blog.skk.moe</code>想起了hexo这个平台，再考虑了一下我为什么不用hexo的原因——因为不能可视化管理全部文章。</p>
 <p>于是乎我就想到可以用Macondo来输出markdown文档，利用元数据来输出<code>YAML</code>，这样就会非常简单了，也不用放弃人类的开源精华，闭门造车。</p>
 <h2 id="平台及工具选择"><a href="#平台及工具选择" class="headerlink" title="平台及工具选择"></a>平台及工具选择</h2><ul>
-<li>macOS 10.15 Catalina（等macOS 11 Big Sur正式版发布，也会升级）</li>
-<li>Xcode 11.3（随版本升级而升级）</li>
+<li>macOS 11 Big Sur beta 10</li>
+<li>Xcode 12.2 beta 2</li>
 <li>使用swiftUI</li>
 </ul>
-<h2 id="版本记录"><a href="#版本记录" class="headerlink" title="版本记录"></a>版本记录</h2><h3 id="v1-0"><a href="#v1-0" class="headerlink" title="v1.0"></a>v1.0</h3><p>仅仅是一个beta的pre-release，包含基础的GUI页面和深色模式。</p>
-<h3 id="v1-1"><a href="#v1-1" class="headerlink" title="v1.1"></a>v1.1</h3><p>因为项目目标变化，这个版本可以输出markdown文件，并以YAML的格式在文章前面加入诸如文章标题这类元数据。</p>
-<h3 id="v1-2"><a href="#v1-2" class="headerlink" title="v1.2"></a>v1.2</h3><p>仅仅添加了四种独立页面。</p>
-<p>修复编辑文章时文本框不能滚动的bug。</p>
+<h2 id="版本记录"><a href="#版本记录" class="headerlink" title="版本记录"></a>版本记录</h2><h3 id="v2-0-1"><a href="#v2-0-1" class="headerlink" title="v2.0.1"></a>v2.0.1</h3><h4 id="新功能"><a href="#新功能" class="headerlink" title="新功能"></a>新功能</h4><ul>
+<li><p>支持自定义YAML，并移除头图设置（请写到YAML中）</p>
+</li>
+<li><p>现在可以删除链接、书籍、看番、追剧。</p>
+</li>
+<li><p>UI小改动</p>
+</li>
+</ul>
+<h4 id="修复"><a href="#修复" class="headerlink" title="修复"></a>修复</h4><ul>
+<li>修复一个bug，改bug曾导致删除文章后无法再创建新文章。</li>
+</ul>
+<h3 id="v2-0"><a href="#v2-0" class="headerlink" title="v2.0"></a>v2.0</h3><p>2.0及以后版本只支持macOS Big Sur 及以上版本</p>
 <h3 id="v1-3"><a href="#v1-3" class="headerlink" title="v1.3"></a>v1.3</h3><h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><ul>
 <li>增加删除文章功能</li>
 <li>取消文章缩略图</li>
 <li>多语言支持（可以管理两种语言三种文字的博客）</li>
 </ul>
-<h4 id="修复"><a href="#修复" class="headerlink" title="修复"></a>修复</h4><ul>
+<h4 id="修复-1"><a href="#修复-1" class="headerlink" title="修复"></a>修复</h4><ul>
 <li>可以让编辑文章的文本框横向滚动</li>
 </ul>
+<h3 id="v1-2"><a href="#v1-2" class="headerlink" title="v1.2"></a>v1.2</h3><p>仅仅添加了四种独立页面。</p>
+<p>修复编辑文章时文本框不能滚动的bug。</p>
+<h3 id="v1-1"><a href="#v1-1" class="headerlink" title="v1.1"></a>v1.1</h3><p>因为项目目标变化，这个版本可以输出markdown文件，并以YAML的格式在文章前面加入诸如文章标题这类元数据。</p>
+<h3 id="v1-0"><a href="#v1-0" class="headerlink" title="v1.0"></a>v1.0</h3><p>仅仅是一个beta的pre-release，包含基础的GUI页面和深色模式。</p>
 
   
   
@@ -641,10 +659,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-12T12:22:33+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-27T20:35:31+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年10月12日</p>
+    <p>更新于：2020年10月27日</p>
   </a>
 </div>
 
@@ -735,7 +753,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D"><span class="toc-text">写在最前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%9B%AE%E6%A0%87%E5%8F%98%E5%8C%96"><span class="toc-text">项目目标变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E5%8F%B0%E5%8F%8A%E5%B7%A5%E5%85%B7%E9%80%89%E6%8B%A9"><span class="toc-text">平台及工具选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E8%AE%B0%E5%BD%95"><span class="toc-text">版本记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v1-0"><span class="toc-text">v1.0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v1-1"><span class="toc-text">v1.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v1-2"><span class="toc-text">v1.2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v1-3"><span class="toc-text">v1.3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-text">功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8D"><span class="toc-text">修复</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D"><span class="toc-text">写在最前</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2020%E5%B9%B410%E6%9C%8823%E6%97%A5"><span class="toc-text">2020年10月23日</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%8B%E5%89%8D"><span class="toc-text">之前</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%9B%AE%E6%A0%87%E5%8F%98%E5%8C%96"><span class="toc-text">项目目标变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E5%8F%B0%E5%8F%8A%E5%B7%A5%E5%85%B7%E9%80%89%E6%8B%A9"><span class="toc-text">平台及工具选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E8%AE%B0%E5%BD%95"><span class="toc-text">版本记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v2-0-1"><span class="toc-text">v2.0.1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">新功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8D"><span class="toc-text">修复</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v2-0"><span class="toc-text">v2.0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v1-3"><span class="toc-text">v1.3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-text">功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8D-1"><span class="toc-text">修复</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v1-2"><span class="toc-text">v1.2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v1-1"><span class="toc-text">v1.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v1-0"><span class="toc-text">v1.0</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -767,7 +785,7 @@
     
       
         
-          <div><p>由<a target="_blank" rel="noopener" href="https://github.com/CinemaMediaGroup/Macondo">Macondo</a>管理，<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>驱动，并使用<a target="_blank" rel="noopener" href="https://volantis.js.org/">Volantis</a>主题</p>
+          <div><p>由<a target="_blank" rel="noopener" href="https://github.com/LouiseDevTeam/Macondo">Macondo</a>管理，<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>驱动，并使用<a target="_blank" rel="noopener" href="https://volantis.js.org/">Volantis</a>主题</p>
 </div>
         
       
