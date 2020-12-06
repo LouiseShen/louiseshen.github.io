@@ -408,8 +408,8 @@ th {
 .md span.btn a,
 .article span.btn.regular a,
 .md span.btn.regular a {
-  color: #44d7b6;
-  border: 1px solid #44d7b6;
+  color: #2196f3;
+  border: 1px solid #2196f3;
 }
 .article span.btn a:hover,
 .md span.btn a:hover,
@@ -433,7 +433,7 @@ th {
 .article span.btn.solid a,
 .md span.btn.solid a {
   border: none;
-  background: #44d7b6;
+  background: #2196f3;
   color: #fff;
 }
 .article span.btn.solid a:hover,
@@ -4416,7 +4416,7 @@ article#comments #loading-comments a.load-comments {
   display: inline-block;
   border-radius: 2px;
   cursor: pointer;
-  background: #44d7b6;
+  background: #2196f3;
   color: #fff;
   padding-left: 48px;
   padding-right: 48px;
