@@ -576,6 +576,8 @@
 <p>You can now reorder a list using SiderbarListStyle as expected.</p>
 </blockquote>
 <p>这个bug在list内容较少时不会出现，而当内容大于30条时会出现卡顿。</p>
+<h3 id="2020年8月11日"><a href="#2020年8月11日" class="headerlink" title="2020年8月11日"></a>2020年8月11日</h3><p>一开始打算完全在本项目渲染生成HTML，就像<code>THJ</code>中做的一样，但是后面我发现我太懒了swift正则好像没有Java那样顺手（懒得去找文档了），再加上从<code>blog.skk.moe</code>想起了hexo这个平台，再考虑了一下我为什么不用hexo的原因——因为不能可视化管理全部文章。</p>
+<p>于是乎我就想到可以用Macondo来输出markdown文档，利用元数据来输出<code>YAML</code>，这样就会非常简单了，也不用放弃人类的开源精华，闭门造车。</p>
 <h3 id="之前"><a href="#之前" class="headerlink" title="之前"></a>之前</h3><p>之前把自己的<code>Typecho</code>博客静态化了，从最初的脚本到独立的私有的<code>Typecho-Handsome-Java</code>程序、从最初通过<code>curl</code>将<code>html</code>保存下来到用<code>JavaFX</code>配合<code>jdbc-sqlite ,han-lp</code>等第三方库完全自主将<code>markdown</code>渲染成<code>html</code>。</p>
 <p>我从这个项目上得到了许多关于宝贵的经验、欢乐与成就感，当然也付出了多个休息日。</p>
 <p>不过<code>Typecho-Handsome-Java</code> (简称<code>THJ</code>)有两个问题：</p>
@@ -593,12 +595,9 @@
 <li>一个渲染markdown的swift库（已解决）</li>
 </ul>
 <p>另外，我之前没有学习过swift，更没有swift开发经验，简而言之我就是swift萌新，所以如果有地方写的不好的欢迎告知我修改。</p>
-<h2 id="项目目标变化"><a href="#项目目标变化" class="headerlink" title="项目目标变化"></a>项目目标变化</h2><p>2020年8月11日</p>
-<p>一开始打算完全在本项目渲染生成HTML，就像<code>THJ</code>中做的一样，但是后面我发现我太懒了swift正则好像没有Java那样顺手（懒得去找文档了），再加上从<code>blog.skk.moe</code>想起了hexo这个平台，再考虑了一下我为什么不用hexo的原因——因为不能可视化管理全部文章。</p>
-<p>于是乎我就想到可以用Macondo来输出markdown文档，利用元数据来输出<code>YAML</code>，这样就会非常简单了，也不用放弃人类的开源精华，闭门造车。</p>
 <h2 id="平台及工具选择"><a href="#平台及工具选择" class="headerlink" title="平台及工具选择"></a>平台及工具选择</h2><ul>
-<li>macOS 11 Big Sur beta 10</li>
-<li>Xcode 12.2 beta 2</li>
+<li>macOS 11 Big Sur 11.0.1</li>
+<li>Xcode 12.2 </li>
 <li>使用swiftUI</li>
 </ul>
 <h2 id="版本记录"><a href="#版本记录" class="headerlink" title="版本记录"></a>版本记录</h2><h3 id="v2-0-1"><a href="#v2-0-1" class="headerlink" title="v2.0.1"></a>v2.0.1</h3><h4 id="新功能"><a href="#新功能" class="headerlink" title="新功能"></a>新功能</h4><ul>
@@ -659,10 +658,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-22T15:46:35+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-04T18:03:23+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年11月22日</p>
+    <p>更新于：2020年12月4日</p>
   </a>
 </div>
 
@@ -754,7 +753,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D"><span class="toc-text">写在最前</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2020%E5%B9%B410%E6%9C%8823%E6%97%A5"><span class="toc-text">2020年10月23日</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%8B%E5%89%8D"><span class="toc-text">之前</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%9B%AE%E6%A0%87%E5%8F%98%E5%8C%96"><span class="toc-text">项目目标变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E5%8F%B0%E5%8F%8A%E5%B7%A5%E5%85%B7%E9%80%89%E6%8B%A9"><span class="toc-text">平台及工具选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E8%AE%B0%E5%BD%95"><span class="toc-text">版本记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v2-0-1"><span class="toc-text">v2.0.1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">新功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8D"><span class="toc-text">修复</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v2-0"><span class="toc-text">v2.0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v1-3"><span class="toc-text">v1.3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-text">功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8D-1"><span class="toc-text">修复</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v1-2"><span class="toc-text">v1.2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v1-1"><span class="toc-text">v1.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v1-0"><span class="toc-text">v1.0</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D"><span class="toc-text">写在最前</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2020%E5%B9%B410%E6%9C%8823%E6%97%A5"><span class="toc-text">2020年10月23日</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020%E5%B9%B48%E6%9C%8811%E6%97%A5"><span class="toc-text">2020年8月11日</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%8B%E5%89%8D"><span class="toc-text">之前</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E5%8F%B0%E5%8F%8A%E5%B7%A5%E5%85%B7%E9%80%89%E6%8B%A9"><span class="toc-text">平台及工具选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E8%AE%B0%E5%BD%95"><span class="toc-text">版本记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v2-0-1"><span class="toc-text">v2.0.1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">新功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8D"><span class="toc-text">修复</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v2-0"><span class="toc-text">v2.0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v1-3"><span class="toc-text">v1.3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-text">功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8D-1"><span class="toc-text">修复</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v1-2"><span class="toc-text">v1.2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v1-1"><span class="toc-text">v1.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v1-0"><span class="toc-text">v1.0</span></a></li></ol></li></ol>
     </div>
   </section>
 

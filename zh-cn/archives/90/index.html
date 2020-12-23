@@ -17,13 +17,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>目前服务器架构的想法（2020年3月） - 马孔多不下雪</title>
+  <title>目前服务器架构的想法（2020年12月） - 马孔多不下雪</title>
   
     <meta name="keywords" content="服务器">
   
 
   
-    <meta name="description" content="备案无门，我有什么办法。">
+    <meta name="description" content="html">
   
 
   <!-- feed -->
@@ -511,7 +511,7 @@
     
     
       <h1 class="title">
-        目前服务器架构的想法（2020年3月）
+        目前服务器架构的想法（2020年12月）
       </h1>
       <div class='new-meta-box'>
         
@@ -553,7 +553,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="目前服务器架构的想法（2020年3月）" data-path="/zh-cn/archives/90/">
+      <div id="lc-pv" data-title="目前服务器架构的想法（2020年12月）" data-path="/zh-cn/archives/90/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -570,21 +570,11 @@
 
 
   
-  <p><img src="https://cdn.jsdelivr.net/gh/LouiseDevTeam/ImagePack2@latest/00000161.webp" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/LouiseDevTeam/ImagePack2@latest/00000161.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图片161"></p>
-<p>备案无门，我有什么办法。</p>
-<p>因为著名的“移动墙中墙”，中国移动连接coding pages的香港、新加坡等节点慢出天际，尽管ping的延迟很低，但是https的访问却需要数分钟。当我换成移动宽带的时候，这样的速度当然就不能忍了，太慢了。</p>
-<p>当时几个想法在脑海里飞速出现：</p>
+  <p>由cloudflare和github托管：</p>
 <ul>
-<li>备案</li>
-<li>cloudflare</li>
+<li><code>louisedev.team</code></li>
+<li><code>blog.5v5.lol</code></li>
 </ul>
-<p>先说下备案，阿里云的本省管局规则上没有写需要满足18周岁，我看了下时间正好，4月7号才开学，那就试试备案一手。</p>
-<p>结果阿里云初审对面打了两个电话，好歹是通过了，为什么备注和网站名称要这样复杂，然后就开始等，等了3天，收到了管局的邮件，看到标题中的不通过心里就一凉，暗暗骂了通信管理局一波之后点开那封邮件，WTF？？？，“主体负责人未满18周岁，不具备独立实施民事法律行为的能力”，那你早说鸭，我就不备案了，白等了4天。</p>
-<p>不说了，备案无门，那就只好利用（白嫖）cloudflare了。</p>
-<h2 id="cloudflare"><a href="#cloudflare" class="headerlink" title="cloudflare"></a>cloudflare</h2><p>虽说移动可以直连，但是“墙中墙”，所以有些104开头cloudflare的IP地址访问会有很慢，不过还好咱是partner的CNAME接入的，所以，直接A到1.0.0.1，嘿嘿嘿，随便ping一下都是30~40ms，有些国内vps都没有这样低延迟呢，这条线路真是奇怪，当然有时候也有丢包，以及某某墙的全局入境流量审查。</p>
-<p>所以咱就给移动分线解析到了cf，其余的ISP，在我使用的时候，连接coding的服务器基本上速度ok，就保持原样。</p>
-<h2 id="jsdelivr"><a href="#jsdelivr" class="headerlink" title="jsdelivr"></a>jsdelivr</h2><p>不管怎样，只要服务器位于大陆网域外，连接总有出锅的时候，为了把这样的影响降低到最小，在不备案的情况下，最好的选择就是jsdelivr，把静态资源一股脑的扔上去，速度还是很ok的。</p>
-<p>果然有备案就是不一样，可是咱要备案，路漫漫其修远兮。</p>
 
   
   
@@ -619,10 +609,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-22T15:46:25+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-04T18:01:22+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年11月22日</p>
+    <p>更新于：2020年12月4日</p>
   </a>
 </div>
 
@@ -704,20 +694,6 @@
     
 
 
-
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#cloudflare"><span class="toc-text">cloudflare</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsdelivr"><span class="toc-text">jsdelivr</span></a></li></ol>
-    </div>
-  </section>
 
 
   
