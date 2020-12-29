@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -21,9 +19,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Archive: 2018/4 - Macondo</title>
+  <title>Add Google&#39;s reCAPTCHA to typecho - Macondo</title>
+  
+    <meta name="keywords" content="typecho">
   
 
+  
+    <meta name="description" content="In this article we are going to explain how to integrate Google's reCAPTCHA in typecho.">
   
 
   <!-- feed -->
@@ -427,7 +429,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  dock' style="display: none;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -503,70 +505,213 @@
         
 
 <div class='l_main'>
-	
-		
-  <section class="post-list">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
     
-      
+    
+    
+      <h1 class="title">
+        Add Google's reCAPTCHA to typecho
+      </h1>
+      <div class='new-meta-box'>
         
           
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/LouiseDevTeam/ImagePack2@latest/avatar_256x256.webp">
+    <p>Louise</p>
+  </a>
+</div>
+
+          
         
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/archives/2/">
-        Generate Wildcard SSL Certificate using Let's Encrypt & Certbot
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>In this article will cover, how to generate a wildcard SSL certificate for your domain using Certbot & certbot-dns-plugin.</p>
-    
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/Website/">Website</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2018-04-21</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>Post on Jul 20, 2019</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Website/">Website</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="Add Google's reCAPTCHA to typecho" data-path="/archives/5/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+         views
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <div class="tip inlineBlock error" style="display: inline-block; background: #fcf1f1; padding: 8px 20px; border-left: 3px solid #ed0000; border-radius: 0 5px 5px 0; margin-bottom: 10px; ">Actually this is a very old post and I don't use typecho anymore. So this work will not get support.</div>
+
+<p>Add Google’s reCAPTCHA to a html page is quite easy. In this article we are going to explain how to integrate Google’s reCAPTCHA in typecho.</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In typecho, <code>admin/login.php</code> is the login form while <code>var/Widget/Login.php</code> is our back end to accept the reCAPTCHA validation.</p>
+<h2 id="Register-your-website"><a href="#Register-your-website" class="headerlink" title="Register your website"></a>Register your website</h2><p>Registering your website to use reCAPTCHA is pretty straight forward. Just visit <code>https://google.com/recaptcha/admin</code> to get a key &amp; key secret.</p>
+<p>If Google is unreachable in Your country or region like in China, you certainly do need a proxy. And only if your web server cannot access Google, it is not a big deal. We use <code>recaptcha.net</code> instead of <code>google.com</code> which the former is a official reverse proxy for Google’s reCAPTCHA.</p>
+<p>Also in here, I choose the V2 checkbox.</p>
+<p>Once you register your site, we just have to integrate it into typecho.</p>
+<h2 id="Add-Google’s-reCAPTCHA-in-the-form"><a href="#Add-Google’s-reCAPTCHA-in-the-form" class="headerlink" title="Add Google’s reCAPTCHA in the form"></a>Add Google’s reCAPTCHA in the form</h2><p>This step is to inclue the Google’s reCAPTCHA to typecho.</p>
+<p>In <code>admin/login.php</code> which located in the directory of typecho, add a javascript: <code>&lt;script src=&quot;https://www.recaptcha.net/recaptcha/api.js&quot;&gt;&lt;/script&gt;</code>.</p>
+<p>Then is some where near the line 26 in the same file,put these after <code>&lt;p&gt;...&lt;/p&gt;</code> of <code>&lt;input type=&quot;password&quot;...&gt;</code>.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;g-recaptcha&quot;</span> <span class="attr">data-sitekey</span>=<span class="string">&quot;your-site-key&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>And remember that we’ll have to replace the <code>your-site-key</code> with yours.</p>
+<p>At now we should be able to see the reCAPTCHA input when we load out form, but there is an additional step we need to do before it can actually work.</p>
+<h2 id="Add-Google’s-reCAPTCHA-validation-in-the-back-end"><a href="#Add-Google’s-reCAPTCHA-validation-in-the-back-end" class="headerlink" title="Add Google’s reCAPTCHA validation in the back end"></a>Add Google’s reCAPTCHA validation in the back end</h2><p>This step may be complicated, so the easiest way is to replace the whole <code>var/Widget/Login.php</code> with:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span> (!defined(<span class="string">&#x27;__TYPECHO_ROOT_DIR__&#x27;</span>)) <span class="keyword">exit</span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 登录动作</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@category</span> typecho</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@package</span> Widget</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@copyright</span> Copyright (c) 2008 Typecho team (http://www.typecho.org)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@license</span> GNU General Public License 2.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> $Id$</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 登录组件</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@category</span> typecho</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@package</span> Widget</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@copyright</span> Copyright (c) 2008 Typecho team (http://www.typecho.org)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@license</span> GNU General Public License 2.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Paul_GCaptcha</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="variable">$success</span>, <span class="variable">$failed</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 发送验证信息</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">send</span>(<span class="params"><span class="variable">$post_data</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$postdata</span> = http_build_query(<span class="variable">$post_data</span>);</span><br><span class="line">        <span class="variable">$options</span> = <span class="keyword">array</span>(</span><br><span class="line">            <span class="string">&#x27;http&#x27;</span> =&gt; <span class="keyword">array</span>(</span><br><span class="line">                <span class="string">&#x27;method&#x27;</span> =&gt; <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;header&#x27;</span> =&gt; <span class="string">&#x27;Content-type:application/x-www-form-urlencoded&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;content&#x27;</span> =&gt; <span class="variable">$postdata</span>,</span><br><span class="line">                <span class="string">&#x27;timeout&#x27;</span> =&gt; <span class="number">15</span> * <span class="number">60</span> <span class="comment">// 超时时间</span></span><br><span class="line">            )</span><br><span class="line">        );</span><br><span class="line">        <span class="variable">$context</span> = stream_context_create(<span class="variable">$options</span>);  </span><br><span class="line">        <span class="variable">$result</span> = file_get_contents(<span class="string">&quot;https://recaptcha.net/recaptcha/api/siteverify&quot;</span>, <span class="literal">false</span>, <span class="variable">$context</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$result</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 判断验证状况</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$_POST</span>[<span class="string">&quot;g-recaptcha-response&quot;</span>])&#123;</span><br><span class="line">            <span class="variable">$data</span> = <span class="keyword">array</span>(</span><br><span class="line">                <span class="string">&#x27;secret&#x27;</span> =&gt; <span class="string">&#x27;your-secret-key&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;response&#x27;</span> =&gt; <span class="variable">$_POST</span>[<span class="string">&quot;g-recaptcha-response&quot;</span>] <span class="comment">// 接收用户提交的验证数据</span></span><br><span class="line">            );</span><br><span class="line"></span><br><span class="line">            <span class="variable">$result</span> = <span class="built_in">self</span>::send(<span class="variable">$data</span>);</span><br><span class="line">            <span class="variable">$result</span> = json_decode(<span class="variable">$result</span>, <span class="literal">true</span>);</span><br><span class="line">            <span class="variable">$result</span> = <span class="variable">$result</span>[<span class="string">&quot;success&quot;</span>];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(<span class="variable">$result</span> == <span class="literal">true</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">// 验证成功</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 验证失败</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 用户没有提交到验证信息</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Widget_Login</span> <span class="keyword">extends</span> <span class="title">Widget_Abstract_Users</span> <span class="keyword">implements</span> <span class="title">Widget_Interface_Do</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 初始化函数</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@access</span> public</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">action</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// protect</span></span><br><span class="line">        <span class="keyword">$this</span>-&gt;security-&gt;protect();</span><br><span class="line"></span><br><span class="line">        <span class="comment">/** 如果已经登录 */</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;user-&gt;hasLogin()) &#123;</span><br><span class="line">            <span class="comment">/** 直接返回 */</span></span><br><span class="line">            <span class="keyword">$this</span>-&gt;response-&gt;redirect(<span class="keyword">$this</span>-&gt;options-&gt;index);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/** 初始化验证类 */</span></span><br><span class="line">        <span class="variable">$validator</span> = <span class="keyword">new</span> Typecho_Validate();</span><br><span class="line">        <span class="variable">$validator</span>-&gt;addRule(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;required&#x27;</span>, _t(<span class="string">&#x27;请输入用户名&#x27;</span>));</span><br><span class="line">        <span class="variable">$validator</span>-&gt;addRule(<span class="string">&#x27;password&#x27;</span>, <span class="string">&#x27;required&#x27;</span>, _t(<span class="string">&#x27;请输入密码&#x27;</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">/** 截获验证异常 */</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$error</span> = <span class="variable">$validator</span>-&gt;run(<span class="keyword">$this</span>-&gt;request-&gt;from(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;password&#x27;</span>))) &#123;</span><br><span class="line">            Typecho_Cookie::set(<span class="string">&#x27;__typecho_remember_name&#x27;</span>, <span class="keyword">$this</span>-&gt;request-&gt;name);</span><br><span class="line"></span><br><span class="line">            <span class="comment">/** 设置提示信息 */</span></span><br><span class="line">            <span class="keyword">$this</span>-&gt;widget(<span class="string">&#x27;Widget_Notice&#x27;</span>)-&gt;set(<span class="variable">$error</span>);</span><br><span class="line">            <span class="keyword">$this</span>-&gt;response-&gt;goBack();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(Paul_GCaptcha::check() == <span class="literal">true</span>)&#123;</span><br><span class="line">            <span class="comment">/** 开始验证用户 **/</span></span><br><span class="line">            <span class="variable">$valid</span> = <span class="keyword">$this</span>-&gt;user-&gt;login(<span class="keyword">$this</span>-&gt;request-&gt;name, <span class="keyword">$this</span>-&gt;request-&gt;password,</span><br><span class="line">            <span class="literal">false</span>, <span class="number">1</span> == <span class="keyword">$this</span>-&gt;request-&gt;remember ? <span class="keyword">$this</span>-&gt;options-&gt;time + <span class="keyword">$this</span>-&gt;options-&gt;timezone + <span class="number">30</span>*<span class="number">24</span>*<span class="number">3600</span> : <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">/** 比对密码 */</span></span><br><span class="line">            <span class="keyword">if</span> (!<span class="variable">$valid</span>) &#123;</span><br><span class="line">                <span class="comment">/** 防止穷举,休眠3秒 */</span></span><br><span class="line">                sleep(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">$this</span>-&gt;pluginHandle()-&gt;loginFail(<span class="keyword">$this</span>-&gt;user, <span class="keyword">$this</span>-&gt;request-&gt;name,</span><br><span class="line">                <span class="keyword">$this</span>-&gt;request-&gt;password, <span class="number">1</span> == <span class="keyword">$this</span>-&gt;request-&gt;remember);</span><br><span class="line"></span><br><span class="line">                Typecho_Cookie::set(<span class="string">&#x27;__typecho_remember_name&#x27;</span>, <span class="keyword">$this</span>-&gt;request-&gt;name);</span><br><span class="line">                <span class="keyword">$this</span>-&gt;widget(<span class="string">&#x27;Widget_Notice&#x27;</span>)-&gt;set(_t(<span class="string">&#x27;用户名或密码无效&#x27;</span>), <span class="string">&#x27;error&#x27;</span>);</span><br><span class="line">                <span class="keyword">$this</span>-&gt;response-&gt;goBack(<span class="string">&#x27;?referer=&#x27;</span> . urlencode(<span class="keyword">$this</span>-&gt;request-&gt;referer));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;pluginHandle()-&gt;loginSucceed(<span class="keyword">$this</span>-&gt;user, <span class="keyword">$this</span>-&gt;request-&gt;name,</span><br><span class="line">            <span class="keyword">$this</span>-&gt;request-&gt;password, <span class="number">1</span> == <span class="keyword">$this</span>-&gt;request-&gt;remember);</span><br><span class="line"></span><br><span class="line">            <span class="comment">/** 跳转验证后地址 */</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="literal">NULL</span> != <span class="keyword">$this</span>-&gt;request-&gt;referer) &#123;</span><br><span class="line">                <span class="keyword">$this</span>-&gt;response-&gt;redirect(<span class="keyword">$this</span>-&gt;request-&gt;referer);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!<span class="keyword">$this</span>-&gt;user-&gt;pass(<span class="string">&#x27;contributor&#x27;</span>, <span class="literal">true</span>)) &#123;</span><br><span class="line">                <span class="comment">/** 不允许普通用户直接跳转后台 */</span></span><br><span class="line">                <span class="keyword">$this</span>-&gt;response-&gt;redirect(<span class="keyword">$this</span>-&gt;options-&gt;profileUrl);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">$this</span>-&gt;response-&gt;redirect(<span class="keyword">$this</span>-&gt;options-&gt;adminUrl);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;widget(<span class="string">&#x27;Widget_Notice&#x27;</span>)-&gt;set(_t(<span class="string">&#x27;验证失败&#x27;</span>),<span class="string">&#x27;error&#x27;</span>);</span><br><span class="line">            <span class="keyword">$this</span>-&gt;response-&gt;goBack(<span class="string">&#x27;?referer=&#x27;</span> . urlencode(<span class="keyword">$this</span>-&gt;request-&gt;referer));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>And remember that we’ll have to replace the <code>your-secret-key</code> with yours.</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Once you finished all the things, the Google’s reCAPTCHA is now magically works on your site.</p>
+<p>And thanks for reading, hopefully it can help you, take cake of yourself, and be well.</p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/archives/2/'>
-            Read More
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>Text is available under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</p>
+
+              
+            
+              
+                <p>The link of this work is: <a href=https://blog.5v5.lol/archives/5/>https://blog.5v5.lol/archives/5/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-12-29T11:02:00+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>This page was last edited on Dec 29, 2021</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/typecho/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>typecho</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer noopener"
+          
+            target="_blank" href="https://t.me/share/url?url=https://blog.5v5.lol/archives/5/&text=Add Google's reCAPTCHA to typecho - Macondo"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/archives/3/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Algorithm in Swift -- Merge Sort</p>
+          <p class='content'>In this article we are going to talk about the Merge Sort.
+IntroductionConceptually, a merge sort...</p>
+        </a>
+      
+      
+        <a class='next' href='/archives/4/'>
+          <p class='title'>The Keyboard I<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>My first mechanical keyboard which was not the custom one, was technically broken and the PCB fai...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
   
 
 
-	
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -574,129 +719,28 @@
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box circle' target="_blank" rel="noopener" href='https://louisedev.team'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/LouiseDevTeam/ImagePack2@latest/avatar_256x256.webp'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>Louise</h2>
-        
-        
-          <p>Student @ LDT</p>
 
-        
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="https://twitter.com/91gmLouis"
-              class="social fab fa-twitter flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:i@pixiv.world"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/LouiseDevTeam"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>Categories</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>TOC</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Algorithm/" href="/categories/Algorithm/"
-            id="categoriesAlgorithm"
-            ><div class='name'>Algorithm</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Default/" href="/categories/Default/"
-            id="categoriesDefault"
-            ><div class='name'>Default</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Website/" href="/categories/Website/"
-            id="categoriesWebsite"
-            ><div class='name'>Website</div><div class='badge'>(2)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Register-your-website"><span class="toc-text">Register your website</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-Google%E2%80%99s-reCAPTCHA-in-the-form"><span class="toc-text">Add Google’s reCAPTCHA in the form</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-Google%E2%80%99s-reCAPTCHA-validation-in-the-back-end"><span class="toc-text">Add Google’s reCAPTCHA validation in the back end</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>Tags</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/algorithm/" style="font-size: 14px; color: #999">algorithm</a> <a href="/tags/https/" style="font-size: 14px; color: #999">https</a> <a href="/tags/keyboard/" style="font-size: 14px; color: #999">keyboard</a> <a href="/tags/ssl/" style="font-size: 14px; color: #999">ssl</a> <a href="/tags/swift/" style="font-size: 14px; color: #999">swift</a> <a href="/tags/typecho/" style="font-size: 14px; color: #999">typecho</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
+
 
 
         
@@ -706,8 +750,8 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="Add Google&#39;s reCAPTCHA to typecho";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
