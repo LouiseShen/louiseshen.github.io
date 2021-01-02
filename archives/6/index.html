@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -21,9 +19,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Archive - Macondo</title>
+  <title>Algorithm in Swift -- Base64 - Macondo</title>
+  
+    <meta name="keywords" content="algorithm,swift">
   
 
+  
+    <meta name="description" content="In this article I will implement Base64 decoder & encoder without using Foundation's pre-build one.">
   
 
   <!-- feed -->
@@ -427,7 +429,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  dock' style="display: none;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -503,104 +505,537 @@
         
 
 <div class='l_main'>
-	
-	  <article id="arc" class="post article white-box reveal shadow">
-			
-			
-				
-				
-					
-						
-						<h2>2021</h2>
-					
-						<div class='timenode'>
-								<a class="meta" href="/archives/6/">
-									<time>01-02</time>
-									
-										Algorithm in Swift -- Base64
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						
-						<h2>2020</h2>
-					
-						<div class='timenode'>
-								<a class="meta" href="/archives/3/">
-									<time>12-08</time>
-									
-										Algorithm in Swift -- Merge Sort
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						
-						<h2>2019</h2>
-					
-						<div class='timenode'>
-								<a class="meta" href="/archives/5/">
-									<time>07-20</time>
-									
-										Add Google's reCAPTCHA to typecho
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						
-						<h2>2018</h2>
-					
-						<div class='timenode'>
-								<a class="meta" href="/archives/4/">
-									<time>12-20</time>
-									
-										The Keyboard I
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/archives/2/">
-									<time>04-21</time>
-									
-										Generate Wildcard SSL Certificate using Let's Encrypt & Certbot
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-	  </article>
-	
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        Algorithm in Swift -- Base64
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/LouiseDevTeam/ImagePack2@latest/avatar_256x256.webp">
+    <p>Louise</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/Algorithm/">Algorithm</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>Post on Jan 2, 2021</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="Algorithm in Swift -- Base64" data-path="/archives/6/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+         views
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <p>Base64 is a group of binary-to-text encoding schemes that represent binary data in an ASCII string format by translating it into a radix-64 representation.</p>
+<p>In this article I will implement Base64 decoder &amp; encoder without using Foundation’s pre-build one.</p>
+<h2 id="Base64-Table"><a href="#Base64-Table" class="headerlink" title="Base64 Table"></a>Base64 Table</h2><table>
+<thead>
+<tr>
+<th>Index</th>
+<th>Binary</th>
+<th>Char</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>00000000</td>
+<td>A</td>
+</tr>
+<tr>
+<td>1</td>
+<td>00000001</td>
+<td>B</td>
+</tr>
+<tr>
+<td>2</td>
+<td>00000010</td>
+<td>C</td>
+</tr>
+<tr>
+<td>3</td>
+<td>00000011</td>
+<td>D</td>
+</tr>
+<tr>
+<td>4</td>
+<td>00000100</td>
+<td>E</td>
+</tr>
+<tr>
+<td>5</td>
+<td>00000101</td>
+<td>F</td>
+</tr>
+<tr>
+<td>6</td>
+<td>00000110</td>
+<td>G</td>
+</tr>
+<tr>
+<td>7</td>
+<td>00000111</td>
+<td>H</td>
+</tr>
+<tr>
+<td>8</td>
+<td>00001000</td>
+<td>I</td>
+</tr>
+<tr>
+<td>9</td>
+<td>00001001</td>
+<td>J</td>
+</tr>
+<tr>
+<td>10</td>
+<td>00001010</td>
+<td>K</td>
+</tr>
+<tr>
+<td>11</td>
+<td>00001011</td>
+<td>L</td>
+</tr>
+<tr>
+<td>12</td>
+<td>00001100</td>
+<td>M</td>
+</tr>
+<tr>
+<td>13</td>
+<td>00001101</td>
+<td>N</td>
+</tr>
+<tr>
+<td>14</td>
+<td>00001110</td>
+<td>O</td>
+</tr>
+<tr>
+<td>15</td>
+<td>00001111</td>
+<td>P</td>
+</tr>
+<tr>
+<td>16</td>
+<td>00010000</td>
+<td>Q</td>
+</tr>
+<tr>
+<td>17</td>
+<td>00010001</td>
+<td>R</td>
+</tr>
+<tr>
+<td>18</td>
+<td>00010010</td>
+<td>S</td>
+</tr>
+<tr>
+<td>19</td>
+<td>00010011</td>
+<td>T</td>
+</tr>
+<tr>
+<td>20</td>
+<td>00010100</td>
+<td>U</td>
+</tr>
+<tr>
+<td>21</td>
+<td>00010101</td>
+<td>V</td>
+</tr>
+<tr>
+<td>22</td>
+<td>00010110</td>
+<td>W</td>
+</tr>
+<tr>
+<td>23</td>
+<td>00010111</td>
+<td>X</td>
+</tr>
+<tr>
+<td>24</td>
+<td>00011000</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>25</td>
+<td>00011001</td>
+<td>Z</td>
+</tr>
+<tr>
+<td>26</td>
+<td>00011010</td>
+<td>a</td>
+</tr>
+<tr>
+<td>27</td>
+<td>00011011</td>
+<td>b</td>
+</tr>
+<tr>
+<td>28</td>
+<td>00011100</td>
+<td>c</td>
+</tr>
+<tr>
+<td>29</td>
+<td>00011101</td>
+<td>d</td>
+</tr>
+<tr>
+<td>30</td>
+<td>00011110</td>
+<td>e</td>
+</tr>
+<tr>
+<td>31</td>
+<td>00011111</td>
+<td>f</td>
+</tr>
+<tr>
+<td>32</td>
+<td>00100000</td>
+<td>g</td>
+</tr>
+<tr>
+<td>33</td>
+<td>00100001</td>
+<td>h</td>
+</tr>
+<tr>
+<td>34</td>
+<td>00100010</td>
+<td>i</td>
+</tr>
+<tr>
+<td>35</td>
+<td>00100011</td>
+<td>j</td>
+</tr>
+<tr>
+<td>36</td>
+<td>00100100</td>
+<td>k</td>
+</tr>
+<tr>
+<td>37</td>
+<td>00100101</td>
+<td>l</td>
+</tr>
+<tr>
+<td>38</td>
+<td>00100110</td>
+<td>m</td>
+</tr>
+<tr>
+<td>39</td>
+<td>00100111</td>
+<td>n</td>
+</tr>
+<tr>
+<td>40</td>
+<td>00101000</td>
+<td>o</td>
+</tr>
+<tr>
+<td>41</td>
+<td>00101001</td>
+<td>p</td>
+</tr>
+<tr>
+<td>42</td>
+<td>00101010</td>
+<td>q</td>
+</tr>
+<tr>
+<td>43</td>
+<td>00101011</td>
+<td>r</td>
+</tr>
+<tr>
+<td>44</td>
+<td>00101100</td>
+<td>s</td>
+</tr>
+<tr>
+<td>45</td>
+<td>00101101</td>
+<td>t</td>
+</tr>
+<tr>
+<td>46</td>
+<td>00101110</td>
+<td>u</td>
+</tr>
+<tr>
+<td>47</td>
+<td>00101111</td>
+<td>v</td>
+</tr>
+<tr>
+<td>48</td>
+<td>00110000</td>
+<td>w</td>
+</tr>
+<tr>
+<td>49</td>
+<td>00110001</td>
+<td>x</td>
+</tr>
+<tr>
+<td>50</td>
+<td>00110010</td>
+<td>y</td>
+</tr>
+<tr>
+<td>51</td>
+<td>00110011</td>
+<td>z</td>
+</tr>
+<tr>
+<td>52</td>
+<td>00110100</td>
+<td>0</td>
+</tr>
+<tr>
+<td>53</td>
+<td>00110101</td>
+<td>1</td>
+</tr>
+<tr>
+<td>54</td>
+<td>00110110</td>
+<td>2</td>
+</tr>
+<tr>
+<td>55</td>
+<td>00110111</td>
+<td>3</td>
+</tr>
+<tr>
+<td>56</td>
+<td>00111000</td>
+<td>4</td>
+</tr>
+<tr>
+<td>57</td>
+<td>00111001</td>
+<td>5</td>
+</tr>
+<tr>
+<td>58</td>
+<td>00111010</td>
+<td>6</td>
+</tr>
+<tr>
+<td>59</td>
+<td>00111011</td>
+<td>7</td>
+</tr>
+<tr>
+<td>60</td>
+<td>00111100</td>
+<td>8</td>
+</tr>
+<tr>
+<td>61</td>
+<td>00111101</td>
+<td>9</td>
+</tr>
+<tr>
+<td>62</td>
+<td>00111110</td>
+<td>+</td>
+</tr>
+<tr>
+<td>63</td>
+<td>00111111</td>
+<td>/</td>
+</tr>
+</tbody></table>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p>We can find how Base64 works by looking these examples at a glance.</p>
+<p>As this example illustrates, how Base64 encoder converts three octets or bytes into four encoded characters.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LouiseDevTeam/ImagePack2@latest/00000207.webp" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/LouiseDevTeam/ImagePack2@latest/00000207.webp" srcset="data:image/png;base64,666" alt="Img207"></p>
+<p>At first, we find the 8 bit binary representation of each character in text.</p>
+<p>Then we divided into four groups, each group is a sextet, which in decimal is <code>19 22 05 46</code>, which is converted by the table to Base64, in this case we will get <code>TWFu</code>.</p>
+<p>Ok, if our input can not be divide by three, there will be one or two characters left. What should we do?</p>
+<p>Well, if there are only two significant input octets, or when the last input gorup contains only two octets. We just simply add more zeros to let it can be divided by three, and discarded on decoding (along with the following <code>=</code> padding characters ):</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LouiseDevTeam/ImagePack2@latest/00000208.webp" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/LouiseDevTeam/ImagePack2@latest/00000208.webp" srcset="data:image/png;base64,666" alt="Img208"></p>
+<p>And we do the same as there is only one significant input octet, or when the last input group contains only one octet:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LouiseDevTeam/ImagePack2@latest/00000209.webp" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/LouiseDevTeam/ImagePack2@latest/00000209.webp" srcset="data:image/png;base64,666" alt="Img209"></p>
+<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><p>Since we know how base64 encode works, the next step is to consider how to write the codes.</p>
+<p>You might implement structures named as Bit and Byte as what I do at first, which simply transform decimal to binary and concatenate all the binary in a single string, then divide it into four groups. Yeah, it works, but it really sucks with low performance. Don’t do that.</p>
+<h3 id="Basic-knowledge"><a href="#Basic-knowledge" class="headerlink" title="Basic knowledge"></a>Basic knowledge</h3><p>In swift, we can get the binary sequence of a string by using <code>Data()</code>, for example, <code>var binaryData = Data(origin.utf8)</code>, then <code>binaryData</code> is a array which contains all the binary or <code>UInt8</code> representation under the <code>uf8</code> character encoding.</p>
+<p>Considering <code>utf8</code> is so common and is capable with ASCII, we use <code>utf8</code> as the default string character encoding.</p>
+<p>And we can use <code>and</code> operator (a.k.a <code>&amp;</code>) to get specific bit that we want from a binary. For example, if we want to get the last 4 bit from a binary, we simply calculate <code>100001010 &amp; 00001111</code>, we will get <code>00001010</code> as expected. </p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Base64</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">let</span> <span class="type">Base64EncodeTable</span> <span class="operator">=</span> [<span class="string">&quot;A&quot;</span>,<span class="string">&quot;B&quot;</span>,<span class="string">&quot;C&quot;</span>,<span class="string">&quot;D&quot;</span>,<span class="string">&quot;E&quot;</span>,<span class="string">&quot;F&quot;</span>,<span class="string">&quot;G&quot;</span>,</span><br><span class="line">                       <span class="string">&quot;H&quot;</span>,<span class="string">&quot;I&quot;</span>,<span class="string">&quot;J&quot;</span>,<span class="string">&quot;K&quot;</span>,<span class="string">&quot;L&quot;</span>,<span class="string">&quot;M&quot;</span>,<span class="string">&quot;N&quot;</span>,</span><br><span class="line">                       <span class="string">&quot;O&quot;</span>,<span class="string">&quot;P&quot;</span>,<span class="string">&quot;Q&quot;</span>,<span class="string">&quot;R&quot;</span>,<span class="string">&quot;S&quot;</span>,<span class="string">&quot;T&quot;</span>,<span class="string">&quot;U&quot;</span>,</span><br><span class="line">                       <span class="string">&quot;V&quot;</span>,<span class="string">&quot;W&quot;</span>,<span class="string">&quot;X&quot;</span>,<span class="string">&quot;Y&quot;</span>,<span class="string">&quot;Z&quot;</span>,</span><br><span class="line">                       <span class="string">&quot;a&quot;</span>,<span class="string">&quot;b&quot;</span>,<span class="string">&quot;c&quot;</span>,<span class="string">&quot;d&quot;</span>,<span class="string">&quot;e&quot;</span>,<span class="string">&quot;f&quot;</span>,<span class="string">&quot;g&quot;</span>,</span><br><span class="line">                       <span class="string">&quot;h&quot;</span>,<span class="string">&quot;i&quot;</span>,<span class="string">&quot;j&quot;</span>,<span class="string">&quot;k&quot;</span>,<span class="string">&quot;l&quot;</span>,<span class="string">&quot;m&quot;</span>,<span class="string">&quot;n&quot;</span>,</span><br><span class="line">                       <span class="string">&quot;o&quot;</span>,<span class="string">&quot;p&quot;</span>,<span class="string">&quot;q&quot;</span>,<span class="string">&quot;r&quot;</span>,<span class="string">&quot;s&quot;</span>,<span class="string">&quot;t&quot;</span>,<span class="string">&quot;u&quot;</span>,</span><br><span class="line">                       <span class="string">&quot;v&quot;</span>,<span class="string">&quot;w&quot;</span>,<span class="string">&quot;x&quot;</span>,<span class="string">&quot;y&quot;</span>,<span class="string">&quot;z&quot;</span>,</span><br><span class="line">                       <span class="string">&quot;0&quot;</span>,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;2&quot;</span>,<span class="string">&quot;3&quot;</span>,<span class="string">&quot;4&quot;</span>,<span class="string">&quot;5&quot;</span>,<span class="string">&quot;6&quot;</span>,</span><br><span class="line">                       <span class="string">&quot;7&quot;</span>,<span class="string">&quot;8&quot;</span>,<span class="string">&quot;9&quot;</span>,<span class="string">&quot;+&quot;</span>,<span class="string">&quot;/&quot;</span>]</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">let</span> <span class="type">Base64DecodeTable</span> : [<span class="type">String</span> : <span class="type">UInt8</span>] <span class="operator">=</span> [<span class="string">&quot;A&quot;</span>:<span class="number">0</span>,<span class="string">&quot;B&quot;</span>:<span class="number">1</span>,<span class="string">&quot;C&quot;</span>:<span class="number">2</span>,<span class="string">&quot;D&quot;</span>:<span class="number">3</span>,<span class="string">&quot;E&quot;</span>:<span class="number">4</span>,<span class="string">&quot;F&quot;</span>:<span class="number">5</span>,<span class="string">&quot;G&quot;</span>:<span class="number">6</span>,</span><br><span class="line">                         <span class="string">&quot;H&quot;</span>:<span class="number">7</span>,<span class="string">&quot;I&quot;</span>:<span class="number">8</span>,<span class="string">&quot;J&quot;</span>:<span class="number">9</span>,<span class="string">&quot;K&quot;</span>:<span class="number">10</span>,<span class="string">&quot;L&quot;</span>:<span class="number">11</span>,<span class="string">&quot;M&quot;</span>:<span class="number">12</span>,<span class="string">&quot;N&quot;</span>:<span class="number">13</span>,</span><br><span class="line">                         <span class="string">&quot;O&quot;</span>:<span class="number">14</span>,<span class="string">&quot;P&quot;</span>:<span class="number">15</span>,<span class="string">&quot;Q&quot;</span>:<span class="number">16</span>,<span class="string">&quot;R&quot;</span>:<span class="number">17</span>,<span class="string">&quot;S&quot;</span>:<span class="number">18</span>,<span class="string">&quot;T&quot;</span>:<span class="number">19</span>,<span class="string">&quot;U&quot;</span>:<span class="number">20</span>,</span><br><span class="line">                         <span class="string">&quot;V&quot;</span>:<span class="number">21</span>,<span class="string">&quot;W&quot;</span>:<span class="number">22</span>,<span class="string">&quot;X&quot;</span>:<span class="number">23</span>,<span class="string">&quot;Y&quot;</span>:<span class="number">24</span>,<span class="string">&quot;Z&quot;</span>:<span class="number">25</span>,</span><br><span class="line">                         <span class="string">&quot;a&quot;</span>:<span class="number">26</span>,<span class="string">&quot;b&quot;</span>:<span class="number">27</span>,<span class="string">&quot;c&quot;</span>:<span class="number">28</span>,<span class="string">&quot;d&quot;</span>:<span class="number">29</span>,<span class="string">&quot;e&quot;</span>:<span class="number">30</span>,<span class="string">&quot;f&quot;</span>:<span class="number">31</span>,<span class="string">&quot;g&quot;</span>:<span class="number">32</span>,</span><br><span class="line">                         <span class="string">&quot;h&quot;</span>:<span class="number">33</span>,<span class="string">&quot;i&quot;</span>:<span class="number">34</span>,<span class="string">&quot;j&quot;</span>:<span class="number">35</span>,<span class="string">&quot;k&quot;</span>:<span class="number">36</span>,<span class="string">&quot;l&quot;</span>:<span class="number">37</span>,<span class="string">&quot;m&quot;</span>:<span class="number">38</span>,<span class="string">&quot;n&quot;</span>:<span class="number">39</span>,</span><br><span class="line">                         <span class="string">&quot;o&quot;</span>:<span class="number">40</span>,<span class="string">&quot;p&quot;</span>:<span class="number">41</span>,<span class="string">&quot;q&quot;</span>:<span class="number">42</span>,<span class="string">&quot;r&quot;</span>:<span class="number">43</span>,<span class="string">&quot;s&quot;</span>:<span class="number">44</span>,<span class="string">&quot;t&quot;</span>:<span class="number">45</span>,<span class="string">&quot;u&quot;</span>:<span class="number">46</span>,</span><br><span class="line">                         <span class="string">&quot;v&quot;</span>:<span class="number">47</span>,<span class="string">&quot;w&quot;</span>:<span class="number">48</span>,<span class="string">&quot;x&quot;</span>:<span class="number">49</span>,<span class="string">&quot;y&quot;</span>:<span class="number">50</span>,<span class="string">&quot;z&quot;</span>:<span class="number">51</span>,</span><br><span class="line">                         <span class="string">&quot;0&quot;</span>:<span class="number">52</span>,<span class="string">&quot;1&quot;</span>:<span class="number">53</span>,<span class="string">&quot;2&quot;</span>:<span class="number">54</span>,<span class="string">&quot;3&quot;</span>:<span class="number">55</span>,<span class="string">&quot;4&quot;</span>:<span class="number">56</span>,<span class="string">&quot;5&quot;</span>:<span class="number">57</span>,<span class="string">&quot;6&quot;</span>:<span class="number">58</span>,</span><br><span class="line">                         <span class="string">&quot;7&quot;</span>:<span class="number">59</span>,<span class="string">&quot;8&quot;</span>:<span class="number">60</span>,<span class="string">&quot;9&quot;</span>:<span class="number">61</span>,<span class="string">&quot;+&quot;</span>:<span class="number">62</span>,<span class="string">&quot;/&quot;</span>:<span class="number">63</span>,<span class="string">&quot;=&quot;</span>:<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">toBase64</span><span class="params">(origin : String)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> binaryData <span class="operator">=</span> <span class="type">Data</span>(origin.utf8)</span><br><span class="line">        <span class="keyword">let</span> latter : [<span class="type">UInt8</span>] <span class="operator">=</span> [<span class="number">0b00000011</span>, <span class="number">0b00001111</span>, <span class="number">0b00111111</span>]</span><br><span class="line">        <span class="keyword">var</span> buffer : <span class="type">UInt8</span> <span class="operator">=</span> <span class="number">0b00000000</span></span><br><span class="line">        <span class="keyword">var</span> res <span class="operator">=</span> <span class="type">String</span>()</span><br><span class="line">        <span class="keyword">var</span> placeholderCnt <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> <span class="keyword">_</span> <span class="keyword">in</span> <span class="number">0</span> <span class="operator">..&lt;</span> (<span class="number">3</span> <span class="operator">-</span> binaryData.count <span class="operator">%</span> <span class="number">3</span>) <span class="operator">%</span> <span class="number">3</span> &#123;</span><br><span class="line">            binaryData.append(<span class="number">0b00000000</span>)</span><br><span class="line">            placeholderCnt <span class="operator">+=</span> <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> count <span class="operator">=</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> binaryData &#123;</span><br><span class="line">            <span class="keyword">if</span> count <span class="operator">==</span> <span class="number">3</span> &#123;</span><br><span class="line">                buffer <span class="operator">=</span> <span class="number">0b00000000</span></span><br><span class="line">                count <span class="operator">=</span> <span class="number">0</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">let</span> delta <span class="operator">=</span> buffer <span class="operator">&lt;&lt;</span> ((<span class="number">3</span> <span class="operator">-</span> count) <span class="operator">&lt;&lt;</span> <span class="number">1</span>)</span><br><span class="line">            buffer <span class="operator">=</span> i <span class="operator">&amp;</span> latter[count]</span><br><span class="line">            res <span class="operator">+=</span> <span class="type">Base64EncodeTable</span>[<span class="type">Int</span>(delta <span class="operator">+</span> (i <span class="operator">&gt;&gt;</span> ((count <span class="operator">+</span> <span class="number">1</span>) <span class="operator">&lt;&lt;</span> <span class="number">1</span>)))]</span><br><span class="line">            <span class="keyword">if</span> count <span class="operator">==</span> <span class="number">2</span> &#123;</span><br><span class="line">                res <span class="operator">+=</span> <span class="type">Base64EncodeTable</span>[<span class="type">Int</span>(buffer)]</span><br><span class="line">            &#125;</span><br><span class="line">            count <span class="operator">+=</span> <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//avoid compile warning</span></span><br><span class="line">        <span class="keyword">for</span> <span class="keyword">_</span> <span class="keyword">in</span> <span class="number">0</span> <span class="operator">..&lt;</span> placeholderCnt &#123;</span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">_</span> <span class="operator">=</span> res.popLast()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> <span class="keyword">_</span> <span class="keyword">in</span> <span class="number">0</span> <span class="operator">..&lt;</span> placeholderCnt &#123;</span><br><span class="line">            res.append(<span class="string">&quot;=&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">toString</span><span class="params">(origin : String)</span></span> -&gt; <span class="type">String</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> latter : [<span class="type">UInt8</span>] <span class="operator">=</span> [<span class="number">0b00000011</span>, <span class="number">0b00001111</span>, <span class="number">0b00111111</span>]</span><br><span class="line">        <span class="keyword">var</span> binaryData <span class="operator">=</span> [<span class="type">UInt8</span>]()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> origin &#123;</span><br><span class="line">            <span class="keyword">if</span> i <span class="operator">==</span> <span class="string">&quot;=&quot;</span> &#123;</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            &#125;</span><br><span class="line">            binaryData.append(<span class="type">Base64DecodeTable</span>[<span class="type">String</span>(i)]<span class="operator">!</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> data : <span class="type">Data</span> <span class="operator">=</span> <span class="type">Data</span>()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> count <span class="operator">=</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span> <span class="operator">..&lt;</span> binaryData.count <span class="operator">-</span> <span class="number">1</span> &#123;</span><br><span class="line">            <span class="comment">//when count equals 3, all the value has been used in last loop</span></span><br><span class="line">            <span class="keyword">if</span> count <span class="operator">==</span> <span class="number">3</span> &#123;</span><br><span class="line">                count <span class="operator">=</span> <span class="number">0</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">let</span> delta <span class="operator">=</span> (binaryData[i] <span class="operator">&amp;</span> latter[<span class="number">3</span> <span class="operator">-</span> count <span class="operator">-</span> <span class="number">1</span>]) <span class="operator">&lt;&lt;</span> ((count <span class="operator">+</span> <span class="number">1</span>) <span class="operator">&lt;&lt;</span> <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">let</span> buffer <span class="operator">=</span> binaryData[i <span class="operator">+</span> <span class="number">1</span>] <span class="operator">&gt;&gt;</span> ((<span class="number">3</span> <span class="operator">-</span> count <span class="operator">-</span> <span class="number">1</span>) <span class="operator">&lt;&lt;</span> <span class="number">1</span>)</span><br><span class="line">            data.append(delta <span class="operator">+</span> buffer)</span><br><span class="line">            count <span class="operator">+=</span> <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">String</span>(data: data, encoding: .utf8)<span class="operator">!</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="External-links"><a href="#External-links" class="headerlink" title="External links"></a>External links</h2><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Base64">Base64</a></p>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>Text is available under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</p>
+
+              
+            
+              
+                <p>The link of this work is: <a href=https://blog.5v5.lol/archives/6/>https://blog.5v5.lol/archives/6/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-02T12:03:14+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>This page was last edited on Jan 2, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/algorithm/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>algorithm</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/swift/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>swift</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer noopener"
+          
+            target="_blank" href="https://t.me/share/url?url=https://blog.5v5.lol/archives/6/&text=Algorithm in Swift -- Base64 - Macondo"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/archives/3/'>
+          <p class='title'>Algorithm in Swift -- Merge Sort<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>In this article we are going to talk about the Merge Sort.
+IntroductionConceptually, a merge sort...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -608,129 +1043,28 @@
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box circle' target="_blank" rel="noopener" href='https://louisedev.team'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/LouiseDevTeam/ImagePack2@latest/avatar_256x256.webp'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>Louise</h2>
-        
-        
-          <p>Student @ LDT</p>
 
-        
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="https://twitter.com/91gmLouis"
-              class="social fab fa-twitter flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:i@pixiv.world"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/LouiseDevTeam"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>Categories</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>TOC</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Algorithm/" href="/categories/Algorithm/"
-            id="categoriesAlgorithm"
-            ><div class='name'>Algorithm</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Default/" href="/categories/Default/"
-            id="categoriesDefault"
-            ><div class='name'>Default</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Website/" href="/categories/Website/"
-            id="categoriesWebsite"
-            ><div class='name'>Website</div><div class='badge'>(2)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Base64-Table"><span class="toc-text">Base64 Table</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples"><span class="toc-text">Examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Implementation"><span class="toc-text">Implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic-knowledge"><span class="toc-text">Basic knowledge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code"><span class="toc-text">Code</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#External-links"><span class="toc-text">External links</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>Tags</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/algorithm/" style="font-size: 24px; color: #555">algorithm</a> <a href="/tags/https/" style="font-size: 14px; color: #999">https</a> <a href="/tags/keyboard/" style="font-size: 14px; color: #999">keyboard</a> <a href="/tags/ssl/" style="font-size: 14px; color: #999">ssl</a> <a href="/tags/swift/" style="font-size: 24px; color: #555">swift</a> <a href="/tags/typecho/" style="font-size: 14px; color: #999">typecho</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
+
 
 
         
@@ -740,8 +1074,8 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="Algorithm in Swift -- Base64";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
