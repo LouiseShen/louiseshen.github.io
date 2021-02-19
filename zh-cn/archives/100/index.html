@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -19,9 +17,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档：2018 - 马孔多不下雪</title>
+  <title>Swift IO - 马孔多不下雪</title>
+  
+    <meta name="keywords" content="swift">
   
 
+  
+    <meta name="description" content="在Swift中使用C的IO">
   
 
   <!-- feed -->
@@ -499,116 +501,209 @@
         
 
 <div class='l_main'>
-	
-		
-  <section class="post-list">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
     
-      
+    
+    
+      <h1 class="title">
+        Swift IO
+      </h1>
+      <div class='new-meta-box'>
         
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/LouiseDevTeam/ImagePack2@latest/00000163.webp">
+    <p>Louise</p>
+  </a>
+</div>
+
           
         
           
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/zh-cn/archives/28/">
-        键盘折腾记（一）「GH60」
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>客制化键盘第一弹</p>
-    
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/zh-cn/categories/%E6%8A%80%E6%9C%AF%EF%BC%9F%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84/">技术？不存在的</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2018-12-20</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年2月19日</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/zh-cn/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84/">乱七八糟的</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="Swift IO" data-path="/zh-cn/archives/100/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <p>每次拿到一个新语言，都不禁会有一个灵魂之问：我该怎么输入？</p>
+<p>在Swift中，最基本的输入方式就是<code>readLine()</code>，而且苹果似乎也就只给了这个纯Swift的输入方式，读入一行，返回一个<code>String?</code>，剩下的解析类型全靠你自己。</p>
+<p>和C语言基本的<code>scanf()</code>相比，这种输入方式太过低级，难免有不干不净的时候。</p>
+<p>但是好在Swift与Objective-C有着良好的互操作性，而Objective-C又是C语言的严格超集，这意味着我们可以直接在Swift调用C语言的IO。</p>
+<p>举个例子，C语言的<code>vscanf()</code>。 </p>
+<h2 id="vscanf"><a href="#vscanf" class="headerlink" title="vscanf()"></a>vscanf()</h2><p>首先，不知出于什么原因，Swift并没有提供<code>scanf()</code>函数，倒是提供了<code>vscanf()</code>这个长相差不多，用法及效果和<code>scanf()</code>一模一样的函数。</p>
+<p>不过<code>vscanf()</code>又是一个可变参数函数，Swift没有直接等价的类型，所以我们要用<code>withVaList()</code>做一个转换：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> len : <span class="type">CInt</span> = <span class="number">0</span></span><br><span class="line"><span class="number">_</span> = <span class="built_in">withUnsafeMutablePointer</span>(to: &amp;len) &#123; ptr <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">withVaList</span>([ptr]) &#123; vaList <span class="keyword">in</span></span><br><span class="line">        vscanf(<span class="string">&quot;%d&quot;</span>, vaList)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这套操作乍看下来有点恐怖，不过我们只要知道 The <code>withVaList()</code> function takes an array of <code>CVarArg</code> values and provides a <code>CVaListPointer</code> value within the body of a closure parameter, whereas the <code>getVaList()</code> function returns this value directly. （简而言之，最终我们会得到一个<code>vaList</code>供我们的C语言函数使用）。</p>
+<p>当然，因为我们用了C的函数，为了保证兼容，请也用C兼容类型作为参数传入，比如以<code>CInt</code>代替<code>Int</code>（这两者可以相互转化）。</p>
+<p>另外只有是C的可变参数函数才会如此复杂，其他C函数只要有兼容的类型都是几乎非常方便调用的。</p>
+<h2 id="freopen"><a href="#freopen" class="headerlink" title="freopen()"></a>freopen()</h2><p>我们在上面说到非可变参数C函数在Swift中非常方便调用，当然前提是Swift导入了你需要的函数。</p>
+<p>这里我们拿<code>freopen()</code>做个例子，正常来说我们在服务端用Swift读取文件是这样的（假设我们读取一个文件<code>data.in</code>，里面是已知个数个数字，并用空格隔开）：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> file = <span class="string">&quot;/Path2YourFile/data.in&quot;</span></span><br><span class="line"><span class="keyword">let</span> fileManager = <span class="type">FileManager</span>.<span class="keyword">default</span></span><br><span class="line"><span class="keyword">let</span> inputFile = fileManager.contents(atPath: file)</span><br><span class="line"><span class="keyword">let</span> input = <span class="type">String</span>(data: inputFile!, encoding: .utf8)</span><br><span class="line"><span class="keyword">let</span> dataString = input?.components(separatedBy: <span class="string">&quot; &quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> data = [<span class="type">Int</span>]()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> dataString &#123;</span><br><span class="line">    data.append(<span class="type">Int</span>(i)!)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这套方法太长了，记不住咋办？有没有更方便的办法。</p>
+<p>没关系，直接用C的<code>freopen()</code>重定向文件到标准输入输出：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">freopen(<span class="string">&quot;data.in&quot;</span>, <span class="string">&quot;r&quot;</span>, stdin)</span><br></pre></td></tr></table></figure>
+
+<p>然后我们就可以用通常方法读入了：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> input = <span class="built_in">readLine</span>()</span><br><span class="line"><span class="keyword">var</span> dataString = input!.components(separatedBy: <span class="string">&quot; &quot;</span>)</span><br><span class="line"><span class="keyword">var</span> data = [<span class="type">Int</span>]()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> dataString &#123;</span><br><span class="line">    data.append(<span class="type">Int</span>(i)!)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>或者用C的IO（假设我们已知有<code>len</code>个数字）：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = [<span class="type">Int</span>]()</span><br><span class="line"><span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">0</span> ..&lt; len &#123;</span><br><span class="line">    <span class="keyword">var</span> delta : <span class="type">CInt</span> = <span class="number">0</span></span><br><span class="line">    <span class="number">_</span> = <span class="built_in">withUnsafeMutablePointer</span>(to: &amp;delta) &#123; ptr <span class="keyword">in</span></span><br><span class="line">        <span class="built_in">withVaList</span>([ptr]) &#123; vaList <span class="keyword">in</span></span><br><span class="line">            vscanf(<span class="string">&quot;%d&quot;</span>, vaList)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    data.append(<span class="type">Int</span>(delta))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/using_imported_c_functions_in_swift">Using Imported C Functions in Swift</a></li>
+</ul>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/zh-cn/archives/28/'>
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://blog.5v5.lol/zh-cn/archives/100/>https://blog.5v5.lol/zh-cn/archives/100/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-19T12:39:37+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021年2月19日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+          
   
-  
-  
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/zh-cn/tags/swift/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>swift</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
-    <h2 class="article-title" >
-      <a href="/zh-cn/archives/9/">
-        Let’s Encrypt通配符证书签发和续签
-      </a>
-    </h2>
-  
-  <div class='md'>
+      
     
-      <p>无可提供的摘要。</p>
+      
+    
+      
+    
+      
+    
+      
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+</div>
+
+
+
         
-        <time>2018-04-21</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/zh-cn/categories/%E6%8A%80%E6%9C%AF%EF%BC%9F%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84/">技术？不存在的</a>
-        
-      </div>
       
-        <div>
-          <a class='readmore' href='/zh-cn/archives/9/'>
-            阅读全文
-          </a>
-        </div>
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/zh-cn/archives/99/'>
+          <p class='title'>2020年度总结<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>“您还能指望什么？”他喃喃道，“时间过得很快。”“话是没错，”乌尔苏拉说，“可也没那么快。”
+不到两百天前，高考刚刚结束。
+在那样埋头苦干的日子里，咬牙坚持，总觉得三年又三年遥遥无期，这些日子是...</p>
+        </a>
       
     </div>
   
+</article>
 
-</div>
 
-          </div>
-        
-      
-    
-  </section>
   
-    
+
   
 
 
-	
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -616,101 +711,28 @@
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/zh-cn/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/LouiseDevTeam/ImagePack2@latest/00000163.webp'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">马孔多不下雪</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/zh-cn/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84/" href="/zh-cn/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84/"
-            id="zh-cncategoriesE4B9B1E4B883E585ABE7B39FE79A84"
-            ><div class='name'>乱七八糟的</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/zh-cn/categories/%E5%A5%BD%E4%B8%9C%E8%A5%BF/" href="/zh-cn/categories/%E5%A5%BD%E4%B8%9C%E8%A5%BF/"
-            id="zh-cncategoriesE5A5BDE4B89CE8A5BF"
-            ><div class='name'>好东西</div><div class='badge'>(6)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/zh-cn/categories/%E6%8A%80%E6%9C%AF%EF%BC%9F%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84/" href="/zh-cn/categories/%E6%8A%80%E6%9C%AF%EF%BC%9F%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84/"
-            id="zh-cncategoriesE68A80E69CAFEFBC9FE4B88DE5AD98E59CA8E79A84"
-            ><div class='name'>技术？不存在的</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/zh-cn/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" href="/zh-cn/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"
-            id="zh-cncategoriesE69C8DE58AA1E599A8"
-            ><div class='name'>服务器</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vscanf"><span class="toc-text">vscanf()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#freopen"><span class="toc-text">freopen()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-text">参考链接</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/zh-cn/tags/AtCoder/" style="font-size: 14px; color: #999">AtCoder</a> <a href="/zh-cn/tags/Macondo/" style="font-size: 14px; color: #999">Macondo</a> <a href="/zh-cn/tags/Raspberry-Pi/" style="font-size: 14px; color: #999">Raspberry Pi</a> <a href="/zh-cn/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/zh-cn/tags/https/" style="font-size: 14px; color: #999">https</a> <a href="/zh-cn/tags/linux/" style="font-size: 14px; color: #999">linux</a> <a href="/zh-cn/tags/mac/" style="font-size: 24px; color: #555">mac</a> <a href="/zh-cn/tags/macOS/" style="font-size: 24px; color: #555">macOS</a> <a href="/zh-cn/tags/macbook/" style="font-size: 19px; color: #777">macbook</a> <a href="/zh-cn/tags/ssl/" style="font-size: 14px; color: #999">ssl</a> <a href="/zh-cn/tags/swift/" style="font-size: 19px; color: #777">swift</a> <a href="/zh-cn/tags/typecho/" style="font-size: 19px; color: #777">typecho</a> <a href="/zh-cn/tags/vscode/" style="font-size: 14px; color: #999">vscode</a> <a href="/zh-cn/tags/windows/" style="font-size: 14px; color: #999">windows</a> <a href="/zh-cn/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" style="font-size: 19px; color: #777">年度总结</a> <a href="/zh-cn/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 14px; color: #999">服务器</a> <a href="/zh-cn/tags/%E9%94%AE%E7%9B%98/" style="font-size: 19px; color: #777">键盘</a> <a href="/zh-cn/tags/%E9%AB%98%E8%80%83/" style="font-size: 14px; color: #999">高考</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
+
 
 
       </div>
